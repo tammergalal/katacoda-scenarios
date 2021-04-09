@@ -46,6 +46,7 @@ kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/maste
 sleep 3
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
 sleep 3
+wall -n "Permissions created, starting agent"
 kubectl apply -f k8s-yaml-files/datadog-agent.yaml
 
 echo "complete">>/root/status.txt
