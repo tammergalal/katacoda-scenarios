@@ -18,6 +18,3 @@ done
 
 clear
 
-
-prepenvironment
-
