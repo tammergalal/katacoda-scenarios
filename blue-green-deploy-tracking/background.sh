@@ -39,17 +39,17 @@ kubectl apply -f node-api.yaml
 kubectl apply -f pumps-service.yaml
 kubectl apply -f sensors-api.yaml
 kubectl apply -f frontend-service.yaml
-wall -n "YAML files applied, creating permissions...."
-kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrole.yaml"
-wall -n "First permission created"
-sleep 3
-kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/serviceaccount.yaml"
-sleep 3
-wall -n "Second permission created"
-kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
-sleep 3
-wall -n "All permissions created, starting agent"
-kubectl apply -f k8s-yaml-files/datadog-agent.yaml
+# wall -n "YAML files applied, creating permissions...."
+# kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrole.yaml"
+# wall -n "First permission created"
+# sleep 3
+# kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/serviceaccount.yaml"
+# sleep 3
+# wall -n "Second permission created"
+# kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
+# sleep 3
+# wall -n "All permissions created, starting agent"
+# kubectl apply -f k8s-yaml-files/datadog-agent.yaml
 
 echo "complete">>/root/status.txt
 
