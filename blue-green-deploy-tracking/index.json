@@ -13,18 +13,15 @@
     "steps": [
       {
         "title": "Installing the Agent",
-        "text": "step1.md",
-        "answer": "answer1.md"
+        "text": "step1.md"
       },
       {
         "title": "Adding an Integration",
-        "text": "step2.md",
-        "answer": "answer2.md"
+        "text": "step2.md"
       },
       {
         "title": "Troubleshooting",
-        "text": "step3.md",
-        "answer": "answer3.md"
+        "text": "step3.md"
       }
     ],
     "assets": {
