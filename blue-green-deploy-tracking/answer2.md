@@ -1,1 +1,0 @@
-![Answer](k8s1-install/assets/install-pt2.gif)
