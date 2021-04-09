@@ -1,0 +1,13 @@
+{
+  "title": "Blue/Green Deployment Tracking with K",
+  "description": "",
+  "icon": "fa-katacoda",
+  "courses":
+    {
+      "pathway_id": "datadog/monitoringk8s",
+      "course_id": "install-agent",
+      "id": "k8s1-install",
+      "title": "Installing the Agent",
+      "description": ""
+    }
+}
