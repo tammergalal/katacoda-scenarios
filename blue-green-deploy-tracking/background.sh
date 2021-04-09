@@ -32,19 +32,20 @@ do
   sleep 2
 done
 kubectl create secret generic postgres-password --from-literal=token=postgres
-wall -n "Starting services"
+wall -n "Starting services...please wait"
 kubectl apply -f redis-deploy.yaml
 kubectl apply -f postgres-deploy.yaml
 kubectl apply -f node-api.yaml
 kubectl apply -f pumps-service.yaml
 kubectl apply -f sensors-api.yaml
 kubectl apply -f frontend-service.yaml
+wall -n "YAML files applied, creating permissions...."
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrole.yaml"
-sleep 2
+sleep 3
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/serviceaccount.yaml"
-sleep 2
+sleep 3
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
-sleep 2
+sleep 3
 kubectl apply -f k8s-yaml-files/datadog-agent.yaml
 
 echo "complete">>/root/status.txt
