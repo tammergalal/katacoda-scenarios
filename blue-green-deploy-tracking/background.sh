@@ -1,55 +1,50 @@
 #!/bin/bash
-# mkdir k8s-yaml-files
 curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
-
-launch.sh
 touch status.txt
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python get-pip.py
-pip install requests
-echo ""> /root/status.txt
-if [ ! -f "/root/provisioned" ]; then
-  wall -n "Cloning the Github Repo"
-  git clone https://github.com/burningion/distributed-tracing-with-apm-workshop trace
-  cd trace
-  wall -n "Checking out the right branch"
-  git checkout -b k8s-autodiscovery 4b0c105fb3158d0418226642b5a3160c020164e8 # locked to commit on may 6, 2019
-  cd ..
-  wall -n "Getting everything into the right place"
-  mv trace/* .
-  cd k8s-yaml-files
-  sudo sed -i '16d' datadog-agent.yaml #hostnetwork
-fi
-wall -n "Creating Kubernetes Secrets"
-kubeloopstart=`date +%s`
-until kubectl create secret generic postgres-user --from-literal=token=datadog
-do
-  kubeloopend=`date +%s`
-  kubeloopruntime=$((kubeloopend-kubeloopstart))
-  echo "kubectl isn't ready yet."
-  echo "It has been $kubeloopruntime seconds"
-  echo "If this doesn't resolve after 60 seconds, contact support."
-  sleep 2
+echo "">/root/status.txt
+
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+# helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm repo add datadog https://helm.datadoghq.com
+helm repo update
+# echo "Waiting for kubernetes to start" >>/root/status.txt
+statusupdate "Waiting for kubernetes to start"
+while [ "$( kubectl get nodes --no-headers 2>/dev/null | wc -l )" != "2" ]; do
+  sleep 1
 done
-kubectl create secret generic postgres-password --from-literal=token=postgres
-wall -n "Starting services...please wait"
-kubectl apply -f redis-deploy.yaml
-kubectl apply -f postgres-deploy.yaml
-kubectl apply -f node-api.yaml
-kubectl apply -f pumps-service.yaml
-kubectl apply -f sensors-api.yaml
-kubectl apply -f frontend-service.yaml
-# wall -n "YAML files applied, creating permissions...."
-# kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrole.yaml"
-# wall -n "First permission created"
-# sleep 3
-# kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/serviceaccount.yaml"
-# sleep 3
-# wall -n "Second permission created"
-# kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
-# sleep 3
-# wall -n "All permissions created, starting agent"
-# kubectl apply -f k8s-yaml-files/datadog-agent.yaml
+statusupdate "Waiting for all nodes to be ready"
+# echo "Waiting for all nodes to be ready" >>/root/status.txt
+while [ "$( kubectl get nodes --no-headers 2>/dev/null| awk '{print $2}'|xargs )" !=  "Ready Ready" ]; do
+  sleep 1
+done
+# echo "Kubernetes ready.">>/root/status.txt
+statusupdate "Kubernetes ready."
 
-echo "complete">>/root/status.txt
+kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 
+kubectl apply -f k8s-yaml-files/db.yaml
+kubectl apply -f k8s-yaml-files/advertisements.yaml
+kubectl apply -f k8s-yaml-files/discounts.yaml
+kubectl apply -f k8s-yaml-files/frontend.yaml
+
+(
+  set -x; cd "$(mktemp -d)" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}" &&
+  tar zxvf krew.tar.gz &&
+  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" &&
+  "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz &&
+  "$KREW" update
+)
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+kubectl krew install match-name
+
+# if [ ! -f "/root/provisioned" ]; then
+#   apt install datamash
+# fi
+
+statusupdate complete
+
+# echo "complete">>/root/status.txt

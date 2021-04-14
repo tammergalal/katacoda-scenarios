@@ -1,52 +1,68 @@
-{
-  "difficulty": "Intermediate",
-  "time": "25 minutes",
-  "details": {
-    "intro": {
-      "courseData": "background.sh",
-      "code": "foreground.sh",
-      "text": "intro.md"
-    },
-    "finish": {
-      "text": "finish.md"
-    },
-    "steps": [
-      {
-        "title": "Installing the Agent",
-        "text": "step1.md"
-      },
-      {
-        "title": "Adding an Integration",
-        "text": "step2.md"
-      },
-      {
-        "title": "Troubleshooting",
-        "text": "step3.md"
-      }
-    ],
-    "assets": {
-      "host01": [
-        
-        {
-          "file": "idledown.sh",
-          "target": "/usr/local/bin/",
-          "chmod": "+x"
-        }
-      ]
-    }
+"title": "Installing the Datadog Agent Using the Datadog Helm Chart",
+"time": "25 minutes",
+"difficulty": "Intermediate",
+"details": {
+  "intro": {
+    "courseData": "background.sh",
+    "code": "foreground.sh",
+    "text": "intro.md"
   },
-  "environment": {
-    "uilayout": "editor-terminal",
-    "uieditorpath": "k8s-yaml-files",
-    "showdashboard": true,
-    "dashboards": [
+  "steps": [
+    {
+      "text": "step1.md",
+      "title": "Installation"
+    },
+    {
+      "text": "step2.md",
+      "title": "Modifying the values.yaml file"
+    },
+    {
+      "text": "step3.md"
+    }
+  ],
+  "finish": {
+    "text": "finish.md"
+  },
+  "assets": {
+    "host01": [
       {
-        "name": "App Dashboard",
-        "port": 30001
+        "file": "values.yaml",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "advertisements.yaml",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "frontend.yaml",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "discounts.yaml",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "db.yaml",
+        "target": "/root/k8s-yaml-files"
       }
     ]
-  },
-  "backend": {
-    "imageid": "kubernetes-cluster-running:1.18"
   }
+},
+"environment": {
+  "uilayout": "terminal",
+  "showide": true,
+  "ide": "ssh host01 '/opt/start-vscode.sh /root/k8s-yaml-files' ",
+  "idePort": 23000,
+  "showdashboard": true,
+  "dashboards": [
+    {
+      "name": "Datadog",
+      "href": "https://app.datadoghq.com"
+    }
+  ]
+},
+"backend": {
+  "imageid": "kubernetes-cluster-running:1.18",
+  "reuseConnection": "false"
+}
 }
