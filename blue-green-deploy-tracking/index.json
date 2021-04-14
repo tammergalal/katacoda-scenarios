@@ -1,5 +1,5 @@
 {
-  "title": "Installing the Datadog Agent Using the Datadog Helm Chart",
+  "title": "Using Datadog Deployment Tracking to monitor Blue/Green Deployments",
   "time": "25 minutes",
   "difficulty": "Intermediate",
   "details": {
@@ -44,6 +44,10 @@
       },
       {
         "file": "db.yaml",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "values.yaml",
         "target": "/root/k8s-yaml-files"
       }
     ]
