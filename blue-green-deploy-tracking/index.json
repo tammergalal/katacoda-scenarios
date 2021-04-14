@@ -1,7 +1,8 @@
-"title": "Installing the Datadog Agent Using the Datadog Helm Chart",
-"time": "25 minutes",
-"difficulty": "Intermediate",
-"details": {
+{
+  "title": "Installing the Datadog Agent Using the Datadog Helm Chart",
+  "time": "25 minutes",
+  "difficulty": "Intermediate",
+  "details": {
   "intro": {
     "courseData": "background.sh",
     "code": "foreground.sh",
