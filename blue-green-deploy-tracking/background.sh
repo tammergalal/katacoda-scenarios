@@ -24,8 +24,6 @@ statusupdate "Kubernetes ready."
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 
-helm install datadog-agent datadog/datadog --set datadog.apiKey=$DD_API_KEY --set datadog.appKey=$DD_API_KEY --values k8s-yaml-files/values.yaml
-
 kubectl apply -f k8s-yaml-files/db.yaml
 kubectl apply -f k8s-yaml-files/advertisements.yaml
 kubectl apply -f k8s-yaml-files/discounts.yaml
