@@ -22,7 +22,7 @@ done
 echo "Kubernetes ready.">>/root/status.txt
 statusupdate "Kubernetes ready."
 
-kubectl create secret generic datadog-api --from-literal=token=510b7a25b93d2539646f72b263c8d2f6
+kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 
 kubectl apply -f k8s-yaml-files/db.yaml
 kubectl apply -f k8s-yaml-files/advertisements.yaml
