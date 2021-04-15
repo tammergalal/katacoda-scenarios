@@ -5,6 +5,8 @@ metadata:
     service: frontend
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
+    tags.datadoghq.com/service: "frontend"
+    tags.datadoghq.com/version: "1.0"
   name: frontend
 spec:
   replicas: 1
@@ -23,6 +25,8 @@ spec:
         service: frontend
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
+        tags.datadoghq.com/service: "frontend"
+        tags.datadoghq.com/version: "1.0"
     spec:
       containers:
       - args:
@@ -47,6 +51,14 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.labels['tags.datadoghq.com/env']
+        - name: DD_SERVICE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['tags.datadoghq.com/service']
+        - name: DD_SERVICE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['tags.datadoghq.com/version']
         - name: DD_ANALYTICS_ENABLED
           value: "true"
         # Enable RUM
