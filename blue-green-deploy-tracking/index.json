@@ -63,6 +63,10 @@
     {
       "name": "Datadog",
       "href": "https://app.datadoghq.com"
+    },
+    {
+      "name": "Storedog",
+      "port": 30001
     }
   ]
 },
