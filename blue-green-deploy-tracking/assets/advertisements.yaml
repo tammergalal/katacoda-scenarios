@@ -2,22 +2,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: advertisements 
+    service: advertisements
+    app: ecommerce
+    tags.datadoghq.com/env: "ruby-shop"
   name: advertisements 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: advertisements 
+      service: advertisements
+      app: ecommerce
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        run: advertisements 
+        service: advertisements
+        app: ecommerce
+        tags.datadoghq.com/env: "ruby-shop"
     spec:
       containers:
-      - image: arapulido/ecommerce-spree-ads:latest
+      - image: ddtraining/advertisements-service:latest
         name: advertisements 
         command: ["ddtrace-run"]
         args: ["flask", "run", "--port=5002", "--host=0.0.0.0"]
@@ -27,11 +32,18 @@ spec:
           - name: FLASK_DEBUG
             value: "1"
           - name: POSTGRES_PASSWORD
-            value: "password"
+            valueFrom:
+              secretKeyRef:
+                key: pw
+                name: db-password
           - name: POSTGRES_USER
             value: "user"
           - name: DATADOG_SERVICE_NAME
             value: "advertisements-service"
+          - name: DD_ENV
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['tags.datadoghq.com/env']
           - name: DD_AGENT_HOST 
             valueFrom:
               fieldRef:
@@ -39,6 +51,8 @@ spec:
           - name: DD_LOGS_INJECTION
             value: "true"
           - name: DD_ANALYTICS_ENABLED
+            value: "true"
+          - name: DD_PROFILING_ENABLED
             value: "true"
         ports:
         - containerPort: 5002
@@ -48,7 +62,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: advertisements
+    service: advertisements
+    app: ecommerce
   name: advertisements
 spec:
   ports:
@@ -56,5 +71,6 @@ spec:
     protocol: TCP
     targetPort: 5002
   selector:
-    run: advertisements
+    service: advertisements
+    app: ecommerce
 status:
