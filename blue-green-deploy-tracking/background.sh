@@ -8,6 +8,7 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 # helm repo add stable https://kubernetes-charts.storage.googleapis.com
 helm repo add datadog https://helm.datadoghq.com
+helm repo add stable https://charts.helm.sh/stable
 helm repo update
 # echo "Waiting for kubernetes to start" >>/root/status.txt
 statusupdate "Waiting for kubernetes to start"
@@ -28,18 +29,6 @@ kubectl apply -f k8s-yaml-files/db.yaml
 kubectl apply -f k8s-yaml-files/advertisements.yaml
 kubectl apply -f k8s-yaml-files/discounts.yaml
 kubectl apply -f k8s-yaml-files/frontend.yaml
-
-(
-  set -x; cd "$(mktemp -d)" &&
-  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}" &&
-  tar zxvf krew.tar.gz &&
-  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" &&
-  "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz &&
-  "$KREW" update
-)
-
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-kubectl krew install match-name
 
 # if [ ! -f "/root/provisioned" ]; then
 #   apt install datamash

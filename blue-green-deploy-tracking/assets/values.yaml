@@ -62,8 +62,8 @@ datadog:
   # leaderLeaseDuration: 60
 
   logs:
-    enabled: false
-    # containerCollectAll: false
+    enabled: true
+    containerCollectAll: true
 
   # logsEnabled: false
   # logsConfigContainerCollectAll: false
@@ -275,17 +275,17 @@ agents:
   # priorityClassName:
   # podLabels: {}
   # useConfigMap: false
-  # customAgentConfig:
-  #   listeners:
-  #     - name: kubelet
-  #   config_providers:
-  #     - name: kubelet
-  #       polling: true
-  #     - name: docker
-  #       polling: true
-  #   apm_config:
-  #     enabled: false
-  #     apm_non_local_traffic: true
+  customAgentConfig:
+    listeners:
+      - name: kubelet
+    config_providers:
+      - name: kubelet
+        polling: true
+      - name: docker
+        polling: true
+    apm_config:
+      enabled: false
+      apm_non_local_traffic: true
 
 clusterChecksRunner:
   enabled: false
