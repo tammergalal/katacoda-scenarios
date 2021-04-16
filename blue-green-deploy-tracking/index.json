@@ -1,5 +1,5 @@
 {
-  "title": "Using Datadog Deployment Tracking to monitor Blue/Green Deployments",
+  "title": "Using Datadog Deployment Tracking to monitor Canary Deployments",
   "time": "25 minutes",
   "difficulty": "Intermediate",
   "details": {
