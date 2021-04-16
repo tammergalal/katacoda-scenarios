@@ -21,7 +21,7 @@ while [ "$( kubectl get nodes --no-headers 2>/dev/null| awk '{print $2}'|xargs )
   sleep 1
 done
 # echo "Kubernetes ready.">>/root/status.txt
-statusupdate "Kubernetes ready."
+statusupdate "Kubernetes ready!"
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 
