@@ -45,6 +45,32 @@ datadog:
     # datadog.kubelet.agentCAPath -- Path (inside Agent containers) where the Kubelet CA certificate is stored
     # @default -- /var/run/host-kubelet-ca.crt if hostCAPath else /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
     agentCAPath:
+  
+  tags: []
+
+  env: 
+    - name: DD_TAGS
+      value: "env:ruby-shop"
+    - name: DD_ENV
+      value: "ruby-shop"
+    - name: DD_VERSION
+      value: "1.0"
+    - name: DD_KUBERNETES_KUBELET_HOST
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: status.hostIP
+    livenessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /health
+        port: 5555
+        scheme: HTTP
+      initialDelaySeconds: 15
+      periodSeconds: 15
+      successThreshold: 1
+      timeoutSeconds: 5
+
 
   # Enable this block for the Kubernetes Beta metrics
   # orchestratorExplorer:
