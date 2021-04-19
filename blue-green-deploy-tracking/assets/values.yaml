@@ -62,8 +62,8 @@ datadog:
   # leaderLeaseDuration: 60
 
   logs:
-    enabled: false
-    # containerCollectAll: false
+    enabled: true
+    containerCollectAll: true
 
   # logsEnabled: false
   # logsConfigContainerCollectAll: false
