@@ -8,7 +8,7 @@ You'll notice now that all of the pods and services are running....there is no D
 
 `helm install datadogagent --set datadog.apiKey=$DD_API_KEY --set datadog.appKey=$DD_APP_KEY -f k8s-yaml-files/values.yaml datadog/datadog`{{execute}}
 
-`helm install datadogagent --set datadog.apiKey=$DD_API_KEY -f k8s-yaml-files/values.yaml datadog/datadog`
+`helm install datadogagent --set datadog.apiKey=$DD_API_KEY -f k8s-yaml-files/values.yaml datadog/datadog` {{execute}}
 
 Replace release name with whatever you would like the name to be, we will use storedog-app.
 
