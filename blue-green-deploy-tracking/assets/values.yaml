@@ -138,11 +138,11 @@ clusterAgent:
   #         pass: '<YOUR_CHOSEN_PASSWORD>'
   resources:
     requests:
-      cpu: 50m
-      memory: 32Mi
+      cpu: 100m
+      memory: 256Mi
     limits:
-      cpu: 50m
-      memory: 32Mi
+      cpu: 150m
+      memory: 325Mi
   # priorityClassName: syst   em-cluster-critical
   # nodeSelector: {}
   healthPort: 8080
