@@ -29,9 +29,22 @@ datadog:
     enabled: true
     containerCollectAll: true
   
-  env:
-    - name: DD_KUBELET_TLS_VERIFY
-      value: "false"
+# kubelet configuration
+  kubelet:
+    # datadog.kubelet.host -- Override kubelet IP
+    host:
+      valueFrom:
+        fieldRef:
+          fieldPath: status.hostIP
+    # datadog.kubelet.tlsVerify -- Toggle kubelet TLS verification
+    # @default -- true
+    tlsVerify: false
+    # datadog.kubelet.hostCAPath -- Path (on host) where the Kubelet CA certificate is stored
+    # @default -- None (no mount from host)
+    hostCAPath:
+    # datadog.kubelet.agentCAPath -- Path (inside Agent containers) where the Kubelet CA certificate is stored
+    # @default -- /var/run/host-kubelet-ca.crt if hostCAPath else /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    agentCAPath:
 
   # Enable this block for the Kubernetes Beta metrics
   # orchestratorExplorer:
