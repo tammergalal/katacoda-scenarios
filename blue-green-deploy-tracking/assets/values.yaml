@@ -141,7 +141,7 @@ clusterAgent:
       memory: 32Mi
   # priorityClassName: syst   em-cluster-critical
   # nodeSelector: {}
-  healthPort: 8080
+  healthPort: 5000
   livenessProbe:
     httpGet:
       port: 5000
