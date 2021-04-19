@@ -70,6 +70,13 @@ datadog:
       periodSeconds: 15
       successThreshold: 1
       timeoutSeconds: 5
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "200m"
+      limits:
+        cpu: 200m
+        memory: 256Mi
 
 
   # Enable this block for the Kubernetes Beta metrics
