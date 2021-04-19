@@ -6,6 +6,12 @@ You should see a list of the pods, services, deployments, and replicasets and th
 
 You'll notice now that all of the pods and services are running....there is no Datadog Agent! Now run the helm install command: 
 
-`helm install datadog-agent --set datadog.apiKey=$DD_API_KEY --values datadog/helm-values.yaml`{{execute}}
+`helm install datadogagent --set datadog.apiKey=$DD_API_KEY --set datadog.appKey=$DD_APP_KEY -f k8s-yaml-files/values.yaml datadog/datadog`{{execute}}
+
+`helm install datadogagent --set datadog.apiKey=$DD_API_KEY -f k8s-yaml-files/values.yaml datadog/datadog`
 
 Replace release name with whatever you would like the name to be, we will use storedog-app.
+
+
+
+
