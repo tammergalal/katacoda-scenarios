@@ -5,6 +5,8 @@ metadata:
     service: advertisements
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
+    tags.datadoghq.com/service: "advertisements"
+    tags.datadoghq.com/version: "1.0"
   name: advertisements 
 spec:
   replicas: 1
@@ -20,6 +22,8 @@ spec:
         service: advertisements
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
+        tags.datadoghq.com/service: "advertisements"
+        tags.datadoghq.com/version: "1.0"
     spec:
       containers:
       - image: ddtraining/advertisements-service:latest
@@ -44,6 +48,14 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.labels['tags.datadoghq.com/env']
+          - name: DD_SERVICE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['tags.datadoghq.com/service']
+          - name: DD_VERSION
+            valueFrom:
+             fieldRef:
+                fieldPath: metadata.labels['tags.datadoghq.com/version']
           - name: DD_AGENT_HOST 
             valueFrom:
               fieldRef:
