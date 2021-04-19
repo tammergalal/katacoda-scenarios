@@ -69,7 +69,7 @@ datadog:
   # logsConfigContainerCollectAll: false
 
   apm:
-    enabled: false
+    enabled: true
     port: 8126
 
   env:
@@ -148,12 +148,12 @@ clusterAgent:
   healthPort: 8080
   livenessProbe:
     httpGet:
-      port: 5000
+      port: 8080
       path: /metrics
       scheme: HTTP
   readinessProbe:
     httpGet:
-      port: 5000
+      port: 8080
       path: /metrics
       scheme: HTTP
   strategy:
