@@ -77,6 +77,8 @@ datadog:
       value: "ruby-shop"
     - name: DD_VERSION
       value: "v1.0"
+    - name: DD_KUBELET_TLS_VERIFY
+      value: "false"
 
   # confd:
   #   redisdb.yaml: |-
@@ -109,7 +111,7 @@ datadog:
     apparmor: unconfined
 
 clusterAgent:
-  enabled: false
+  enabled: true
   image:
     repository: datadog/cluster-agent
     tag: 1.5.2
@@ -192,12 +194,12 @@ agents:
       # env:
       # logLevel: INFO
       resources: {}
-      #  requests:
-      #    cpu: 200m
-      #    memory: 256Mi
-      #  limits:
-      #    cpu: 200m
-      #    memory: 256Mi
+       requests:
+         cpu: 200m
+         memory: 256Mi
+       limits:
+         cpu: 200m
+         memory: 256Mi
       livenessProbe:
         httpGet:
           path: /health
