@@ -69,7 +69,7 @@ datadog:
   # logsConfigContainerCollectAll: false
 
   apm:
-    enabled: false
+    enabled: true
     port: 8126
 
   # env:
@@ -284,11 +284,11 @@ agents:
       - name: docker
         polling: true
     apm_config:
-      enabled: false
+      enabled: true
       apm_non_local_traffic: true
 
 clusterChecksRunner:
-  enabled: false
+  enabled: true
   image:
     repository: datadog/agent
     tag: "7"
