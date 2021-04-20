@@ -47,7 +47,23 @@
         "target": "/root/k8s-yaml-files"
       },
       {
-        "file": "values.yaml",
+        "file": "values2.yaml",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "advertisements2.yaml",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "frontend2.yaml",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "discounts2.yaml",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "db2.yaml",
         "target": "/root/k8s-yaml-files"
       }
     ]
