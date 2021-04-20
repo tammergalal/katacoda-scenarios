@@ -9,8 +9,3 @@ In the previous hands on section, you setup the agent using the daemonset manife
           value: "false"
 1. Run helm update to put your changes into effect. `helm upgrade datadogagent --set datadog.apiKey=$DD_API_KEY --set datadog.appKey=$DD_APP_KEY -f k8s-yaml-files/values.yaml datadog/datadog`{{execute}}
 1. Return to the Metrics Summary page and you should see the kubernetes metrics start to appear. Take a look at the **Kubernetes - Overview** dashboard. Note that it can take a while for metrics to populate at first. You can also run the agent status command again, but note that your Datadog agent pod probably has a new name. 
-
-
-
-
-
