@@ -66,9 +66,25 @@ datadog:
     containerCollectAll: true
     containerCollectUsingFiles: true
 
+## Enable apm agent and provide custom configs
   apm:
+    # datadog.apm.enabled -- Enable this to enable APM and tracing, on port 8126
+    ## ref: https://github.com/DataDog/docker-dd-agent#tracing-from-the-host
     enabled: true
+
+    # datadog.apm.port -- Override the trace Agent port
+    ## Note: Make sure your client is sending to the same UDP port.
     port: 8126
+
+    # datadog.apm.useSocketVolume -- Enable APM over Unix Domain Socket
+    ## ref: https://docs.datadoghq.com/agent/kubernetes/apm/
+    useSocketVolume: true
+
+    # datadog.apm.socketPath -- Path to the trace-agent socket
+    socketPath: /var/run/datadog/apm.socket
+
+    # datadog.apm.hostSocketPath -- Host path to the trace-agent socket
+    hostSocketPath: /var/run/datadog/
 
   env:
     - name: DD_ENV
