@@ -1,19 +1,20 @@
 #!/bin/bash
+# mkdir k8s-yaml-files
 curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
-touch status.txt
-echo "">/root/status.txt
 
-# echo "Waiting for kubernetes to start" >>/root/status.txt
-statusupdate "Waiting for kubernetes to start"
-while [ "$( kubectl get nodes --no-headers 2>/dev/null | wc -l )" != "2" ]; do
-  sleep 1
+launch.sh
+touch status.txt
+echo ""> /root/status.txt
+wall -n "Creating Kubernetes Secrets"
+kubeloopstart=`date +%s`
+do
+  kubeloopend=`date +%s`
+  kubeloopruntime=$((kubeloopend-kubeloopstart))
+  echo "kubectl isn't ready yet."
+  echo "It has been $kubeloopruntime seconds"
+  echo "If this doesn't resolve after 60 seconds, contact support."
+  sleep 2
 done
-statusupdate "Waiting for all nodes to be ready"
-# echo "Waiting for all nodes to be ready" >>/root/status.txt
-while [ "$( kubectl get nodes --no-headers 2>/dev/null| awk '{print $2}'|xargs )" !=  "Ready Ready" ]; do
-  sleep 1
-done
-# echo "Kubernetes ready.">>/root/status.txt
 statusupdate "Kubernetes ready!"
 
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/cluster-agent/cluster-agent-rbac.yaml"
