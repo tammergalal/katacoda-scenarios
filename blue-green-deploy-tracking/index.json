@@ -65,6 +65,10 @@
       {
         "file": "db2.yaml",
         "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "newNode.yaml",
+        "target": "/root/k8s-yaml-files"
       }
     ]
   }
