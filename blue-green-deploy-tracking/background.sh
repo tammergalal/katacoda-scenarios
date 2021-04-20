@@ -9,6 +9,16 @@ chmod 700 get_helm.sh
 # helm repo add stable https://kubernetes-charts.storage.googleapis.com
 helm repo add datadog https://helm.datadoghq.com
 helm repo update
+# echo "Waiting for kubernetes to start" >>/root/status.txt
+statusupdate "Waiting for kubernetes to start"
+while [ "$( kubectl get nodes --no-headers 2>/dev/null | wc -l )" != "2" ]; do
+  sleep 1
+done
+statusupdate "Waiting for all nodes to be ready"
+# echo "Waiting for all nodes to be ready" >>/root/status.txt
+while [ "$( kubectl get nodes --no-headers 2>/dev/null| awk '{print $2}'|xargs )" !=  "Ready Ready" ]; do
+  sleep 1
+done
 # echo "Kubernetes ready.">>/root/status.txt
 statusupdate "Kubernetes ready."
 
