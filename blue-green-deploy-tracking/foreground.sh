@@ -1,21 +1,12 @@
-#!/bin/bash
-
-while [ ! -f "/usr/local/bin/prepenvironment" ]; do
+while [ ! `ls -l /root/k8s-yaml-files/*.yaml 2>/dev/null | wc -l ` -eq 5 ]; do
   sleep 0.3
 done
-sleep 0.3
-
-kubeloopstart=`date +%s`
-until kubectl get all
-do
-  kubeloopend=`date +%s`
-  kubeloopruntime=$((kubeloopend-kubeloopstart))
-  echo "kubectl isn't ready yet."
-  echo "It has been $kubeloopruntime seconds"
-  echo "If this doesn't resolve after 60 seconds, contact support."
-  sleep 2
+while [ ! `k get nodes 2>/dev/null | wc -l ` -eq 2 ]; do
+  sleep 0.3
 done
-
-clear 
-
+# sed -i 's|--DATADOG_API_KEY--|datadog/agent:6.11.1|' docker-compose.yml
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+kubectl completion bash >/etc/bash_completion.d/kubectl
+complete -F __start_kubectl k
+clear
 prepenvironment
