@@ -9,6 +9,9 @@ agents:
     repository: datadog/agent
     tag: latest
     pullPolicy: IfNotPresent
+    env:
+      - name: DD_KUBELET_TLS_VERIFY
+        value: "false"
 
 # Enable this block to get Kubernetes Beta metrics (https://www.datadoghq.com/blog/explore-kubernetes-resources-with-datadog/)
 clusterAgent:
@@ -17,6 +20,9 @@ clusterAgent:
     repository: datadog/cluster-agent
     tag: latest
     pullPolicy: Always
+    env:
+      - name: DD_KUBELET_TLS_VERIFY
+        value: "false"
 
 datadog:
   clusterName: "ecommerce"
