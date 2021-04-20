@@ -67,7 +67,7 @@ spec:
         # - name: DD_APPLICATION_ID
         #   value: <your_application_id>
         image: ddtraining/ecommerce-frontend:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: ecommerce-spree-observability
         ports:
         - containerPort: 3000
