@@ -11,12 +11,12 @@ agents:
     pullPolicy: IfNotPresent
 
 # Enable this block to get Kubernetes Beta metrics (https://www.datadoghq.com/blog/explore-kubernetes-resources-with-datadog/)
-# clusterAgent:
-#   enabled: true
-#   image:
-#     repository: datadog/cluster-agent
-#     tag: latest
-#     pullPolicy: Always
+clusterAgent:
+  enabled: true
+  image:
+    repository: datadog/cluster-agent
+    tag: latest
+    pullPolicy: Always
 
 datadog:
   clusterName: "ecommerce"
