@@ -6,7 +6,7 @@ done
 sleep 0.3
 
 kubeloopstart=`date +%s`
-until kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
+until kubectl get all
 do
   kubeloopend=`date +%s`
   kubeloopruntime=$((kubeloopend-kubeloopstart))
