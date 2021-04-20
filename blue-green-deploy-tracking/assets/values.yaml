@@ -35,6 +35,11 @@ datadog:
     enabled: true
     containerCollectAll: true
 
+  env:
+  - name: DD_KUBELET_TLS_VERIFY
+    value: "false"
+
+
   # Enable this block for the Kubernetes Beta metrics
   # orchestratorExplorer:
   #   enabled: true
