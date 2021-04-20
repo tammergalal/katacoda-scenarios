@@ -1,356 +1,43 @@
-## Default values for Datadog Agent
-## See Datadog helm documentation to learn more:
-## https://docs.datadoghq.com/agent/kubernetes/helm/
+# This is a reasonable set of default HELM settings.
+# Enable/disable as you see fit for your deployment.
+# Tested with version 2.4.31, if your release is 2.5.x or newer, check for
+# changes in the original chart values
 
-## @param nameOverride - string - optional
-## Override name of app.
-#
-# nameOverride: ""
+# Enable this block if you want to use the newest agent
+agents:
+  image:
+    repository: datadog/agent
+    tag: latest
+    pullPolicy: IfNotPresent
 
-## @param fullnameOverride - string - optional
-## Override the full qualified app name.
-#
-# fullnameOverride: ""
+# Enable this block to get Kubernetes Beta metrics (https://www.datadoghq.com/blog/explore-kubernetes-resources-with-datadog/)
+# clusterAgent:
+#   enabled: true
+#   image:
+#     repository: datadog/cluster-agent
+#     tag: latest
+#     pullPolicy: Always
 
 datadog:
-  # apiKey: DD_API_KEY
-  # apiKeyExistingSecret: <DATADOG_API_KEY_SECRET>
-  # appKey: DD_APP_KEY
-  # appKeyExistingSecret: <DATADOG_APP_KEY_SECRET>
+  clusterName: "ecommerce"
 
-  # securityContext:
-  #   seLinuxOptions:
-  #     seLinuxLabel: "spc_t"
+  apm:
+    enabled: true
 
-  # clusterName: 
-  # site: datadoghq.com
-  # dd_url: https://app.datadoghq.com
-
-  logLevel: INFO
-  kubeStateMetricsEnabled: true
-
-  clusterChecks:
-    enabled: false
-
-  # nodeLabelsAsTags:
-  #   beta.kubernetes.io/instance-type: aws-instance-type
-  #   kubernetes.io/role: kube_role
-  #   <KUBERNETES_NODE_LABEL>: <DATADOG_TAG_KEY>
-  # podLabelsAsTags:
-  #   app: kube_app
-  #   release: helm_release
-  #   <KUBERNETES_LABEL>: <DATADOG_TAG_KEY>
-  # podAnnotationsAsTags:
-  #   iam.amazonaws.com/role: kube_iamrole
-  #   <KUBERNETES_ANNOTATIONS>: <DATADOG_TAG_KEY>
-  # tags:
-  #   - <KEY_1>:<VALUE_1>
-  #   - <KEY_2>:<VALUE_2>
-
-  dogstatsd:
-    port: 8125
-    # originDetection: true
-    # useSocketVolume: true
-    # socketPath: /var/run/datadog/dsd.socket
-    # useHostPort: true
-    # useHostPID: true
-    # nonLocalTraffic: false
-
-  # collectEvents: false
-
-  # leaderElection: false
-  # leaderLeaseDuration: 60
-
+  # Enable this block to get all logs from the pods/containers
   logs:
     enabled: true
     containerCollectAll: true
-    containerCollectUsingFiles: false
 
-## Enable apm agent and provide custom configs
-  apm:
-    # datadog.apm.enabled -- Enable this to enable APM and tracing, on port 8126
-    ## ref: https://github.com/DataDog/docker-dd-agent#tracing-from-the-host
-    enabled: true
+  # Enable this block for the Kubernetes Beta metrics
+  # orchestratorExplorer:
+  #   enabled: true
 
-    # datadog.apm.port -- Override the trace Agent port
-    ## Note: Make sure your client is sending to the same UDP port.
-    port: 8126
+  # Enable this block for process collection. It is required for Kubernetes Beta metrics
+  # processAgent:
+  #   processCollection: true
 
-    # datadog.apm.useSocketVolume -- Enable APM over Unix Domain Socket
-    ## ref: https://docs.datadoghq.com/agent/kubernetes/apm/
-    useSocketVolume: true
-
-    # datadog.apm.socketPath -- Path to the trace-agent socket
-    socketPath: /var/run/datadog/apm.socket
-
-    # datadog.apm.hostSocketPath -- Host path to the trace-agent socket
-    hostSocketPath: /var/run/datadog/
-
-  env:
-    - name: DD_ENV
-      value: "ruby-shop"
-    - name: DD_VERSION
-      value: "v1.0"
-    - name: DD_KUBELET_TLS_VERIFY
-      value: "false"
-
-  # confd:
-  #   redisdb.yaml: |-
-  #     init_config:
-  #     instances:
-  #       - host: "name"
-  #         port: "6379"
-  #   kubernetes_state.yaml: |-
-  #     ad_identifiers:
-  #       - kube-state-metrics
-  #     init_config:
-  #     instances:
-  #       - kube_state_url: http://%%host%%:8080/metrics
-
-  # checksd:
-  #   service.py: |-
-
-  criSocketPath: /var/run/docker.sock
-
-  processAgent:
-    enabled: false
-
-  systemProbe:
-    enabled: false
-    debugPort: 0
-    enableConntrack: true
-    seccomp: localhost/system-probe
-    seccompRoot: /var/lib/kubelet/seccomp
-    bpfDebug: false
-    apparmor: unconfined
-
-clusterAgent:
-  enabled: true
-  image:
-    repository: datadog/cluster-agent
-    tag: 1.5.2
-    pullPolicy: IfNotPresent
-    # pullSecrets:
-    #   - name: "<REG_SECRET>"
-  token: ""
-  replicas: 1
-  rbac:
-    create: true
-    serviceAccountName: default
-  metricsProvider:
-    enabled: false
-    service:
-      type: ClusterIP
-      port: 443
-  # confd:
-  #   mysql.yaml: |-
-  #     cluster_check: true
-  #     instances:
-  #       - server: '<EXTERNAL_IP>'
-  #         port: 3306
-  #         user: datadog
-  #         pass: '<YOUR_CHOSEN_PASSWORD>'
-  resources:
-    requests:
-      cpu: 100m
-      memory: 256Mi
-    limits:
-      cpu: 150m
-      memory: 325Mi
-  healthPort: 5556
-  livenessProbe:
-    initialDelaySeconds: 15
-    periodSeconds: 15
-    timeoutSeconds: 5
-    successThreshold: 1
-    failureThreshold: 6
-  readinessProbe:
-    initialDelaySeconds: 15
-    periodSeconds: 15
-    timeoutSeconds: 5
-    successThreshold: 1
-    failureThreshold: 6
-
-  # podAnnotations:
-  #   key: "value"
-  # useHostNetwork: true
-  # volumes:
-  #   - hostPath:
-  #       path: <HOST_PATH>
-  #     name: <VOLUME_NAME>
-  # volumeMounts:
-  #   - name: <VOLUME_NAME>
-  #     mountPath: <CONTAINER_PATH>
-  #     readOnly: true
-  # datadog_cluster_yaml: {}
-
-kubeStateMetrics:
-  enabled: true
-
-agents:
-  enabled: true
-  image:
-    repository: datadog/agent
-    tag: "7"
-    pullPolicy: IfNotPresent
-    # pullSecrets:
-    #   - name: "<REG_SECRET>"
-  rbac:
-    create: true
-    serviceAccountName: default
-
-  containers:
-    agent:
-      # env:
-      # logLevel: INFO
-      resources: {}
-      requests:
-        cpu: 200m
-        memory: 256Mi
-      limits:
-        cpu: 200m
-        memory: 256Mi
-      healthPort: 5555
-      livenessProbe:
-        initialDelaySeconds: 15
-        periodSeconds: 15
-        timeoutSeconds: 5
-        successThreshold: 1
-        failureThreshold: 6
-      readinessProbe:
-        initialDelaySeconds: 15
-        periodSeconds: 15
-        timeoutSeconds: 5
-        successThreshold: 1
-        failureThreshold: 6
-
-    processAgent:
-      # env:
-      # logLevel: INFO
-      resources: {}
-      #  requests:
-      #    cpu: 100m
-      #    memory: 200Mi
-      #  limits:
-      #    cpu: 100m
-      #    memory: 200Mi
-
-    traceAgent:
-      # env:
-      # logLevel: INFO
-      resources: {}
-      #  requests:
-      #    cpu: 100m
-      #    memory: 200Mi
-      #  limits:
-      #    cpu: 100m
-      #    memory: 200Mi
-      livenessProbe:
-        tcpSocket:
-          port: 8126
-        initialDelaySeconds: 15
-        periodSeconds: 15
-        timeoutSeconds: 5
-
-    systemProbe:
-      # env:
-      # logLevel: INFO
-      resources: {}
-      #  requests:
-      #    cpu: 100m
-      #    memory: 200Mi
-      #  limits:
-      #    cpu: 100m
-      #    memory: 200Mi
-
-    initContainers:
-      resources: {}
-      #  requests:
-      #    cpu: 100m
-      #    memory: 200Mi
-      #  limits:
-      #    cpu: 100m
-      #    memory: 200Mi
-  # volumes:
-  #   - hostPath:
-  #       path: <HOST_PATH>
-  #     name: <VOLUME_NAME>
-  # volumeMounts:
-  #   - name: <VOLUME_NAME>
-  #     mountPath: <CONTAINER_PATH>
-  #     readOnly: true
-
-  # useHostNetwork: true
-  # podAnnotations:
-  #   <POD_ANNOTATION>: '[{"key": "<KEY>", "value": "<VALUE>"}]'
-  # tolerations: []
-  # nodeSelector: {}
-  # affinity: {}
-  updateStrategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: "10%"
-  # priorityClassName:
-  # podLabels: {}
-  # useConfigMap: false
-  # customAgentConfig:
-  #   listeners:
-  #     - name: kubelet
-  #   config_providers:
-  #     - name: kubelet
-  #       polling: true
-  #     - name: docker
-  #       polling: true
-  #   apm_config:
-  #     enabled: false
-  #     apm_non_local_traffic: true
-
-clusterChecksRunner:
-  enabled: false
-  image:
-    repository: datadog/agent
-    tag: "7"
-    pullPolicy: IfNotPresent
-    # pullSecrets:
-    #   - name: "<REG_SECRET>"
-  rbac:
-    create: true
-    dedicated: false
-    serviceAccountName: default
-  replicas: 2
-  resources: {}
-  # requests:
-  #   cpu: 200m
-  #   memory: 500Mi
-  # limits:
-  #   cpu: 200m
-  #   memory: 500Mi
-  # affinity:
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
-  # nodeSelector: {}
-  # tolerations: []
-  # livenessProbe:
-  #   exec:
-  #     command: ["/bin/true"]
-  # env:
-  #   - name: <ENV_VAR_NAME>
-  #     value: <ENV_VAR_VALUE>
-
-kube-state-metrics:
-  rbac:
-    create: true
-
-  serviceAccount:
-    create: true
-    name:
-  # resources:
-  #   requests:
-  #     cpu: 200m
-  #     memory: 256Mi
-  #   limits:
-  #     cpu: 200m
-  #     memory: 256Mi
+  # Enable this block for network and DNS metric collection
+  # systemProbe:
+  #   enabled: true
+  #   collectDNSStats: true
