@@ -143,24 +143,20 @@ clusterAgent:
     limits:
       cpu: 150m
       memory: 325Mi
-  # priorityClassName: syst   em-cluster-critical
-  # nodeSelector: {}
-  healthPort: 8080
+  healthPort: 5556
   livenessProbe:
-    httpGet:
-      port: 5000
-      path: /metrics
-      scheme: HTTP
+    initialDelaySeconds: 15
+    periodSeconds: 15
+    timeoutSeconds: 5
+    successThreshold: 1
+    failureThreshold: 6
   readinessProbe:
-    httpGet:
-      port: 5000
-      path: /metrics
-      scheme: HTTP
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
+    initialDelaySeconds: 15
+    periodSeconds: 15
+    timeoutSeconds: 5
+    successThreshold: 1
+    failureThreshold: 6
+
   # podAnnotations:
   #   key: "value"
   # useHostNetwork: true
@@ -200,15 +196,19 @@ agents:
       limits:
         cpu: 200m
         memory: 256Mi
-    livenessProbe:
-      httpGet:
-        path: /health
-        port: 5555
-      initialDelaySeconds: 15
-      periodSeconds: 15
-      timeoutSeconds: 5
-      successThreshold: 1
-      failureThreshold: 6
+      healthPort: 5555
+      livenessProbe:
+        initialDelaySeconds: 15
+        periodSeconds: 15
+        timeoutSeconds: 5
+        successThreshold: 1
+        failureThreshold: 6
+      readinessProbe:
+        initialDelaySeconds: 15
+        periodSeconds: 15
+        timeoutSeconds: 5
+        successThreshold: 1
+        failureThreshold: 6
 
     processAgent:
       # env:
