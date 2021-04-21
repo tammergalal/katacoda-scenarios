@@ -3,7 +3,7 @@ curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 touch status.txt
 echo "">/root/status.txt
 
-apt-get install wait-for-it
+# apt-get install wait-for-it
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
@@ -30,7 +30,7 @@ kubectl apply -f k8s-yaml-files/advertisements.yaml
 kubectl apply -f k8s-yaml-files/discounts.yaml
 kubectl apply -f k8s-yaml-files/frontend.yaml
 
-wait-for-it --timeout=300 localhost:3000
+# wait-for-it --timeout=300 localhost:3000
 
 statusupdate complete
 
