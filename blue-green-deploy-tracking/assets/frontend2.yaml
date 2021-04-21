@@ -5,7 +5,7 @@ metadata:
     service: frontend
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
-    tags.datadoghq.com/service: "frontend"
+    tags.datadoghq.com/service: "store-frontend2"
     tags.datadoghq.com/version: "1.1"
   name: frontend1.1
 spec:
@@ -25,7 +25,7 @@ spec:
         service: frontend
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
-        tags.datadoghq.com/service: "frontend"
+        tags.datadoghq.com/service: "store-frontend2"
         tags.datadoghq.com/version: "1.1"
     spec:
       containers:

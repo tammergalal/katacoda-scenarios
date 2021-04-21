@@ -47,10 +47,6 @@
         "target": "/root/k8s-yaml-files"
       },
       {
-        "file": "values2.yaml",
-        "target": "/root/k8s-yaml-files"
-      },
-      {
         "file": "advertisements2.yaml",
         "target": "/root/k8s-yaml-files"
       },
@@ -65,22 +61,6 @@
       {
         "file": "db2.yaml",
         "target": "/root/k8s-yaml-files"
-      },
-      {
-        "file": "gor1",
-        "target": "/root/gor-files"
-      },
-      {
-        "file": "gor2",
-        "target": "/root/gor-files"
-      },
-      {
-        "file": "requests_1.gor",
-        "target": "/root/gor-files"
-      },
-      {
-        "file": "requests_2.gor",
-        "target": "/root/gor-files"
       }
     ]
   }
