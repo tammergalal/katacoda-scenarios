@@ -78,7 +78,7 @@
     },
     {
       "name": "StoredogV1",
-      "port": 30001
+      "port": 3000
     },
     {
       "name": "Storedog V2",
