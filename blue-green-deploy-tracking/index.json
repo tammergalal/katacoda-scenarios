@@ -77,12 +77,17 @@
       "href": "https://app.datadoghq.com"
     },
     {
-      "name": "Storedog",
+      "name": "StoredogV1",
       "port": 30001
+    },
+    {
+      "name": "Storedog V2",
+      "port": 30002
     }
   ]
-  },
-  "backend": {
-    "imageid": "datadog-kubernetes-cluster-running:1.16"
-  }
+},
+"backend": {
+  "imageid": "kubernetes-cluster-running:1.18",
+  "reuseConnection": "false"
+}
 }

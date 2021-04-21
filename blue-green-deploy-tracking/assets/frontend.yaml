@@ -5,9 +5,9 @@ metadata:
     service: frontend
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
-    tags.datadoghq.com/service: "store-frontend"
-    tags.datadoghq.com/version: "1.0"
-  name: frontendv1
+    tags.datadoghq.com/service: "frontend"
+    tags.datadoghq.com/version: "2"
+  name: frontend
 spec:
   replicas: 1
   selector:
@@ -25,8 +25,8 @@ spec:
         service: frontend
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
-        tags.datadoghq.com/service: "store-frontend"
-        tags.datadoghq.com/version: "1.0"
+        tags.datadoghq.com/service: "frontend"
+        tags.datadoghq.com/version: "2"
     spec:
       containers:
       - args:
@@ -84,7 +84,7 @@ metadata:
   labels:
     service: frontend
     app: ecommerce
-  name: frontendv1
+  name: frontend
 spec:
   ports: 
   - name: http
