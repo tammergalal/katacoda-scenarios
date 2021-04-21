@@ -6,8 +6,8 @@ metadata:
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
     tags.datadoghq.com/service: "advertisements"
-    tags.datadoghq.com/version: "1.1"
-  name: advertisementsV1.1 
+    tags.datadoghq.com/version: "2"
+  name: advertisementsv2 
 spec:
   replicas: 1
   selector:
@@ -23,7 +23,7 @@ spec:
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
         tags.datadoghq.com/service: "advertisements"
-        tags.datadoghq.com/version: "1.1"
+        tags.datadoghq.com/version: "2"
     spec:
       containers:
       - image: ddtraining/advertisements-service:latest
@@ -67,7 +67,7 @@ spec:
           - name: DD_PROFILING_ENABLED
             value: "true"
         ports:
-        - containerPort: 5004
+        - containerPort: 5002
         resources: {}
 ---
 apiVersion: v1
@@ -76,12 +76,12 @@ metadata:
   labels:
     service: advertisements
     app: ecommerce
-  name: advertisementsV1.1
+  name: advertisementsv2
 spec:
   ports:
-  - port: 5004
+  - port: 5002
     protocol: TCP
-    targetPort: 5004
+    targetPort: 5002
   selector:
     service: advertisements
     app: ecommerce

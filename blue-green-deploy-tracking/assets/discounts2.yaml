@@ -6,8 +6,8 @@ metadata:
     service: discounts
     tags.datadoghq.com/env: "ruby-shop"
     tags.datadoghq.com/service: "discounts"
-    tags.datadoghq.com/version: "1.1"
-  name: discounts1.1
+    tags.datadoghq.com/version: "2"
+  name: discountsv2
 spec:
   replicas: 1
   selector:
@@ -23,7 +23,7 @@ spec:
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
         tags.datadoghq.com/service: "discounts"
-        tags.datadoghq.com/version: "1.1"
+        tags.datadoghq.com/version: "2"
     spec:
       containers:
       - image: ddtraining/discounts-service:latest
@@ -76,12 +76,12 @@ metadata:
   labels:
     service: discounts
     app: ecommerce
-  name: discountsV1.1
+  name: discountsv2
 spec:
   ports:
   - port: 5001
     protocol: TCP
-    targetPort: 5003
+    targetPort: 5001
   selector:
     service: discounts
     app: ecommerce
