@@ -87,7 +87,7 @@
   ]
 },
 "backend": {
-  "imageid": "kubernetes-cluster-running:1.20",
+  "imageid": "kubernetes-cluster-running:1.18",
   "reuseConnection": "false"
 }
 }
