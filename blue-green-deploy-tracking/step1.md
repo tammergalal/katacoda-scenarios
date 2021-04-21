@@ -10,4 +10,8 @@ In the previous hands on section, you setup the agent using the daemonset manife
 
 This command will output a new `join` command for you to enter into the terminal to add a new Node into our cluster.
 
-Next run `openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'`{{execute}}
+Next run `kubectl apply -f k8s-yaml-files/frontend2.yaml -f k8s-yaml-files/advertisements2.yaml -f k8s-yaml-files/discounts2.yaml -f k8s-yaml-files/db2.yaml`{{execute}} to create our second deployment.
+
+Use `kubectl get all`{{execute}} to ensure all deployments and pods are running correctly.
+
+Next, run `k8s-yaml-files/gor1 --input-file-loop --input-file "/ecommworkshop/requests_0.gor|300%" --output-http "http://localhost:3001" >> /dev/null 2>&1`{{execute}} to simulate some traffic to the Storedog V1.1 application.
