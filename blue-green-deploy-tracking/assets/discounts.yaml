@@ -76,7 +76,7 @@ metadata:
   labels:
     service: discounts
     app: ecommerce
-  name: discounts
+  name: discountsV1
 spec:
   ports:
   - port: 5001
