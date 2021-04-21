@@ -65,6 +65,22 @@
       {
         "file": "db2.yaml",
         "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "gor1",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "gor2",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "requests_1.gor",
+        "target": "/root/k8s-yaml-files"
+      },
+      {
+        "file": "requests_2.gor",
+        "target": "/root/k8s-yaml-files"
       }
     ]
   }
