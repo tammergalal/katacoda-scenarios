@@ -6,4 +6,6 @@ In the previous hands on section, you setup the agent using the daemonset manife
 
 1. You should see some Kubernetes metrics show up on the Metrics Summary. 
 
-1. Return to the Metrics Summary page and you should see the kubernetes metrics start to appear. Take a look at the **Kubernetes - Overview** dashboard. Note that it can take a while for metrics to populate at first. You can also run the agent status command again, but note that your Datadog agent pod probably has a new name. 
+1. We need to add a new node to our cluster. First run `kubeadm token list`{{execute}}.
+
+Next run `openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'`{{execute}}
