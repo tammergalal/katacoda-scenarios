@@ -30,7 +30,7 @@ kubectl apply -f k8s-yaml-files/advertisements.yaml
 kubectl apply -f k8s-yaml-files/discounts.yaml
 kubectl apply -f k8s-yaml-files/frontend.yaml
 
-git clone https://github.com/DataDog/ecommerce-workshop.git
+git clone https://github.com/DataDog/ecommerce-workshop.git 
 
 # wait-for-it --timeout=300 localhost:3000
 
