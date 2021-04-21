@@ -6,6 +6,6 @@ In the previous hands on section, you setup the agent using the daemonset manife
 
 1. You should see some Kubernetes metrics show up on the Metrics Summary. 
 
-1. We need to add a new node to our cluster. First run `kubeadm token list`{{execute}}.
+1. We need to add a new node to our cluster! First run `kubeadm token list`{{execute}}.
 
 Next run `openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'`{{execute}}
