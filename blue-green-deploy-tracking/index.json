@@ -85,9 +85,8 @@
       "port": 30002
     }
   ]
-},
-"backend": {
-  "imageid": "datadog-base-v2",
-  "reuseConnection": "false"
-}
+  },
+  "backend": {
+    "imageid": "datadog-base-v2"
+  }
 }
