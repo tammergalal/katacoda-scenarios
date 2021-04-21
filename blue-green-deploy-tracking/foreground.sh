@@ -1,5 +1,6 @@
 #!/bin/bash
 launch.sh
+
 while [ ! `ls -l /root/k8s-yaml-files/*.yaml 2>/dev/null | wc -l ` -eq 10 ]; do
   sleep 0.3
 done
