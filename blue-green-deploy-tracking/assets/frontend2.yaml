@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: frontend
+    service: store-frontend2
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
     tags.datadoghq.com/service: "store-frontend2"
@@ -12,7 +12,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      service: frontend
+      service: store-frontend2
       app: ecommerce
   strategy:
     rollingUpdate:
@@ -22,7 +22,7 @@ spec:
   template:
     metadata:
       labels:
-        service: frontend
+        service: store-frontend1.1
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
         tags.datadoghq.com/service: "store-frontend2"
