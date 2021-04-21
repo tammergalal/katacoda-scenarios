@@ -68,19 +68,19 @@
       },
       {
         "file": "gor1",
-        "target": "/root/k8s-yaml-files"
+        "target": "/root/gor-files"
       },
       {
         "file": "gor2",
-        "target": "/root/k8s-yaml-files"
+        "target": "/root/gor-files"
       },
       {
         "file": "requests_1.gor",
-        "target": "/root/k8s-yaml-files"
+        "target": "/root/gor-files"
       },
       {
         "file": "requests_2.gor",
-        "target": "/root/k8s-yaml-files"
+        "target": "/root/gor-files"
       }
     ]
   }
