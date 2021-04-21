@@ -22,7 +22,7 @@ spec:
   template:
     metadata:
       labels:
-        service: store-frontend1.1
+        service: store-frontend2
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
         tags.datadoghq.com/service: "store-frontend2"
