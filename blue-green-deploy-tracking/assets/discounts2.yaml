@@ -67,7 +67,7 @@ spec:
               fieldRef:
                 fieldPath: metadata.labels['tags.datadoghq.com/version']
         ports:
-        - containerPort: 5001
+        - containerPort: 5003
         resources: {}
 ---
 apiVersion: v1
@@ -79,9 +79,9 @@ metadata:
   name: discounts
 spec:
   ports:
-  - port: 5001
+  - port: 5003
     protocol: TCP
-    targetPort: 5001
+    targetPort: 5003
   selector:
     service: discounts
     app: ecommerce
