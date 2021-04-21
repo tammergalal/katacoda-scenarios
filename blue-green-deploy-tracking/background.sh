@@ -23,7 +23,7 @@ done
 # echo "Kubernetes ready.">>/root/status.txt
 statusupdate "Kubernetes ready."
 
-git clone git@github.com:DataDog/ecommerce-workshop.git
+git clone https://github.com/DataDog/ecommerce-workshop.git
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 
