@@ -30,7 +30,7 @@ kubectl apply -f k8s-yaml-files/discounts.yaml
 kubectl apply -f k8s-yaml-files/frontend.yaml
 
 k8s-yaml-files/gor1 --input-file-loop --input-file "/ecommworkshop/requests_0.gor|300%" --output-http "http://localhost:3000" >> /dev/null 2>&1
-k8s-yaml-files/gor1 --input-file-loop --input-file "/ecommworkshop/requests_0.gor|300%" --output-http "http://localhost:3001" >> /dev/null 2>&1
+# k8s-yaml-files/gor1 --input-file-loop --input-file "/ecommworkshop/requests_0.gor|300%" --output-http "http://localhost:3001" >> /dev/null 2>&1
 
 statusupdate complete
 
