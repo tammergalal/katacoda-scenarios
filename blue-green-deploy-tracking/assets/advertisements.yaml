@@ -67,7 +67,7 @@ spec:
           - name: DD_PROFILING_ENABLED
             value: "true"
         ports:
-        - containerPort: 5002
+        - containerPort: 5001
         resources: {}
 ---
 apiVersion: v1
@@ -79,7 +79,7 @@ metadata:
   name: advertisements
 spec:
   ports:
-  - port: 5002
+  - port: 5001
     protocol: TCP
     targetPort: 5002
   selector:
