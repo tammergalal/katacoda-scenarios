@@ -6,7 +6,7 @@ metadata:
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
     tags.datadoghq.com/service: "advertisements"
-    tags.datadoghq.com/version: "2"
+    tags.datadoghq.com/version: "2.0"
   name: advertisementsv2 
 spec:
   replicas: 1
@@ -23,7 +23,7 @@ spec:
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
         tags.datadoghq.com/service: "advertisements"
-        tags.datadoghq.com/version: "2"
+        tags.datadoghq.com/version: "2.0"
     spec:
       containers:
       - image: ddtraining/advertisements-service:latest
