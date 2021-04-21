@@ -14,4 +14,6 @@ Next run `kubectl apply -f k8s-yaml-files/frontend2.yaml -f k8s-yaml-files/adver
 
 Use `kubectl get all`{{execute}} to ensure all deployments and pods are running correctly.
 
+`k8s-yaml-files/gor1 --input-file-loop --input-file "k8s-yaml-files/requests_1.gor|300%" --output-http "http://localhost:3000" >> /dev/null 2>&1`{{execute}}
+
 Next, run `k8s-yaml-files/gor1 --input-file-loop --input-file "/k8s-yaml-files/requests_2.gor|300%" --output-http "http://localhost:3001" >> /dev/null 2>&1`{{execute}} to simulate some traffic to the Storedog V1.1 application.
