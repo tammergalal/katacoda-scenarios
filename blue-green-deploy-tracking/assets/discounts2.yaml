@@ -28,6 +28,8 @@ spec:
       containers:
         - image: 'ddtraining/discounts:latest'
           name: discountsv2
+          ports:
+          - containerPort: 5001
           volumeMounts:
             - mountPath: /app/discounts.py
               name: broken-discounts
@@ -78,8 +80,7 @@ spec:
         - name: broken-discounts
           hostPath:
             path: /root/discounts.py
-      ports:
-        - containerPort: 5001
+
 ---
 apiVersion: v1
 kind: Service
