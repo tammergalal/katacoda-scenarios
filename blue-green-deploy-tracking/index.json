@@ -47,14 +47,6 @@
         "target": "/root/k8s-yaml-files"
       },
       {
-        "file": "advertisements2.yaml",
-        "target": "/root/k8s-yaml-files"
-      },
-      {
-        "file": "frontend2.yaml",
-        "target": "/root/k8s-yaml-files"
-      },
-      {
         "file": "discounts2.yaml",
         "target": "/root/k8s-yaml-files"
       }
@@ -75,10 +67,6 @@
     {
       "name": "StoredogV1",
       "port": 30001
-    },
-    {
-      "name": "Storedog V2",
-      "port": 30002
     }
   ]
 },
