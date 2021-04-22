@@ -67,17 +67,16 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.labels['tags.datadoghq.com/version']
-          ports:
-          - containerPort: 5001
-          resources: {}
-      #     volumeMounts:
-      #       - mountPath: /app/discounts.py
-      #         name: broken-discounts
-
-      # volumes:
-      # - name: broken-discounts
-      #   hostPath:
-      #     path: /root/discounts.py
+        ports:
+        - containerPort: 5001
+        resources: {}
+        volumeMounts:
+        - mountPath: /app/discounts.py
+          name: broken-discounts
+      volumes:
+      - name: broken-discounts
+        hostPath:
+          path: /root/discounts.py
 
 
 ---
