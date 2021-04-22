@@ -54,5 +54,5 @@ def status():
         return jsonify([b.serialize() for b in discounts])
     else:
         err = jsonify({'error': 'Invalid request method'})
-        err.status_code = 405
+        err.status_code = 500
         return err
