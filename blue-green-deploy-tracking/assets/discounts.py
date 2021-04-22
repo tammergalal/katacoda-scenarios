@@ -1,6 +1,6 @@
-imprt requests
-imprt random
-imprt time
+import requests
+import random
+import time
 
 from random_word import RandomWords
 
@@ -26,7 +26,7 @@ def status():
     if flask_request.method == 'GET':
         # the below calls create an n+1, unless
         # Discount.query.options(joinedload('*')).all()
-        discounts = Discount.query.all()
+        discounts = Discont.query.all()
         app.logger.info(f"Discounts available: {len(discounts)}")
 
         # adding a half sleep to test something
