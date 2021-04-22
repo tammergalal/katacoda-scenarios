@@ -4,9 +4,9 @@ metadata:
   labels:
     app: ecommerce
     service: discounts
-    tags.datadoghq.com/env: ruby-shop
-    tags.datadoghq.com/service: discounts
-    tags.datadoghq.com/version: '2.0'
+    tags.datadoghq.com/env: "ruby-shop"
+    tags.datadoghq.com/service: "discounts"
+    tags.datadoghq.com/version: "2.0"
   name: discountsv2
 spec:
   replicas: 1
@@ -21,12 +21,12 @@ spec:
       labels:
         service: discounts
         app: ecommerce
-        tags.datadoghq.com/env: ruby-shop
-        tags.datadoghq.com/service: discounts
-        tags.datadoghq.com/version: '2.0'
+        tags.datadoghq.com/env: "ruby-shop"
+        tags.datadoghq.com/service: "discounts"
+        tags.datadoghq.com/version: "2.0"
     spec:
       containers:
-        - image: 'ddtraining/discounts:latest'
+        - image: "ddtraining/discounts:latest"
           name: discountsv2
           ports:
           - containerPort: 5001
@@ -38,13 +38,13 @@ spec:
           args:
             - flask
             - run
-            - '--port=5001'
-            - '--host=0.0.0.0'
+            - "--port=5001"
+            - "--host=0.0.0.0"
           env:
             - name: FLASK_APP
               value: discounts.py
             - name: FLASK_DEBUG
-              value: '1'
+              value: "1"
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -59,23 +59,23 @@ spec:
                 fieldRef:
                   fieldPath: status.hostIP
             - name: DD_LOGS_INJECTION
-              value: 'true'
+              value: "true"
             - name: DD_ANALYTICS_ENABLED
-              value: 'true'
+              value: "true"
             - name: DD_PROFILING_ENABLED
-              value: 'true'
+              value: "true"
             - name: DD_ENV
               valueFrom:
                 fieldRef:
-                  fieldPath: 'metadata.labels[''tags.datadoghq.com/env'']'
+                  fieldPath: "metadata.labels[""tags.datadoghq.com/env""]"
             - name: DD_SERVICE
               valueFrom:
                 fieldRef:
-                  fieldPath: 'metadata.labels[''tags.datadoghq.com/service'']'
+                  fieldPath: "metadata.labels[""tags.datadoghq.com/service""]"
             - name: DD_VERSION
               valueFrom:
                 fieldRef:
-                  fieldPath: 'metadata.labels[''tags.datadoghq.com/version'']'
+                  fieldPath: "metadata.labels[""tags.datadoghq.com/version""]"
       volumes:
         - name: broken-discounts
           hostPath:
