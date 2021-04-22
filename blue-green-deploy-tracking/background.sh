@@ -32,8 +32,6 @@ kubectl apply -f k8s-yaml-files/advertisements.yaml
 kubectl apply -f k8s-yaml-files/discounts.yaml
 kubectl apply -f k8s-yaml-files/frontend.yaml
 
-
-
 # wait-for-it --timeout=300 localhost:3000
 
 statusupdate complete
