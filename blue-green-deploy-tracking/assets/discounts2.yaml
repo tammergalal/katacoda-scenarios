@@ -77,8 +77,6 @@ spec:
       - name: broken-discounts
         hostPath:
           path: /root/discounts.py
-
-
 ---
 apiVersion: v1
 kind: Service

@@ -26,7 +26,7 @@ def status():
     if flask_request.method == 'GET':
         # the below calls create an n+1, unless
         # Discount.query.options(joinedload('*')).all()
-        discounts = Discont.query.all()
+        
         app.logger.info(f"Discounts available: {len(discounts)}")
 
         # adding a half sleep to test something
@@ -40,7 +40,7 @@ def status():
         return jsonify([b.serialize() for b in discounts])
     elif flask_request.method == 'POST':
         # create a new discount with random name and value
-        discounts_count = len(Discount.query.all())
+
         new_discount = Discount('Discount ' + str(discounts_count + 1), 
                                 r.get_random_word(),
                                 random.randint(10,500))
