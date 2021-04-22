@@ -57,10 +57,6 @@
       {
         "file": "discounts2.yaml",
         "target": "/root/k8s-yaml-files"
-      },
-      {
-        "file": "db2.yaml",
-        "target": "/root/k8s-yaml-files"
       }
     ]
   }
