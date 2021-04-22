@@ -32,11 +32,6 @@ kubectl apply -f k8s-yaml-files/advertisements.yaml
 kubectl apply -f k8s-yaml-files/discounts.yaml
 kubectl apply -f k8s-yaml-files/frontend.yaml
 
-# wait-for-it --timeout=300 localhost:30001
-statusupdate complete
-
 ./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor" --output-http "http://localhost:30001" >> /dev/null 2>&1
-
-
 
 # echo "complete">>/root/status.txt
