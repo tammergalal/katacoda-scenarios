@@ -1,4 +1,8 @@
-In the previous hands on section, you setup the agent using the daemonset manifests. We need the agent in this exercise but this time we will install it using the Helm chart. 
+Let's dive right into it. This environment has been setup running Kubernetes and already has a full deployment of an application called Storedog. Storedog is a multilanguage eCommerce application that you can interact with via the StoredogV1 tab located to your right at the top of the terminal.
+
+
+
+
 
 Give the kubernetes services time to spin up. Then:
 
@@ -11,3 +15,5 @@ Give the kubernetes services time to spin up. Then:
 Next run `kubectl apply -f k8s-yaml-files/discounts2.yaml`{{execute}} to create our second deployment.
 
 Use `kubectl get all`{{execute}} to ensure all deployments and pods are running correctly.
+
+
