@@ -6,7 +6,7 @@ In the previous hands on section, you setup the agent using the daemonset manife
 
 1. You should see some Kubernetes metrics show up on the Metrics Summary. 
 
-1. Lets simulate some traffic to our storedog application using `ecommerce-workshop/gor --input-file-loop --input-file "traffic-replay/requests_0.gor" --output-http "http://localhost:30001"`{{execute}}
+1. Lets simulate some traffic to our storedog application using `./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor" --output-http "http://localhost:30001"`{{execute}}
 
 Next run `kubectl apply -f k8s-yaml-files/discounts2.yaml`{{execute}} to create our second deployment.
 
