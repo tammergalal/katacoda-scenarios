@@ -51,7 +51,11 @@
         "target": "/root/k8s-yaml-files"
       },
       {
-        "file": "discounts.py",
+        "file": "discounts_1_1.py",
+        "target": "/root"
+      },
+      {
+        "file": "discounts_1_2.py",
         "target": "/root"
       }
     ]
