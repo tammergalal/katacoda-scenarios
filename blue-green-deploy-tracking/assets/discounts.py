@@ -40,7 +40,7 @@ def status():
         return jsonify([b.serialize() for b in discounts])
     elif flask_request.method == 'POST':
         # create a new discount with random name and value
-
+        
         new_discount = Discount('Discount ' + str(discounts_count + 1), 
                                 r.get_random_word(),
                                 random.randint(10,500))
@@ -54,5 +54,5 @@ def status():
         return jsonify([b.serialize() for b in discounts])
     else:
         err = jsonify({'error': 'Invalid request method'})
-        err.status_code = 500
+        err.status_code = 405
         return err
