@@ -57,6 +57,10 @@
       {
         "file": "discounts_1_2.py",
         "target": "/root"
+      },
+      {
+        "file": "discounts.py",
+        "target": "/root"
       }
     ]
   }
