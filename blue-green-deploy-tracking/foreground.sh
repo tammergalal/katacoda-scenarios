@@ -4,5 +4,7 @@ while [ ! `kubectl get nodes 2>/dev/null | wc -l ` -eq 2 ]; do
 done
 
 kubectl completion bash >/etc/bash_completion.d/kubectl
+
 clear
+
 prepenvironment
