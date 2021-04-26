@@ -25,7 +25,8 @@ cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/discounts.yaml /roo
 cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/frontend.yaml /root/k8s-yaml-files
 cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/db.yaml /root/k8s-yaml-files
 
-sudo sed -ie '/^tags.datadoghq.com/env:/a tags.datadoghq.com/service: '\''advertisements'\''\ntags.datadoghq.com/version: '\''1.1'\'' ' /root/k8s-yaml-files/advertisements.yaml
+sudo sed -ie '8i  \ \ \ \ tags.datadoghq.com/service: '\''advertisements'\''\n \ \ \ tags.datadoghq.com/version: '\''1.1'\''' /root/k8s-yaml-files/advertisements.yaml
+sudo sed -ie '49i \ \ \ \ \ \ \ \ \ - name: DD_SERVICE\n  \ \ \ \ \ \ \ \ \ valueFrom:\n \ \ \ \ \ \ \ \ \ \ \ \ fieldRef:\n \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldPath: metadata.labels['\''tags.datadoghq.com/service'\'']\n \ \ \ \ \ \ \ \ - name: DD_VERSION\n  \ \ \ \ \ \ \ \ \ valueFrom:\n \ \ \ \ \ \ \ \ \ \ \ \ fieldRef:\n \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldPath: metadata.labels['\''tags.datadoghq.com/version'\'']' /root/k8s-yaml-files/advertisements.yaml
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 
