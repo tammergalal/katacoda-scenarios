@@ -16,10 +16,6 @@ while [ "$( kubectl get nodes --no-headers 2>/dev/null | wc -l )" != "2" ]; do
   sleep 1
 done
 
-while [ "$( kubectl get nodes --no-headers 2>/dev/null| awk '{print $2}'|xargs )" !=  "Ready Ready" ]; do
-  sleep 1
-done
-
 git clone https://github.com/DataDog/ecommerce-workshop.git 
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
@@ -31,6 +27,6 @@ kubectl apply -f k8s-yaml-files/frontend.yaml
 
 statusupdate complete
 
-./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
+./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor|500%" --output-http "http://localhost:30001" >> /dev/null 2>&1
 
 # echo "complete">>/root/status.txt
