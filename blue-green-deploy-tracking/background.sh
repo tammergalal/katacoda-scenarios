@@ -22,7 +22,7 @@ git clone https://github.com/DataDog/ecommerce-workshop.git
 
 cp -R /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app /root/k8s-yaml-files
 
-sudo sed -ie '/^tags.datadoghq.com/env:/a tags.datadoghq.com/service: '\''advertisements'\''\ntags.datadoghq.com/version: "1.1" ' /root/k8s-yaml-files/advertisements.yaml
+sudo sed -ie '/^tags.datadoghq.com/env:/a tags.datadoghq.com/service: '\''advertisements'\''\ntags.datadoghq.com/version: '\''1.1'\'' ' /root/k8s-yaml-files/advertisements.yaml
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 
