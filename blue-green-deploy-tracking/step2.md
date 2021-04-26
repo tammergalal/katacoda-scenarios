@@ -14,7 +14,7 @@ Our engineering team has sent down a new `discounts.py` file for us, with the pr
 
 1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/discounts2.yaml`{{open}}
 
-1. On lines 9 and 26 we need to update the version from `1.0` to `1.1`. Let's also name our new deploymnent/service update to `discounts11` on lines 10 and 86.
+1. On lines 9 and 26 we need to update the version from `1.0` to `1.1`. Let's also name our new deploymnent/service update to `discounts11` on lines 10 and 86 to denote this as an updated minor version deployment and service .
 
 1. With our new `discounts.py` file we can now deploy version `1.1` of the `discounts` service by running the command: `kubectl apply -f k8s-yaml-files/discounts2.yaml`{{execute}}.
 
