@@ -20,7 +20,10 @@ mkdir k8s-yaml-files
 
 git clone https://github.com/DataDog/ecommerce-workshop.git 
 
-cp -R /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app /root/k8s-yaml-files
+cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/advertisements.yaml /root/k8s-yaml-files
+cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/discounts.yaml /root/k8s-yaml-files
+cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/frontend.yaml /root/k8s-yaml-files
+cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/db.yaml /root/k8s-yaml-files
 
 sudo sed -ie '/^tags.datadoghq.com/env:/a tags.datadoghq.com/service: '\''advertisements'\''\ntags.datadoghq.com/version: '\''1.1'\'' ' /root/k8s-yaml-files/advertisements.yaml
 
