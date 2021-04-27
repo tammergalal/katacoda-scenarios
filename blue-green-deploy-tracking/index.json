@@ -1,50 +1,44 @@
 {
-  "title": "Using Datadog Deployment Tracking to monitor Blue/Green Deployments",
-  "time": "25 minutes",
-  "difficulty": "Intermediate",
-  "details": {
-  "intro": {
-    "courseData": "background.sh",
-    "code": "foreground.sh",
-    "text": "intro.md"
+  "title":"Using Datadog Deployment Tracking to monitor Blue/Green Deployments",
+  "time":"25 minutes",
+  "difficulty":"Intermediate",
+  "details":{
+    "intro":{
+      "courseData":"background.sh",
+      "code":"foreground.sh",
+      "text":"intro.md"
+    },
+    "steps":[
+      {
+        "text":"step1.md",
+        "title":"Setup and Agent Helm Installation"
+      },
+      {
+        "text":"step2.md",
+        "title":"Deploying a new Minor Version"
+      },
+      {
+        "text":"step3.md",
+        "title":"Fix Broken Deployment"
+      }
+    ],
+    "finish":{
+      "text":"finish.md"
+    }
   },
-  "steps": [
-    {
-      "text": "step1.md",
-      "title": "Setup and Agent Helm Installation"
-    },
-    {
-      "text": "step2.md",
-      "title": "Deploying a new Minor Version"
-    },
-    {
-       "text": "step3.md",
-      "title": "Fix Broken Deployment"
+  "environment":{
+    "uilayout":"terminal",
+    "showide":true,
+    "ide":"ssh host01 '/opt/start-vscode.sh /root' ",
+    "idePort":23000,
+    "showdashboard":true,
+    "dashboards":{
+      "name":"StoredogV1",
+      "port":30001
     }
-  ],
-  "finish": {
-    "text": "finish.md"
+  },
+  "backend":{
+    "imageid":"kubernetes-cluster-running:1.18",
+    "reuseConnection":"false"
   }
-},
-"environment": {
-  "uilayout": "terminal",
-  "showide": true,
-  "ide": "ssh host01 '/opt/start-vscode.sh /root' ",
-  "idePort": 23000,
-  "showdashboard": true,
-  "dashboards": [
-    {
-      "name": "Datadog",
-      "href": "https://app.datadoghq.com"
-    },
-    {
-      "name": "StoredogV1",
-      "port": 30001
-    }
-  ]
-},
-"backend": {
-  "imageid": "kubernetes-cluster-running:1.18",
-  "reuseConnection": "false"
-}
 }
