@@ -1,45 +1,89 @@
 {
-  "title": "Monitor Blue/Green Deplyoments with Datadog Deployment Tracking",
-  "time": "25 minutes",
-  "difficulty": "Intermediate",
-  "details": {
-    "intro": {
-      "courseData": "background.sh",
-      "code": "foreground.sh",
-      "text": "intro.md"
+  "title":"Using Datadog Deployment Tracking to monitor Canary Deployments",
+  "time":"25 minutes",
+  "difficulty":"Intermediate",
+  "details":{
+    "intro":{
+      "courseData":"background.sh",
+      "code":"foreground.sh",
+      "text":"intro.md"
     },
-    "steps": [
+    "steps":[
       {
-        "text": "step1.md",
-        "title": "Installation"
+        "text":"step1.md",
+        "title":"Installation"
       },
       {
-        "text": "step2.md",
-        "title": "Modifying the values.yaml file"
+        "text":"step2.md",
+        "title":"Modifying the values.yaml file"
       },
       {
-        "text": "step3.md"
+        "text":"step3.md"
       }
     ],
-    "finish": {
-      "text": "finish.md"
+    "finish":{
+      "text":"finish.md"
+    },
+    "assets":{
+      "host01":[
+        {
+          "file":"values.yaml",
+          "target":"/root/k8s-yaml-files"
+        },
+        {
+          "file":"advertisements.yaml",
+          "target":"/root/k8s-yaml-files"
+        },
+        {
+          "file":"frontend.yaml",
+          "target":"/root/k8s-yaml-files"
+        },
+        {
+          "file":"discounts.yaml",
+          "target":"/root/k8s-yaml-files"
+        },
+        {
+          "file":"db.yaml",
+          "target":"/root/k8s-yaml-files"
+        },
+        {
+          "file":"discounts2.yaml",
+          "target":"/root/k8s-yaml-files"
+        },
+        {
+          "file":"discounts_1_1.py",
+          "target":"/root"
+        },
+        {
+          "file":"discounts_1_2.py",
+          "target":"/root"
+        },
+        {
+          "file":"discounts.py",
+          "target":"/root"
+        }
+      ]
     }
   },
-  "environment": {
-    "uilayout": "terminal",
-    "showide": true,
-    "ide": "ssh host01 '/opt/start-vscode.sh /root/k8s-yaml-files' ",
-    "idePort": 23000,
-    "showdashboard": true,
-    "dashboards": [
+  "environment":{
+    "uilayout":"terminal",
+    "showide":true,
+    "ide":"ssh host01 '/opt/start-vscode.sh /root/k8s-yaml-files' ",
+    "idePort":23000,
+    "showdashboard":true,
+    "dashboards":[
       {
-        "name": "StoredogV1",
-        "port": 30001
+        "name":"Datadog",
+        "href":"https://app.datadoghq.com"
+      },
+      {
+        "name":"StoredogV1",
+        "port":30001
       }
     ]
   },
-  "backend": {
-    "imageid": "datadog-kubernetes-cluster-running:1.18",
-    "reuseConnection": "false"
+  "backend":{
+    "imageid":"kubernetes-cluster-running:1.18",
+    "reuseConnection":"false"
   }
 }
