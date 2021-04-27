@@ -18,9 +18,10 @@ Our engineering team has sent down a new `discounts.py` file for us, with the pr
 
 1. With our new `discounts.py` file we can now deploy version `1.1` of the `discounts` service by running the command: `kubectl apply -f k8s-yaml-files/discounts_1_1.yaml`{{execute}}.
 
-1. Next, let's be sure our new deployment and service are running using `kubectl get all`{{execute}}
+1. Next, let's be sure our new deployment and service are running using `kubectl get all`{{execute}}. It may take anywhere from thirty seconds to one minute for the new deployment/service to show as 'running'
 
-Great! Version 1.1 of our `discounts` service has been renamed and is applied in our manifest as the new file to use. With the service running, lets go back over to the <a href=https://app.datadoghq.com/apm/service/discounts>APM > Services > discounts</a> and we should be able to observe a `1.0` and `1.1` Deployment Version. 
+Great! Version 1.1 of our `discounts` service has been deployed. With the service running, lets go back over to the <a href=https://app.datadoghq.com/apm/service/discounts>APM > Services > discounts</a> and we should be able to observe a `1.0` and `1.1` Deployment Version. 
 
 **Note**: If you do not see a version `1.1` deployment, just wait a few moments. It may take a minute or so to have new traffic hit the `1.1` service
 
+But wait.....something seems off here......

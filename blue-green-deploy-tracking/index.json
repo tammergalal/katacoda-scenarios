@@ -71,16 +71,10 @@
     "ide":"ssh host01 '/opt/start-vscode.sh /root/k8s-yaml-files' ",
     "idePort":23000,
     "showdashboard":true,
-    "dashboards":[
-      {
-        "name":"Datadog",
-        "href":"https://app.datadoghq.com"
-      },
-      {
-        "name":"StoredogV1",
-        "port":30001
-      }
-    ]
+    "dashboards":{
+      "name":"StoredogV1",
+      "port":30001
+    }
   },
   "backend":{
     "imageid":"kubernetes-cluster-running:1.18",
