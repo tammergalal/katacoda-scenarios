@@ -22,6 +22,7 @@ git clone https://github.com/DataDog/ecommerce-workshop.git
 
 cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/advertisements.yaml /root/k8s-yaml-files
 cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/discounts.yaml /root/k8s-yaml-files
+cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/discounts.yaml /root/k8s-yaml-files/discounts2.yaml
 cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/frontend.yaml /root/k8s-yaml-files
 cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/db.yaml /root/k8s-yaml-files
 cp /root/ecommerce-workshop/discounts-service-fixed/discounts.py /root/discounts_1_1.py
