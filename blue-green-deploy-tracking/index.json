@@ -11,14 +11,15 @@
   "steps": [
     {
       "text": "step1.md",
-      "title": "Installation"
+      "title": "Setup and Agent Helm Installation"
     },
     {
       "text": "step2.md",
-      "title": "Modifying the values.yaml file"
+      "title": "Deploying a new Minor Version"
     },
     {
-      "text": "step3.md"
+       "text": "step3.md",
+      "title": "Fix Broken Deployment"
     }
   ],
   "finish": {
