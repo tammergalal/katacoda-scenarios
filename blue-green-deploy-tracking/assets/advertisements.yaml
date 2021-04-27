@@ -5,8 +5,6 @@ metadata:
     service: advertisements
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
-    tags.datadoghq.com/service: "advertisements"
-    tags.datadoghq.com/version: "1.0"
   name: advertisements 
 spec:
   replicas: 1
