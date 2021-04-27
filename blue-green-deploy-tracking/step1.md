@@ -8,7 +8,7 @@ So, as you can see we have a fully functioning ecommerce application, Click arou
 
 **Note**: Your `$DD_API_KEY` and `$DD_APP_KEY` are being grabbed from the environment, there is no need to manually edit the variables in the above command.
 
-1. Running `kubectl get all`{{execute}} again should show you that the datadog agent, cluster agent, and kube state metrics are now running in addition to our deployment. Great!
+1. Running `kubectl get all`{{execute}} should show you that the datadog agent, cluster agent, and kube state metrics are now running in addition to our deployment. Great!
 
 **Note**: You may need to wait up to a minute or two for the agents to be fully up and running. Try running `kubectl get all` after a minute to see if everything is up and running. 
 
