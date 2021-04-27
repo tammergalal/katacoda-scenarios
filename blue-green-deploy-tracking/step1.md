@@ -10,7 +10,7 @@ So, as you can see we have a fully functioning ecommerce application, Click arou
 
 1. Running `kubectl get all`{{execute}} again should show you that the datadog agent, cluster agent, and kube state metrics are now running in addition to our deployment. Great!
 
-**Note**: You may need to wait up to a minute or two for the agents to be fully up and running. Keep running `kubectl get all` every 15 or so seconds to check if everything is up and running.
+**Note**: You may need to wait up to a minute or two for the agents to be fully up and running. Try running `kubectl get all` after a minute to see if everything is up and running. 
 
 Now that our deployment is up and running, we have used helm to install the datadog agent, and traffic is being generated and sent to our app, in the next step we can now move onto looking into some data about our deployment in Datadog. See you there!
 
