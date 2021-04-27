@@ -24,7 +24,7 @@ mkdir k8s-yaml-files
 
 git clone https://github.com/DataDog/ecommerce-workshop.git 
 
-cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/. /root./k8s-yaml-files
+cp -a /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/. /root/k8s-yaml-files
 
 cp /root/ecommerce-workshop/deploy/generic-k8s/ecommerce-app/discounts.yaml /root/k8s-yaml-files/discounts2.yaml
 
