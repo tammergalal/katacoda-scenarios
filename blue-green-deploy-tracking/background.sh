@@ -29,7 +29,7 @@ cp /root/ecommerce-workshop/discounts-service-fixed/discounts.py /root/discounts
 sudo sed -ie '29d' /root/discounts_1_1.py
 sudo sed -ie '42d' /root/discounts_1_1.py
 sudo sed -ie '8i  \ \ \ \ tags.datadoghq.com/service: '\''advertisements'\''\n \ \ \ tags.datadoghq.com/version: '\''1.1'\''' /root/k8s-yaml-files/advertisements.yaml
-sudo sed -ie '49i \ \ \ \ \ \ \ \ \ - name: DD_SERVICE\n  \ \ \ \ \ \ \ \ \ valueFrom:\n \ \ \ \ \ \ \ \ \ \ \ \ fieldRef:\n \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldPath: metadata.labels['\''tags.datadoghq.com/service'\'']\n \ \ \ \ \ \ \ \ - name: DD_VERSION\n  \ \ \ \ \ \ \ \ \ valueFrom:\n \ \ \ \ \ \ \ \ \ \ \ \ fieldRef:\n \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldPath: metadata.labels['\''tags.datadoghq.com/version'\'']' /root/k8s-yaml-files/advertisements.yaml
+sudo sed -ie '49i \ \ \ \ \ \ \ \ \ \ - name: DD_SERVICE\n  \ \ \ \ \ \ \ \ \ \ valueFrom:\n \ \ \ \ \ \ \ \ \ \ \ \ \ fieldRef:\n \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldPath: metadata.labels['\''tags.datadoghq.com/service'\'']\n \ \ \ \ \ \ \ \ \ - name: DD_VERSION\n  \ \ \ \ \ \ \ \ \ \ valueFrom:\n \ \ \ \ \ \ \ \ \ \ \ \ \ fieldRef:\n \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fieldPath: metadata.labels['\''tags.datadoghq.com/version'\'']' /root/k8s-yaml-files/advertisements.yaml
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 
