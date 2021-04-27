@@ -26,7 +26,6 @@ def status():
     if flask_request.method == 'GET':
         # the below calls create an n+1, unless
         # Discount.query.options(joinedload('*')).all()
-    
         app.logger.info(f"Discounts available: {len(discounts)}")
 
         # adding a half sleep to test something

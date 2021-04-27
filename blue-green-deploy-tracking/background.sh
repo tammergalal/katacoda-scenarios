@@ -14,6 +14,8 @@ helm repo add datadog https://helm.datadoghq.com
 
 helm repo update
 
+cp /root/k8s-yaml-files/discounts_1_1.yaml /root/k8s-yaml-files/discounts_1_2.yaml
+
 while [ "$( kubectl get nodes --no-headers 2>/dev/null | wc -l )" != "2" ]; do
   sleep 1
 done
