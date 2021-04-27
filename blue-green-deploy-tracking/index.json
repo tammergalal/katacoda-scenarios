@@ -1,5 +1,5 @@
 {
-  "title": "Installing the Datadog Agent Using the Datadog Helm Chart",
+  "title": "Monitor Blue/Green Deplyoments with Datadog Deployment Tracking",
   "time": "25 minutes",
   "difficulty": "Intermediate",
   "details": {
