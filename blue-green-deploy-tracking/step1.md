@@ -12,6 +12,6 @@ So, as you can see we have a fully functioning ecommerce application, Click arou
 
 **Note**: You may need to wait up to a minute or two for the agents to be fully up and running. Try running `kubectl get all` after a minute to see if everything is up and running. 
 
-Now that our deployment is up and running, we have used helm to install the datadog agent, and traffic is being generated and sent to our app, in the next step we can now move onto looking into some data about our deployment in Datadog. See you there!
+Now that our deployment is up and running, we have used helm to install the datadog agent, and traffic is being generated and sent to our app, in the next step we can now move onto looking into some data about our deployment in Datadog. See you there!!!!
 
 
