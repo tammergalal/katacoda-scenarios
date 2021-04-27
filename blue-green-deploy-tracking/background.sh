@@ -1,8 +1,8 @@
 #!/bin/bash
 
-mkdir k8s-yaml-files
-
 curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
+
+touch status.txt
 
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 
