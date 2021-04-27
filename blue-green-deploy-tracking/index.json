@@ -47,7 +47,7 @@
           "target":"/root/k8s-yaml-files"
         },
         {
-          "file":"discounts2.yaml",
+          "file":"discounts_1_1.yaml",
           "target":"/root/k8s-yaml-files"
         },
         {
