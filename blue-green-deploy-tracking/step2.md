@@ -8,7 +8,7 @@ Thankfully the high latency of our `discounts` service was on the radar of our s
 
 Our engineering team has sent down a new `discounts.py` file for us, with the proper minor version tag of `1.1`. Let's take this file and copy it over to our root where it will be picked up by our next deployment.
 
-1. `cp /root/discounts_1_1.py /root/discounts.py`{{execute}}
+1. Lets copy over our new `discounts.py` file `cp /root/discounts_1_1.py /root/discounts.py`{{execute}}
 
 1. Now that we have our new `discounts.py`, lets go into our second `discounts` manifest and make sure we update our version.
 
