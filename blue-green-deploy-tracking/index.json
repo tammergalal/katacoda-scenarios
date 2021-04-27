@@ -1,49 +1,45 @@
 {
-  "title": "Using Datadog Deployment Tracking to monitor Canary Deployments",
+  "title": "Installing the Datadog Agent Using the Datadog Helm Chart",
   "time": "25 minutes",
   "difficulty": "Intermediate",
   "details": {
-  "intro": {
-    "courseData": "background.sh",
-    "code": "foreground.sh",
-    "text": "intro.md"
+    "intro": {
+      "courseData": "background.sh",
+      "code": "foreground.sh",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "text": "step1.md",
+        "title": "Installation"
+      },
+      {
+        "text": "step2.md",
+        "title": "Modifying the values.yaml file"
+      },
+      {
+        "text": "step3.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
   },
-  "steps": [
-    {
-      "text": "step1.md",
-      "title": "Installation"
-    },
-    {
-      "text": "step2.md",
-      "title": "Modifying the values.yaml file"
-    },
-    {
-      "text": "step3.md"
-    }
-  ],
-  "finish": {
-    "text": "finish.md"
+  "environment": {
+    "uilayout": "terminal",
+    "showide": true,
+    "ide": "ssh host01 '/opt/start-vscode.sh /root/k8s-yaml-files' ",
+    "idePort": 23000,
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "StoredogV1",
+        "port": 30001
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "datadog-kubernetes-cluster-running:1.18",
+    "reuseConnection": "false"
   }
-},
-"environment": {
-  "uilayout": "terminal",
-  "showide": true,
-  "ide": "ssh host01 '/opt/start-vscode.sh /root/k8s-yaml-files' ",
-  "idePort": 23000,
-  "showdashboard": true,
-  "dashboards": [
-    {
-      "name": "Datadog",
-      "href": "https://app.datadoghq.com"
-    },
-    {
-      "name": "StoredogV1",
-      "port": 30001
-    }
-  ]
-},
-"backend": {
-  "imageid": "kubernetes-cluster-running:1.18",
-  "reuseConnection": "false"
-}
 }
