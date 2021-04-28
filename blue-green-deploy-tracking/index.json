@@ -47,19 +47,19 @@
           "target":"/root/k8s-yaml-files"
         },
         {
-          "file":"discounts_1_1.yaml",
+          "file":"advertisements_1_1.yaml",
           "target":"/root/k8s-yaml-files"
         },
         {
-          "file":"discounts_1_1.py",
+          "file":"ads_1_1.py",
           "target":"/root"
         },
         {
-          "file":"discounts_1_2.py",
+          "file":"ads_1_2.py",
           "target":"/root"
         },
         {
-          "file":"discounts.py",
+          "file":"ads.py",
           "target":"/root"
         }
       ]

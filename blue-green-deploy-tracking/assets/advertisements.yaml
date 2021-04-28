@@ -5,6 +5,8 @@ metadata:
     service: advertisements
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
+    tags.datadoghq.com/service: "advertisements"
+    tags.datadoghq.com/version: "1.0"
   name: advertisements 
 spec:
   replicas: 1
@@ -20,9 +22,11 @@ spec:
         service: advertisements
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
+        tags.datadoghq.com/service: "advertisements"
+        tags.datadoghq.com/version: "1.0"
     spec:
       containers:
-      - image: ddtraining/advertisements-fixed:latest
+      - image: ddtraining/advertisements:latest
         name: advertisements 
         command: ["ddtrace-run"]
         args: ["flask", "run", "--port=5002", "--host=0.0.0.0"]
