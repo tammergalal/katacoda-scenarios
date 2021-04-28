@@ -1,16 +1,10 @@
 With all the necessary tooling setup and our deployment up and running, let's take a look at our application with Datadog's APM (Application Performance Monitoring). 
 
-Head over to the <a href="https://app.datadoghq.com/apm/services"> APM > Services</a> page and you should see a list of the services that comprise Storedog. Click the `discounts` service. This will bring up a page showing many different aspects of the `discounts` service.
+Head over to the <a href="https://app.datadoghq.com/apm/services"> APM > Services</a> page and you should see a list of the services that comprise Storedog. Click the `advertisements`. This will bring up a page showing many different aspects of our `advertisements` service.
 
-The first thing that stands out is our `Latency Distribution`. The distribution and latency are very high, this would not be a desireable experience for our end user. Looking down just below the `Latency Distribution` graph you should see the `Deployments` section. Version 1.0 of our `discounts` service is running, to the far right you will see its very high P95 latency. Since we currently only have one version deployed, we cannot get any kind of deployment comparison data, so lets get our latency fixed and see if we can make an improvement over our `1.0` deployment. 
+1. Lets copy over our new `ads.py` file to our root project directory. `cp /root/ads_1_1.py /root/ads.py`{{execute}}.
 
-Thankfully the high latency of our `discounts` service was on the radar of our software engineers and they have a fix ready for us to deploy. So let's go ahead and send out a version `1.1` of our `discounts` service and get this latency fixed! We are going to do this with a very basic blue/green deployment in which only a small subset of requests are actually going to make it to our newly deployed `discounts` service.
-
-Our engineering team has sent down a new `discounts.py` file for us, with the proper minor version tag of `1.1`. Let's take this file and copy it over to our root where it will be picked up by our next deployment.
-
-1. Lets copy over our new `discounts.py` file to our root project directory. `cp /root/ads_1_1.py /root/ads.py`{{execute}}.
-
-1. Now that we have our new `discounts.py`, lets go into our second `discounts` manifest and make sure we have an updated version of `1.1`
+1. Now that we have our new `ads.py`, lets go into our second `advertisements_1_1.yaml` manifest and make sure we have an updated version of `1.1`
 
 1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}
 
