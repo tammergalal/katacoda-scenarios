@@ -20,10 +20,10 @@ def hello():
     app.logger.info("home url for ads called")
     return Response({'Hello from Advertisements!': 'world'}, mimetype='application/json')
 
-@app.route('/banners/<pathanner>')
+@app.route('/banners/<path:banner>')
 def banner_image(banner):
-    app.logger.info(f"attempting to grab banner at {banner}")
-    return send_from_directory('ads', banner)
+    err.status_code = 500
+    return err
 
 @app.route('/weighted-banners/<float:weight>')
 def weighted_image(weight):
@@ -33,42 +33,7 @@ def weighted_image(weight):
         if ad.weight < weight:
             return jsonify(ad.serialize())
 
-@app.route('/ad', methods=['GET', 'POST'])
+@app.route('/ads', methods=['GET', 'POST'])
 def status():
-    if flask_request.method == 'GET':
-
-        try:
-
-        except:
-            app.logger.error("An error occured while getting ad.")
-            err = jsonify({'error': 'Internal Server Error'})
-            err.status_code = 500
-            return err
-
-    elif flask_request.method == 'POST':
-
-        try:
-            # create a new advertisement with random name and value
-            advertisements_count = len(Advertisement.query.all())
-            new_advertisement = Advertisement('Advertisement ' + str(discounts_count + 1),
-                                    '/',
-                                    random.randint(10,500))
-            app.logger.info(f"Adding advertisement {new_advertisement}")
-            db.session.add(new_advertisement)
-            db.session.commit()
-
-            # adding a half sleep to test something
-            time.sleep(2.5)
-            return jsonify([b.serialize() for b in advertisements])
-
-        except:
-
-            app.logger.error("An error occured while creating a new ad.")
-            err = jsonify({'error': 'Internal Server Error'})
-            err.status_code = 500
-            return err
-
-    else:
-        err = jsonify({'error': 'Invalid request method'})
-        err.status_code = 405
-        return err
+    err.status_code = 500
+    return err
