@@ -2,7 +2,7 @@ Let's dive right into it. This environment has been setup running Kubernetes and
 
 Once the environment is setup and you see your newly created login credentials and are able to access the `$controlpane` in the terminal, you can check on the status of our deployment. Run `kubectl get all`{{execute}} in the terminal to the right or use the execute command by clicking the code snippet. Once you see everything up and running, go ahead and click the StoredogV1 tab at the top of your terminal to the right.
 
-So, as you can see we have a fully functioning ecommerce application, Click around the store and add some things to the cart and see what our store offers (sadly....this isn't a real store). So that we can stick to exploring the Datadog platform, we have setup artifical traffic to be sent to Storedog. Speaking of the platform....we are going to need our agents running to collect data from our application. Let's go ahead and use Helm to install the agents now.
+So, as you can see we have a fully functioning ecommerce application, Click around the store and add some things to the cart and see what our store offers (sadly....this isn't a real store). So that we can stick to exploring the Datadog platform, we have setup artifical traffic to be sent to Storedog. Speaking of the platform....we are going to need our agents running to collect data from our application. Let's go ahead and use Helm to install the agents now!
 
 1. With our deployment up and running, execute the helm install command for the datadog agent and cluster-agent: `helm install datadogagent --set datadog.apiKey=$DD_API_KEY --set datadog.appKey=$DD_APP_KEY -f k8s-yaml-files/values.yaml datadog/datadog`{{execute}}
 
