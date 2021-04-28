@@ -43,7 +43,7 @@ spec:
           - name: POSTGRES_USER
             value: "user"
           - name: DATADOG_SERVICE_NAME
-            value: "advertisements-service"
+            value: "advertisements"
           - name: DD_ENV
             valueFrom:
               fieldRef:
@@ -61,6 +61,13 @@ spec:
         ports:
         - containerPort: 5002
         resources: {}
+        volumeMounts:
+        - mountPath: /app/ads.py
+          name: broken-ads
+      volumes:
+      - name: broken-ads
+        hostPath:
+          path: /root/ads.py
 ---
 apiVersion: v1
 kind: Service
