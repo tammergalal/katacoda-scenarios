@@ -8,15 +8,15 @@ Thankfully the high latency of our `discounts` service was on the radar of our s
 
 Our engineering team has sent down a new `discounts.py` file for us, with the proper minor version tag of `1.1`. Let's take this file and copy it over to our root where it will be picked up by our next deployment.
 
-1. Lets copy over our new `discounts.py` file to our root project directory. `cp /root/discounts_1_1.py /root/discounts.py`{{execute}}.
+1. Lets copy over our new `discounts.py` file to our root project directory. `cp /root/ads_1_1.py /root/ads.py`{{execute}}.
 
 1. Now that we have our new `discounts.py`, lets go into our second `discounts` manifest and make sure we have an updated version of `1.1`
 
-1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/discounts_1_1.yaml`{{open}}
+1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}
 
 1. On lines 9 and 26 you should see a version of `1.1`. `Version` is one of three Unified Service Tags reserved by Datadog, you can read more about these tags <a href="https://docs.datadoghq.com/getting_started/tagging/unified_service_tagging/?tab=kubernetes">here</a>
 
-1. With our new `discounts.py` file we can now deploy version `1.1` of the `discounts` service by running the command: `kubectl apply -f k8s-yaml-files/discounts_1_1.yaml`{{execute}}.
+1. With our new `discounts.py` file we can now deploy version `1.1` of the `discounts` service by running the command: `kubectl apply -f k8s-yaml-files/advertisements_1_1.yaml`{{execute}}.
 
 1. Next, let's be sure our new deployment and service are running using `kubectl get all`{{execute}}. It may take anywhere from thirty seconds to one minute for the new deployment/service to show as 'running'
 
