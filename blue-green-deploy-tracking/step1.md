@@ -6,7 +6,7 @@ So, as you can see we have a fully functioning ecommerce application, Click arou
 
 1. With our deployment up and running, execute the helm install command for the datadog agent and cluster-agent: `helm install datadogagent --set datadog.apiKey=$DD_API_KEY --set datadog.appKey=$DD_APP_KEY -f k8s-yaml-files/values.yaml datadog/datadog`{{execute}}
 
-**Note**: Your `$DD_API_KEY` and `$DD_APP_KEY` are being grabbed from the environment, there is no need to manually edit the variables in the above command.
+**Note**: Your `$DD_API_KEY` and `$DD_APP_KEY` are being grabbed from the environment, there is no need to manually edit the variables in this command.
 
 1. Running `kubectl get all`{{execute}} should show you that the datadog agent, cluster agent, and kube state metrics are now running in addition to our deployment. Great!
 
