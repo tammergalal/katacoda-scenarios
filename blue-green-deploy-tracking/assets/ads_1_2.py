@@ -40,8 +40,6 @@ def status():
         try:
             advertisements = Advertisement.query.all()
             app.logger.info(f"Total advertisements available: {len(advertisements)}")
-            # adding a half sleep to test something
-            time.sleep(2.5)
             return jsonify([b.serialize() for b in advertisements])
 
         except:
@@ -63,8 +61,6 @@ def status():
             db.session.commit()
             advertisements = Advertisement.query.all()
 
-            # adding a half sleep to test something
-            time.sleep(2.5)
             return jsonify([b.serialize() for b in advertisements])
 
         except:
