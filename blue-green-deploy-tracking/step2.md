@@ -6,7 +6,7 @@ Wow, looking at the latency for this service shows a staggering 1-3 second respo
 
 1. Lets copy over our new `ads.py` file to our root project directory. `cp /root/ads_1_1.py /root/ads.py`{{execute}}.
 
-1. Now that we have our new `ads.py`, lets go into our second `advertisements_1_1.yaml` manifest and make sure we have an updated version of `1.1`
+1. Now that we have our new `ads.py`, we can use the new manifest provided by our team of engineers. In the `advertisements_1_1.yaml` manifest, let's make sure we have updated the version tag to `1.1`
 
 1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}
 
