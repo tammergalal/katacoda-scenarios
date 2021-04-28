@@ -16,7 +16,7 @@ Wow, looking at the latency for this service shows a staggering 1-3 second respo
 
 1. Next, let's be sure our new deployment and service are running using `kubectl get all`{{execute}}. It may take anywhere from thirty seconds to one minute for the new deployment/service to show as 'running'
 
-Great! Version 1.1 of our `advertisements` service has been deployed. With the service running, lets go back over to the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisementes</a> and we should be able to observe a `1.0` and `1.1` Deployment Version.
+Great! Version 1.1 of our `advertisements` service has been deployed. With the service running, lets go back over to the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> and we should be able to observe a `1.0` and `1.1` Deployment Version.
 
 This is a Canary deployment in which only a subset of our users will ingest the updated `1.1` service, while the rest of the traffic would continue to ingest the original `1.0` service. Using a Canary deployment gives us some time to evaluate the health of this new deployment, and if things go wrong we can quickly take revert the deployment, and if things go well we can shift all of our traffic to our Canary.
 
