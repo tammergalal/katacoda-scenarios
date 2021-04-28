@@ -69,13 +69,6 @@ spec:
         ports:
         - containerPort: 5002
         resources: {}
-        volumeMounts:
-        - mountPath: /app/ads.py
-          name: ads
-      volumes:
-      - name: ads
-        hostPath:
-          path: /root/ads.py
 ---
 apiVersion: v1
 kind: Service
