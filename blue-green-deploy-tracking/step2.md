@@ -12,11 +12,11 @@ Wow, looking at the latency for this service shows a staggering 1-3 second respo
 
 1. On lines 9 and 26 you should see a version of `1.1`. `Version` is one of three Unified Service Tags reserved by Datadog, you can read more about these tags <a href="https://docs.datadoghq.com/getting_started/tagging/unified_service_tagging/?tab=kubernetes">here</a>
 
-1. With our new `discounts.py` file we can now deploy version `1.1` of the `discounts` service by running the command: `kubectl apply -f k8s-yaml-files/advertisements_1_1.yaml`{{execute}}. You should see a new Deployment and Service were created in the terminal output.
+1. With our new `ads.py` file we can now deploy version `1.1` of the `advertisements` service by running the command: `kubectl apply -f k8s-yaml-files/advertisements_1_1.yaml`{{execute}}. You should see a new Deployment and Service were created in the terminal output.
 
 1. Next, let's be sure our new deployment and service are running using `kubectl get all`{{execute}}. It may take anywhere from thirty seconds to one minute for the new deployment/service to show as 'running'
 
-Great! Version 1.1 of our `discounts` service has been deployed. With the service running, lets go back over to the <a href=https://app.datadoghq.com/apm/service/discounts>APM > Services > discounts</a> and we should be able to observe a `1.0` and `1.1` Deployment Version.
+Great! Version 1.1 of our `advertisements` service has been deployed. With the service running, lets go back over to the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisementes</a> and we should be able to observe a `1.0` and `1.1` Deployment Version.
 
 This is a Canary deployment in which only a subset of our users will ingest the updated `1.1` service, while the rest of the traffic would continue to ingest the original `1.0` service. Using a Canary deployment gives us some time to evaluate the health of this new deployment, and if things go wrong we can quickly take revert the deployment, and if things go well we can shift all of our traffic to our Canary.
 

@@ -38,30 +38,30 @@ def status():
     if flask_request.method == 'GET':
 
         try:
-            advertisements = Advertisement.query.all()
-            app.logger.info(f"Total advertisements available: {len(advertisements)}")
+    
+            app.logger.info(f"Total advertisements available: {len(advertsements)}")
             # adding a half sleep to test something
             time.sleep(2.5)
             return jsonify([b.serialize() for b in advertisements])
 
         except:
             app.logger.error("An error occured while getting ad.")
-            err = jsonify({'error': 'Internal Server Error'})
+            err = jsnify({'error': 'Internal Server Error'})
             err.status_code = 500
             return err
 
-    elif flask_request.method == 'POST':
+    elif flask_reqest.method == 'POST':
 
         try:
             # create a new advertisement with random name and value
-            advertisements_count = len(Advertisement.query.all())
+            
             new_advertisement = Advertisement('Advertisement ' + str(discounts_count + 1),
                                     '/',
                                     random.randint(10,500))
             app.logger.info(f"Adding advertisement {new_advertisement}")
             db.session.add(new_advertisement)
             db.session.commit()
-            advertisements = Advertisement.query.all()
+  
 
             # adding a half sleep to test something
             time.sleep(2.5)
