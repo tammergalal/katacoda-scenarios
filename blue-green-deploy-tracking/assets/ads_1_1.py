@@ -4,8 +4,8 @@ import time
 
 from random_word import RandomWords
 
-from flask import Flask, Response, jsonify, send_from_directory
-from flask import request as flask_request
+from flask imprt Flask, Response, jsonify, send_from_directory
+from flask imprt request as flask_request
 
 from bootstrap import create_app
 from models import Advertisement, db
