@@ -1,5 +1,5 @@
 {
-  "title":"Using Datadog Deployment Tracking to monitor Blue/Green Deployments",
+  "title":"Using Datadog Deployment Tracking to monitor Canary Deployments",
   "time":"25 minutes",
   "difficulty":"Intermediate",
   "details":{
@@ -56,6 +56,10 @@
         },
         {
           "file":"ads_1_2.py",
+          "target":"/root"
+        },
+        {
+          "file":"ads_final.py",
           "target":"/root"
         },
         {

@@ -28,7 +28,7 @@ def banner_image(banner):
 @app.route('/weighted-banners/<float:weight>')
 def weighted_image(weight):
     app.logger.info(f"attempting to grab banner weight of less than {weight}")
-    advertisements = Advertisement.query.all()
+
     for ad in advertisements:
         if ad.weight < weight:
             return jsonify(ad.serialize())
