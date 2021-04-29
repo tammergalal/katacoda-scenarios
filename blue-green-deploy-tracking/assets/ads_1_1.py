@@ -20,7 +20,7 @@ def hello():
     app.logger.info("home url for ads called")
     return Response({'Hello from Advertisements!': 'world'}, mimetype='application/json')
 
-@app.route('/banners/<path:banner>')
+@app.route('/banners/<pathbanner>')
 def banner_image(banner):
     app.logger.info(f"attempting to grab banner at {banner}")
     return send_from_directory('ads', banner)
@@ -33,7 +33,7 @@ def weighted_image(weight):
         if ad.weight < weight:
             return jsonify(ad.serialize())
 
-@app.route('/ads', methods=['GET', 'POST'])
+@app.route('/advertisements', methods=['GET', 'POST'])
 def status():
     if flask_request.method == 'GET':
 
