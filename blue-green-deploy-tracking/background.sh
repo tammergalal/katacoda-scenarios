@@ -18,12 +18,14 @@ done
 
 git clone https://github.com/DataDog/ecommerce-workshop.git 
 
+docker build -t advertisements:1.0 /root/ads-service
+
 cp -R /root/ecommerce-workshop/ads-service /root/ads-service
 cp /root/ads_1_1.py /root/ads-service/ads.py
-docker build -t ddtraining/advertisements:1.1 /root/ads-service
+docker build -t advertisements:1.1 /root/ads-service
 
 cp /root/ads_1_2.py /root/ads-service/ads.py
-docker build -t ddtraining/advertisements-fixed:1.2 /root/ads-service-fixed
+docker build -t advertisements-fixed:1.2 /root/ads-service
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 

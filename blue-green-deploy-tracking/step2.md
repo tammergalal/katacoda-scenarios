@@ -4,9 +4,9 @@ Head over to the <a href="https://app.datadoghq.com/apm/services"> APM > Service
 
 Wow, looking at the latency for this service shows a staggering 1-3 second response time. For our customers that is an unacceptable lag. Looking down just below the `Latency Distribution` graph you should see the `Deployments` section. Version 1.0 of our `advertisements` service is running, to the far right you will see its very high P95 latency. Since we currently only have one version deployed, we cannot get any kind of deployment comparison data, so lets get our latency fixed and see if we can make an improvement over our `1.0` deployment. 
 
-1. Lets copy over our new `ads.py` file to our root project directory. `cp /root/ads_1_1.py /root/app/ads.py`{{execute}}.
+Our engineers have gone ahead and built a new advertisements image for us, which should hopefully fix our latency issues. They aptly named the image `advertisements:1.1` as we are just moving up a minor version here, no big feature releases involved in this deployment.
 
-1. Now that we have our new `ads.py`, we can use the new manifest provided by our team of engineers. In the `advertisements_1_1.yaml` manifest, let's make sure we have updated the version tag to `1.1` and a name to help dileate it from the previous version. The updated names can be found on lines 10 and 86.
+Now that we have our new image, we can use the new manifest provided by our team of engineers. Open the `advertisements_1_1.yaml` manifest provided to you in the IDE tab on the right. `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}let's make sure we have updated the version tag to `1.1` and a name to help dileate it from the previous version. The updated names can be found on lines 10 and 86.
 
 1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}
 
