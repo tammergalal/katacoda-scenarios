@@ -30,6 +30,6 @@ kubectl apply -f k8s-yaml-files/frontend.yaml
 
 statusupdate complete
 
-./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor|500%" --output-http "http://localhost:30001" >> /dev/null 2>&1
+./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor|400%" --output-http "http://localhost:30001" >> /dev/null 2>&1
 
 # echo "complete">>/root/status.txt
