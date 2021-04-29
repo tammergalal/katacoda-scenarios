@@ -70,9 +70,8 @@ spec:
         - containerPort: 5002
         resources: {}
         volumeMounts:
-        - mountPath: /app/ads.py
+        - mountPath: /app
           name: broken-ads
-          subPath: ads.py
       volumes:
       - name: broken-ads
         hostPath:
