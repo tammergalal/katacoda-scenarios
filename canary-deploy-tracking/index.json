@@ -35,6 +35,10 @@
           "target":"/root/k8s-yaml-files"
         },
         {
+          "file":"advertisements_1_1.yaml",
+          "target":"/root/k8s-yaml-files"
+        },
+        {
           "file":"frontend.yaml",
           "target":"/root/k8s-yaml-files"
         },
@@ -45,18 +49,6 @@
         {
           "file":"db.yaml",
           "target":"/root/k8s-yaml-files"
-        },
-        {
-          "file":"advertisements_1_1.yaml",
-          "target":"/root/k8s-yaml-files"
-        },
-        {
-          "file":"ads_1_1.py",
-          "target":"/root"
-        },
-        {
-          "file":"ads_1_2.py",
-          "target":"/root"
         }
       ]
     }
