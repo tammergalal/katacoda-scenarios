@@ -16,11 +16,12 @@ while [ "$( kubectl get nodes --no-headers 2>/dev/null | wc -l )" != "2" ]; do
   sleep 1
 done
 
-git clone https://github.com/DataDog/ecommerce-workshop.git 
+git clone https://github.com/DataDog/ecommerce-workshop.git
+
+cp -R /root/ecommerce-workshop/ads-service /root/ads-service
 
 docker build -t advertisements:1.0 /root/ads-service
 
-cp -R /root/ecommerce-workshop/ads-service /root/ads-service
 cp /root/ads_1_1.py /root/ads-service/ads.py
 docker build -t advertisements:1.1 /root/ads-service
 
