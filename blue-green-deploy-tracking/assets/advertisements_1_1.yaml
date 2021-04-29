@@ -75,7 +75,7 @@ spec:
       volumes:
       - name: broken-ads
         hostPath:
-          path: /root/ads-service
+          path: /root/app
 ---
 apiVersion: v1
 kind: Service
