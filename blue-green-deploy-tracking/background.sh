@@ -18,8 +18,7 @@ done
 
 git clone https://github.com/DataDog/ecommerce-workshop.git 
 
-cp /root/ecommerce-workshop/ads-service-fixed/ads.py /root/ads.py
-
+cp /root/ecommerce-workshop/ads-service /root/ads-service
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
 
