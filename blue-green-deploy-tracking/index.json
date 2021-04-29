@@ -57,11 +57,7 @@
         {
           "file":"ads_1_2.py",
           "target":"/root"
-        },
-        {
-          "file":"ads.py",
-          "target":"/root"
-        }
+        } 
       ]
     }
   },
