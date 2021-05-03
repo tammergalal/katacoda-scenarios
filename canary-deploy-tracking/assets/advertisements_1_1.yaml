@@ -7,9 +7,9 @@ metadata:
     tags.datadoghq.com/env: "ruby-shop"
     tags.datadoghq.com/service: "advertisements"
     # change version number
-    tags.datadoghq.com/version: "1.0"
+    tags.datadoghq.com/version: "1.1"
   # change name of deployment
-  name: advertisements
+  name: advertisementsv11
 spec:
   replicas: 1
   selector:
@@ -26,11 +26,10 @@ spec:
         tags.datadoghq.com/env: "ruby-shop"
         tags.datadoghq.com/service: "advertisements"
         # change version number
-        tags.datadoghq.com/version: "1.0"
+        tags.datadoghq.com/version: "1.1"
     spec:
       containers:
-        # update image being pulled
-      - image: ddtraining/advertisements-fixed:1.0.0
+      - image: ddtraining/advertisements-errors:1.0.0
         name: advertisements 
         imagePullPolicy: IfNotPresent
         command: ["ddtrace-run"]
@@ -82,7 +81,7 @@ metadata:
     service: advertisements
     app: ecommerce
   # change name of service
-  name: advertisements
+  name: advertisementsv11
 spec:
   ports:
   - port: 5002
