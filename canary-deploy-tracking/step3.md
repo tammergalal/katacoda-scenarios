@@ -1,3 +1,5 @@
+With our `1.0` and `1.1` versions up and running and showing in the `Deployment` pane, click on the `1.0` deployment. Deployment Tracking for Datadog APM tracks all versions deployed over the last 30 days, giving you a wide window for continuous deployment analysis. Datadog automatically provides out-of-the-box graphs that visualize RED (requests, errors, and duration) metrics across versions, making it easy to spot problems in your services and endpoints before they turn into serious issues. Speaking of issues....we are starting to see a large error percentage in our new `1.1` deployment
+
 Uh-oh! Our latency is way down, but we are seeing an increased error rate in our new `1.1` deplyoment! That is not going to fly for our end user, so lets revert this deployment quickly and send some tickets over to our engineers.
 
 First we need to take down our deployment of the `1.1` advertisements service.
@@ -28,4 +30,6 @@ to
 
 1. Finally, on lines 10 and 80 go ahead and update the name of our deployment and service to `advertisementsv12`.
 
-Great! Now we can deploy what is hopefully going to be a minor update that gives our end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements_1_2.yaml`{{execute}}.
+Great! Now we can deploy what is hopefully going to be a minor update that gives our end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements_1_2.yaml`{{execute}}. Just like earlier, we can use our `kubectl get all`{{execute}} to ensure that our new `advertisementsv12` is fully up and running. Once it is, open the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> page and wait for the `1.2` deployment to show up in the `Deployments` pane on the advertisements service page.
+
+
