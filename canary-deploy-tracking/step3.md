@@ -30,6 +30,12 @@ to
 
 1. Finally, on lines 10 and 80 go ahead and update the name of our deployment and service to `advertisementsv12`.
 
-Great! Now we can deploy what is hopefully going to be a minor update that gives our end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements_1_2.yaml`{{execute}}. Just like earlier, we can use our `kubectl get all`{{execute}} to ensure that our new `advertisementsv12` is fully up and running. Once it is, open the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> page and wait for the `1.2` deployment to show up in the `Deployments` pane on the advertisements service page.
+Great! Now we can deploy what is hopefully going to be a minor update that gives our end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements_1_2.yaml`{{execute}}. 
+
+Just like earlier, we can use `kubectl get all`{{execute}} to get the status of all of our kubernetes resources and ensure that our new `advertisementsv12` service is fully up and running. Once it is, open the <a href=https://app.datadoghq.com/apm/traces>APM > Traces</a> page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
+
+Now you can go back to <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> and within a few minutes you should see your new `1.2` deployment running alongside your `1.0`
+
+![1.0 and 1.2 Deployment]()
 
 

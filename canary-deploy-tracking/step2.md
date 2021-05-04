@@ -14,7 +14,7 @@ Let's make sure we have updated the version tag to `1.1` and given the deploymen
 
 1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}
 
-1. On lines 9 and 26 you should see a version number provided of `1.0`. We need to update this to `1.1` so that Datadog will recognize this as a new versioned deployment and give us data specific to this deployment. `Version` is one of three Unified Service Tags reserved by Datadog, you can read more about these tags <a href="https://docs.datadoghq.com/getting_started/tagging/unified_service_tagging/?tab=kubernetes">here</a>
+1. On lines 10 and 29 you should see a version number provided of `1.0`. We need to update this to `1.1` so that Datadog will recognize this as a new versioned deployment and give us data specific to this deployment. `Version` is one of three Unified Service Tags reserved by Datadog, you can read more about these tags <a href="https://docs.datadoghq.com/getting_started/tagging/unified_service_tagging/?tab=kubernetes">here</a>
 
 1. On lines 12 and 84 you should see the name of our deployment and service respectfully. Let's update both of these names to be `advertisementsv11`.
 
@@ -22,7 +22,9 @@ Let's make sure we have updated the version tag to `1.1` and given the deploymen
 
 1. Next, let's be sure our new deployment and service are running using `kubectl get all`{{execute}}. It may take anywhere from thirty seconds to one minute for the new deployment/service to show as 'running'
 
-Great! Version 1.1 of our `advertisements` service has been deployed. With the service running, lets go back over to the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> page and after a few minutes we should be able to observe a `1.0` and `1.1` Deployment Version.
+Great! Version 1.1 of our `advertisements` service has been deployed. With the service running, open the <a href=https://app.datadoghq.com/apm/traces>APM > Traces</a> page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.1`. Once traces start flowing in that means we are getting traffic to this newer deployment. Lets go back over to the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> page and after a few minutes we should be able to observe a `1.0` and `1.1` Deployment Version.
+
+**Note**: It may take a few minutes for the new Version to show up in the Deployment section of APM > Services.
 
 ![Deployment 1.0 and 1.1](./assets/)
 
