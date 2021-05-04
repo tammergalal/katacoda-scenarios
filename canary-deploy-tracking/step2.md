@@ -2,13 +2,15 @@ With all the necessary tooling setup and our deployment up and running, let's ta
 
 Let's start by waiting on our traces at <a href="https://app.datadoghq.com/apm/traces"> APM > Traces</a>. Once the traces start coming in you may need to wait about two minutes as Datadog's Autodiscovery feature picks up the traces that are coming in and populate the Services page. We can go to the <a href="https://app.datadoghq.com/apm/services"> APM > Services</a> page and you should see a list of the services that comprise Storedog once Autodiscovery has picked them up from traces. Change the timeline to `Past 15 Minutes` in the top right of the page, and now click the `advertisements` service. This will bring up a page showing many different aspects of our `advertisements` service including `Total Requests`, `Total Errors`, `Latency` and more. 
 
-Looking at the latency for this service shows a staggering 2.5 second response time, for our customers that is an unacceptable lag. Looking down just below the `Latency Distribution` graph you should see the `Deployments` section. Version 1.0 of our `advertisements` service is running, to the far right you will see its very high P95 latency. Since we currently only have one version deployed, we cannot get any kind of deployment comparison data, so lets get our latency fixed and see if we can make an improvement over our `1.0` deployment.
+Looking at the latency for this service shows a staggering 2.5 second response time, for our customers that is an unacceptable lag. Looking down just below the `Latency Distribution` graph you should see the `Deployments` section. 
 
 ![Deployment 1.0](./assets/deployment_tab.png)
 
-Our engineers have gone ahead and built a new advertisements image for us, which should hopefully fix our latency issues. They aptly named the image `advertisements:1.1` as we are just moving up a minor version here, no big feature releases involved in this deployment.
+Version 1.0 of our `advertisements` service is running, to the far right you will see its very high P95 latency. Since we currently only have one version deployed, we cannot get any kind of deployment comparison data, so lets get our latency fixed and see if we can make an improvement over our `1.0` deployment.
 
-Now that we have our new image, we can use the new manifest provided by our team of engineers. Open the `advertisements_1_1.yaml` manifest provided to you in the IDE tab on the right. `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}let's make sure we have updated the version tag to `1.1` and a name to help dileate it from the previous version. The updated names can be found on lines 10 and 86.
+
+
+Our engineers have gone ahead and built a new advertisements image for us, which should hopefully fix our latency issues. Now that we have our new image, we can use the new manifest provided by our team of engineers. Open the `advertisements_1_1.yaml` manifest provided to you in the IDE tab on the right. `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}let's make sure we have updated the version tag to `1.1` and a name to help dileate it from the previous version. The updated names can be found on lines 10 and 86.
 
 1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}
 
