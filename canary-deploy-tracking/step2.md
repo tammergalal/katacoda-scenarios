@@ -14,7 +14,7 @@ Let's make sure we have updated the version tag to `1.1` and given the deploymen
 
 1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}
 
-1. On lines 9 and 26 you should see a version of `1.0`. We need to update this to `1.1` so that Datadog will recognize this as a new versioned deployment and give us data specific to this deployment. `Version` is one of three Unified Service Tags reserved by Datadog, you can read more about these tags <a href="https://docs.datadoghq.com/getting_started/tagging/unified_service_tagging/?tab=kubernetes">here</a>
+1. On lines 9 and 26 you should see a version number provided of `1.0`. We need to update this to `1.1` so that Datadog will recognize this as a new versioned deployment and give us data specific to this deployment. `Version` is one of three Unified Service Tags reserved by Datadog, you can read more about these tags <a href="https://docs.datadoghq.com/getting_started/tagging/unified_service_tagging/?tab=kubernetes">here</a>
 
 1. On lines 12 and 84 you should see the name of our deployment and service respectfully. Let's update both of these names to be `advertisementsv11`.
 
@@ -22,11 +22,11 @@ Let's make sure we have updated the version tag to `1.1` and given the deploymen
 
 1. Next, let's be sure our new deployment and service are running using `kubectl get all`{{execute}}. It may take anywhere from thirty seconds to one minute for the new deployment/service to show as 'running'
 
-Great! Version 1.1 of our `advertisements` service has been deployed. With the service running, lets go back over to the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> and after a few minutes swe should be able to observe a `1.0` and `1.1` Deployment Version.
+Great! Version 1.1 of our `advertisements` service has been deployed. With the service running, lets go back over to the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> page and after a few minutes we should be able to observe a `1.0` and `1.1` Deployment Version.
 
 ![Deployment 1.0 and 1.1](./assets/)
 
-This is a Canary deployment in which only a subset of our users will ingest the updated `1.1` service, while the rest of the traffic would continue to ingest the original `1.0` service. Using a Canary deployment gives us some time to evaluate the health of this new deployment, and if things go wrong we can quickly revert the deployment, and if things go well we can shift all of our traffic to our Canary.
+This is a Canary deployment, in which only a subset of our users will ingest the updated `1.1` service, while the rest of the traffic will continue to ingest the original `1.0` service. Using a Canary deployment gives us some time to evaluate the health of this new deployment, and if things go wrong we can quickly revert the deployment, and if things go well we can shift all of our traffic to our Canary.
 
 **Note**: If you do not see a version `1.1` deployment, it may take a minute or so to have new traffic hit the `1.1` service and show up in the platform.
 
