@@ -1,5 +1,3 @@
-In this section, you brought up the Datadog agent and enabled it to monitor the Postgres database. Towards the end of this course we will take a closer look at why the annotations block worked and how to use it for other integrations. 
+In this scenario you successfully used a feature of Datadog distributed tracing and APM, Deployment Tracking, to catch errors on a new deployment of an application as they came in, revert the bad deployment, and finally deploy a fix we could verify as stable.
 
-Now let's move on to looking at the role of tags in monitoring Kubernetes.
-
-**Scroll down to click the *Next Module* link below**
+It's best if code changes that could cause errors like this are caught before they even make it to users and the Datadog platform offers other features to help you do just that, resolve issues before any users are impacted. If you'd like to learn more, you can take our two courses on the Datadog UX Monitoring feature, Synthetic Testing. Start with our <a href="https://learn.datadoghq.com/mod/page/view.php?id=431">Introduction to Synthetic Tests</a> and then feel free to move onto <a href="https://learn.datadoghq.com/mod/page/view.php?id=410">Synthetic Tests in a CI/CD Pipeline</a>.
