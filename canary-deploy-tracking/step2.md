@@ -1,20 +1,20 @@
 With all the necessary tooling setup and our deployment up and running, let's take a look at our application with Datadog's distributed tracing and APM.
 
-Navigate to <a href="https://app.datadoghq.com/apm/traces"> APM > Traces</a>, where traces should start flowing in within a minute. Once the traces start coming in you may need to wait about two minutes as Datadog's Autodiscovery feature picks up the traces that are coming in and populates the Services page. We can go to the <a href="https://app.datadoghq.com/apm/services"> APM > Services</a> page and you should see a list of the services that comprise Storedog once Autodiscovery has picked them up from traces. Change the timeline to `Past 15 Minutes` in the top right of the page, and now click the `advertisements` service. This will bring up a page showing many different aspects of our `advertisements` service including `Total Requests`, `Total Errors`, `Latency` and more. 
+Navigate to <a href="https://app.datadoghq.com/apm/traces"> APM > Traces</a>, where traces should start flowing in within a minute. Once the traces start coming in you may need to wait about two minutes as Datadog's Autodiscovery feature picks up the traces that are coming in and then populates the Services page. Once the traces are coming in, go to the <a href="https://app.datadoghq.com/apm/services"> APM > Services</a> page and you should see a list of the services that comprise Storedog once Autodiscovery has picked them up from traces. Change the timeline to `Past 15 Minutes` in the top right of the page, and now click the `advertisements` service. This will bring up a page showing many different aspects of our `advertisements` service including `Total Requests`, `Total Errors`, `Latency` and more. 
 
-Looking at the latency for this service shows a staggering 2.5 second response time, for our customers that is an unacceptable lag. Looking down just below the `Latency Distribution` graph you should see the `Deployments` section. 
+Looking at the latency for this service shows a staggering 2.5 second response time! For our customers that is an unacceptable lag. Looking down just below the `Latency Distribution` graph you should see the `Deployments` section. 
 
 ![Deployment 1.0](./assets/deployment_tab.png)
 
-Version 1.0 of our `advertisements` service is running, to the far right you will see its very high P95 latency. Since we currently only have one version deployed, we cannot get any kind of deployment comparison data, so lets get our latency fixed and see if we can make an improvement over our `1.0` deployment.
+Version `1.0` of our `advertisements` service is running and to the far right you will see its very high P95 latency. Since we currently only have one version deployed, we cannot get any kind of deployment comparison data, so lets get our latency fixed and see if we can make an improvement over our `1.0` deployment.
 
-Our engineers have gone ahead and built a new advertisements image for us, which should *hopefully* fix our latency issues. Now that we have our new image, we can use the new manifest provided by our team of engineers.
+Our engineers have gone ahead and built a new advertisements image for us and even provided us with a manifest which should *hopefully* fix our latency issues. 
 
 Let's make sure we have updated the version tag to `1.1` and given the deployment and service a name to help delineate it from the previous version.
 
 1. Click the `IDE` tab on the right above the terminal and open `/root/k8s-yaml-files/advertisements_1_1.yaml`{{open}}
 
-1. On lines 10 and 29 you should see a version number provided of `1.0`. We need to update this to `1.1` so that Datadog will recognize this as a new versioned deployment and give us data specific to this deployment. `Version` is one of three Unified Service Tags reserved by Datadog, you can read more about these tags <a href="https://docs.datadoghq.com/getting_started/tagging/unified_service_tagging/?tab=kubernetes">here</a>.
+1. On lines 10 and 29 you'll see the engineering team didn't update the version number, so it's `1.0`. We need to update this to `1.1` so that Datadog will recognize this as a new versioned deployment and give us data specific to this deployment. `Version` is one of three Unified Service Tags reserved by Datadog, you can read more about these tags <a href="https://docs.datadoghq.com/getting_started/tagging/unified_service_tagging/?tab=kubernetes">here</a>.
 
 1. On lines 12 and 84 you should see the name of our deployment and service respectfully. Let's update both of these names to be `advertisementsv11`.
 
