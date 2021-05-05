@@ -37,7 +37,11 @@
         },
         {
           "file":"advertisements_1_1.yaml",
-          "target":"/root/k8s-yaml-files"
+          "target":"/root/new-manifests"
+        },
+        {
+          "file":"advertisements_1_2.yaml",
+          "target":"/root/new-manifests"
         },
         {
           "file":"frontend.yaml",
@@ -55,10 +59,9 @@
     }
   },
   "environment":{
-    "uilayout":"terminal",
+    "uilayout":"editor-terminal",
     "showide":true,
-    "ide":"ssh host01 '/opt/start-vscode.sh /root/k8s-yaml-files' ",
-    "idePort":23000,
+    "uieditorpath": "k8s-yaml-files",
     "showdashboard":true,
     "dashboards": [
       {
