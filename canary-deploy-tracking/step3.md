@@ -26,7 +26,7 @@ With version `1.1` being error ridden, word of a new useable and tested image fr
 
 Now you can deploy what is hopefully going to be a minor update that gives your end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}}. 
 
-Just like earlier, we can use `kubectl get all`{{execute}} to get the status of all of our kubernetes resources and ensure that our new `advertisementsv12` service is fully up and running. Once it is, open the <a href=https://app.datadoghq.com/apm/traces>APM > Traces</a> page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
+Just like earlier, you can use `kubectl get all`{{execute}} to get the status of all of your kubernetes resources and ensure that the new `advertisementsv12` service is fully up and running. Once it is, open the <a href=https://app.datadoghq.com/apm/traces>APM > Traces</a> page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
 
 ![Service > Version](./assets/advertisementsv12_traces.png)
 
