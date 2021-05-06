@@ -2,41 +2,29 @@ With our `1.0` and `1.1` versions up and running and showing in the `Deployment`
 
 ![1.0 vs 1.1](./assets/old_vs_new.png)
 
-From the image above you can see our high latency shown in purple as opposed to our much lower latency shown in blue. In the `Error Rate by Version` we can see an error trend in the `1.1` (blue) deployment where you will see zero errors (or no purple line) for the `1.0`.
+From the image above you can see the high latency shown in purple as opposed to the much lower latency shown in blue. In the `Error Rate by Version` we can see an error trend in the `1.1` (blue) deployment where you will see zero errors, or no purple line, for the `1.0`.
 
-We need to quickly send some tickets over to our engineers, but first we need to take down our deployment of the `1.1` advertisements service.
+You need to take down the deployment of the `1.1` advertisements service before too many customers experience errors and it becomes a problem. Thankfully, the canary-like strategy used here has decreased the blast radius.
 
-In the terminal to the right, execute the following command: `kubectl delete deployments.apps advertisementsv11 && kubectl delete service advertisementsv11 && kubectl delete pod <name of advertisements v11 pod>`. Be sure to replace the `<name of advertisements v11 pod>` with the specific name of your pod. You can easily find the name of your pods with `kubectl get pods`{{execute}}.
+In the terminal to the right, execute the following command: `kubectl delete deployments.apps advertisementsv11 && kubectl delete service advertisementsv11 && kubectl delete pod <name of advertisements v11 pod>`. Be sure to replace the `<name of advertisements v1.1 pod>` with the specific name of your pod. You can easily find the name of your pods with `kubectl get pods`{{execute}}.
 
-Heading back over to the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> page, looking down at our Deployments we should shortly see that only the version `1.0` is `Active`. 
+Heading back over to the <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> page, looking down at your Deployments you should shortly see that only the version `1.0` is `Active`. 
 
 ![1.0 Only Active](./assets/one_active_deploy.png)
 
-Now that we have taken down the bad deployment and ensured no users will encounter any errors, we can get a new image from our dev team. So while our users are still experiencing a bit of a slow experience, at least they are not experiencing any errors.
+Now that we have taken down the bad deployment and ensured no users will encounter any errors, we can get a new image from the engineering team. So while your users are still experiencing a bit of a slow experience, at least they are not experiencing any errors.
 
-With version `1.1` being error ridden, we have quickly received word of a new useable and tested image from our engineering team. In their expediency they didn't provide a manifest, so let's quickly create a new one and update the image, version tag, and name.
+With version `1.1` being error ridden, word of a new useable and tested image from the engineering team has been quickly handed down. In their expediency, they did provide a new manifest but forgot to update the version number and name. You'll need to do that before applying this new manifest, or you will not receive proper data about this specific version you are about to deploy.
 
-1. First create a new manifest based on our original `cp /root/k8s-yaml-files/advertisements.yaml /root/k8s-yaml-files/advertisements_1_2.yaml`{{execute}}
+1. First copy the new manifest into the `k8s-yaml-files` directory. `cp /root/k8s-yaml-files/advertisements_1_2.yaml /root/k8s-yaml-files/advertisements.yaml`{{execute}}
 
-1. In the IDE on the right, open our newly copied manifest `/root/k8s-yaml-files/advertisements_1_2.yaml`{{open}}.
+1. In the IDE on the right, open your newly copied manifest `/root/k8s-yaml-files/advertisements.yaml`{{open}}.
 
-1. On lines 9 and 26, update the version numbers from `1.0` to `1.2`. 
+1. On lines 9 and 26, update the version numbers from `1.1` to `1.2`. This will tag this specific deployment 
 
-1. On line 29, update the image from
+1. On lines 10 and 80 update the name of the deployment and service to `advertisementsv12`.
 
-```yaml
-- image: ddtraining/advertisements:1.0.0
-```
- 
-to
-
-```yaml
-- image: ddtraining/advertisements-fixed:1.0.0
-```
-
-1. Finally, on lines 10 and 80 go ahead and update the name of our deployment and service to `advertisementsv12`.
-
-Great! Now we can deploy what is hopefully going to be a minor update that gives our end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements_1_2.yaml`{{execute}}. 
+Now you can deploy what is hopefully going to be a minor update that gives your end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}}. 
 
 Just like earlier, we can use `kubectl get all`{{execute}} to get the status of all of our kubernetes resources and ensure that our new `advertisementsv12` service is fully up and running. Once it is, open the <a href=https://app.datadoghq.com/apm/traces>APM > Traces</a> page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
 
@@ -46,19 +34,21 @@ Now you can go back to the<a href=https://app.datadoghq.com/apm/service/advertis
 
 ![1.0 and 1.2 Deployment](./assets/deployments_old_newer.png)
 
-Excellent! We can see from a glance that our `1.2` deployment has lowered our latency way down for this service, and the error rate is back down to normal.Now let's make a final check by comparing this deployment to our previous `1.0` version. Click on the version `1.0` deployment to bring up the Deployment Tracking panel. At the top left choose to compare `1.0` to `1.2` using the dropdown.
+Excellent! We can see from a glance that the `1.2` deployment has lowered the latency way down for this service, and the error rate is back down to normal.You can make a final check by comparing the `1.2` deployment to its previous `1.0` version. Click on the version `1.0` deployment to bring up the Deployment Tracking panel. At the top left choose to compare `1.0` to `1.2` using the dropdown.
 
 ![Change Deployment Comparison](./assets/change_comparison.png)
 
-Now comparing the two we can see that we have no errors in our `Error Rate by Version` pane and our `Latency by Version` shows a very promising reduction in latency, down to ~10ms. That is excellent and our users will be very happy!
+Comparing the two we can see there are no errors in the `Error Rate by Version` pane and the `Latency by Version` shows a very promising reduction in latency, down to ~10ms. That is excellent and our users will be very happy!
 
-Our final steps will be to take down our `1.0` deployment, and shift all traffic to our stable `1.2` deployment.
+The final steps will be to take down our `1.0` deployment, and shift all traffic to our stable `1.2` deployment.
 
-1. Back in the terminal, execute the following command to take down our `1.0` deployment. `kubectl delete deployments.apps advertisements && kubectl delete service advertisements && kubectl delete pod <name of advertisements v1 pod>`.
+1. Back in the terminal, execute the following command to take down your `1.0` deployment. `kubectl delete deployments.apps advertisements && kubectl delete service advertisements && kubectl delete pod <name of advertisements v1 pod>`.
 
-1. With that down, we need to be sure that all traffic runs to our updated `1.2` deployment. Open the IDE tab and navigate to the `advertisements_1_2.yaml`. On lines 10 and 80 lets rename `advertisementsv12` to just `advertisements`. Our `Version` tag will handle displaying what version of the service is running on the Datadog Platform.
+1. With that down, we need to be sure that all traffic runs to the updated `1.2` deployment. Open the IDE tab and navigate to the `k8s-yaml-files/advertisements.yaml`{{open}}. 
 
-1. After making these changes, its finally time to redeploy our version `1.2` as the standard. As it is already running, `kubectl apply -f k8s-yaml-files/advertisements_1_2.yaml` will reconfigure our service and deployment with the new name. Within a few minutes, the only running deployment you should see in <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> will be the `1.2` version.
+1. On lines 10 and 80, rename `advertisementsv12` to `advertisements`. The `Version` tag you have been modifying will handle tracking what version of the service is running on the Datadog Platform.
+
+1. After making these changes, its finally time to reapply the version `1.2` manifest as the standard. As it is already running, `kubectl apply -f k8s-yaml-files/advertisements.yaml` will reconfigure our service and deployment with the new name. Within a few minutes, the only running deployment you should see in <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> will be the `1.2` version.
 
 ![1.2 running](./assets/deployment_1_2.png)
 
