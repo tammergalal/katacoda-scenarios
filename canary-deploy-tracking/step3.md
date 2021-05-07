@@ -20,7 +20,7 @@ With the failure of version `1.1`, word of a new useable and tested image from t
 
 1. In the IDE on the right, open your newly copied manifest `/root/k8s-yaml-files/advertisements.yaml`{{open}}.
 
-1. On lines 9 and 26, update the version numbers from `1.1` to `1.2`. This will tag this specific deployment 
+1. On lines 9 and 26, update the version numbers from `1.1` to `1.2`. This is the tag that allows Datadog to track the version. 
 
 1. On lines 10 and 80 update the name of the deployment and service to `advertisementsv12`.
 
@@ -50,7 +50,7 @@ The final steps will be to take down our `1.0` deployment, and shift all traffic
 
 1. After making these changes, reapply the version `1.2` manifest. With the `1.2` service already running, `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}} will reconfigure our service and deployment with the new name. Within a few minutes, the only running deployment you should see in <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> will be the `1.2` version.
 
-![1.2 running](./assets/deployment_1_2.png)
+![1.2 running](./assets/deployments_1_2.png)
 
 At a glance we can see an 0% error rate along with a drastically lower latency.
 
