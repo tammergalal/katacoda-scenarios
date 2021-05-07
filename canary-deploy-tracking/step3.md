@@ -6,7 +6,7 @@ From the image above you can see the high latency shown in purple as opposed to 
 
 You need to take down the deployment of the `1.1` advertisements service before too many customers experience errors and it becomes a problem. Thankfully, the canary-like strategy used here has decreased the blast radius.
 
-In the terminal to the right, execute the following command: `kubectl delete deployments.apps advertisementsv-canary && kubectl delete service advertisements-canary && kubectl delete pod <name of advertisements v1.1 pod>`{{copy}}. Be sure to replace the `<name of advertisements v1.1 pod>` with the specific name of your pod. You can easily find the name of your pods with `kubectl get pods`{{execute}}.
+In the terminal to the right, execute the following command: `kubectl delete deployments.apps advertisements-canary && kubectl delete service advertisements-canary && kubectl delete pod <name of advertisements v1.1 pod>`{{copy}}. Be sure to replace the `<name of advertisements v1.1 pod>` with the specific name of your pod. You can easily find the name of your pods with `kubectl get pods`{{execute}}.
 
 Heading back over to the [APM > Services > advertisements](https://app.datadoghq.com/apm/service/advertisements) page, looking down at your Deployments you should shortly see that only the version `1.0` is `Active`. 
 
@@ -24,7 +24,7 @@ With the failure of version `1.1`, word of a new useable and tested image from t
 
 Now you can deploy what is hopefully going to be a minor update that gives your end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}}. 
 
-Just like earlier, you can use `kubectl get all`{{execute}} to get the status of all of your kubernetes resources and ensure that the new `advertisementsv12` service is fully up and running. Once it is, open the [APM > Traces](https://app.datadoghq.com/apm/traces) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
+Just like earlier, you can use `kubectl get all`{{execute}} to get the status of all of your kubernetes resources and ensure that the new `advertisements-canary` service is fully up and running. Once it is, open the [APM > Traces](https://app.datadoghq.com/apm/traces) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
 
 ![Service > Version](./assets/advertisementsv12_traces.png)
 
