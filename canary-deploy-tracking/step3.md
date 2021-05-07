@@ -1,4 +1,4 @@
-With our `1.0` and `1.1` versions up and running and showing in the `Deployment` pane, click on the `1.0` deployment. Deployment Tracking for Datadog distributed tracing and APM tracks all versions deployed over the last 30 days, giving you a wide window for continuous deployment analysis. Datadog automatically provides out-of-the-box graphs that visualize RED (requests, errors, and duration) metrics across versions, making it easy to spot problems in your services and endpoints before they turn into serious issues.
+With both the `1.0` and `1.1` versions running and showing in the `Deployment` pane, click on the `1.0` deployment. Deployment Tracking for Datadog distributed tracing and APM tracks all versions deployed over the last 30 days, giving you a wide window for continuous deployment analysis. Datadog automatically provides out-of-the-box graphs that visualize RED (requests, errors, and duration) metrics across versions, making it easy to spot problems in your services and endpoints before they turn into serious issues.
 
 ![1.0 vs 1.1](./assets/old_vs_new.png)
 
@@ -12,11 +12,11 @@ Heading back over to the <a href=https://app.datadoghq.com/apm/service/advertise
 
 ![1.0 Only Active](./assets/one_active_deploy.png)
 
-Now that we have taken down the bad deployment and ensured no users will encounter any errors, we can get a new image from the engineering team. So while your users are still experiencing a bit of lag in load times, at least they are not experiencing any outright errors.
+Now that you have taken down the bad deployment and ensured no users will encounter any errors, you can get a new image from the engineering team. So while your users are still experiencing a bit of lag in load times, at least they are not experiencing any outright errors.
 
-With version `1.1` being error ridden, word of a new useable and tested image from the engineering team has been quickly handed down. In their expediency, they have provided a new manifest but forgot to update the version number and name. You'll need to do that before applying this new manifest, or you will not receive proper data about this specific version you are about to deploy. Remember, Datadog Deployment tracking relies on the reserved  `version` tag, and if it is not properly updated you will not receive relevant data for this new deployment.
+With the failure of version `1.1`, word of a new useable and tested image from the engineering team has been quickly handed down. Again, they have provided a new manifest you will still need to update the version number and name. If you do not update the version numbers and name, you will not receive proper data about this specific version you are about to deploy. Remember, Datadog Deployment tracking relies on the reserved  `version` tag, and if it is not properly updated you will not receive relevant data for this new deployment.
 
-1. First copy the new manifest into the `k8s-yaml-files` directory. `cp /root/k8s-yaml-files/advertisements_1_2.yaml /root/k8s-yaml-files/advertisements.yaml`{{execute}}
+1. First copy the new manifest into the `k8s-yaml-files` directory. `cp /root/new-manifests/advertisements_1_2.yaml /root/k8s-yaml-files/advertisements.yaml`{{execute}}
 
 1. In the IDE on the right, open your newly copied manifest `/root/k8s-yaml-files/advertisements.yaml`{{open}}.
 
@@ -48,8 +48,11 @@ The final steps will be to take down our `1.0` deployment, and shift all traffic
 
 1. On lines 10 and 80, rename `advertisementsv12` to `advertisements`. The `Version` tag you have been modifying will handle tracking what version of the service is running on the Datadog Platform.
 
-1. After making these changes, reapply the version `1.2` manifest. With the `1.2` service already running, `kubectl apply -f k8s-yaml-files/advertisements.yaml` will reconfigure our service and deployment with the new name. Within a few minutes, the only running deployment you should see in <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> will be the `1.2` version.
+1. After making these changes, reapply the version `1.2` manifest. With the `1.2` service already running, `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}} will reconfigure our service and deployment with the new name. Within a few minutes, the only running deployment you should see in <a href=https://app.datadoghq.com/apm/service/advertisements>APM > Services > advertisements</a> will be the `1.2` version.
 
 ![1.2 running](./assets/deployment_1_2.png)
 
-Great job. At a glance we can see an 0% error rate along with a drastically lower latency.
+At a glance we can see an 0% error rate along with a drastically lower latency.
+
+1. Lastly, we can take down the canary as all traffic has now been shifted to the main `advertisements` service which has been upgraded to version `1.2`. Using `kubectl delete deployments.apps advertisementsv12 && kubectl delete service advertisementsv12 && kubectl delete pod <name of advertisements v12 pod>`.
+

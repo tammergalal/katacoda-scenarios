@@ -6,9 +6,7 @@ metadata:
     app: ecommerce
     tags.datadoghq.com/env: "ruby-shop"
     tags.datadoghq.com/service: "advertisements"
-    # change version number
     tags.datadoghq.com/version: "1.1"
-  # change name of deployment
   name: advertisementsv11
 spec:
   replicas: 1
@@ -25,7 +23,6 @@ spec:
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
         tags.datadoghq.com/service: "advertisements"
-        # change version number
         tags.datadoghq.com/version: "1.1"
     spec:
       containers:
@@ -80,7 +77,6 @@ metadata:
   labels:
     service: advertisements
     app: ecommerce
-  # change name of service
   name: advertisementsv11
 spec:
   ports:

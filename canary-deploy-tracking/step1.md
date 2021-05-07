@@ -1,6 +1,6 @@
 In the terminal on the right, the environment is being set up with Kubernetes and a deployment of Storedog. Storedog is an e-commerce application that you can interact with via the StoredogV1 tab located to your right at the top of the terminal (don't click that just yet.)
 
-Once the environment is set up and you are able to access the `$controlpane` in the terminal on the right, use the credentials provided and open a window/tab, logging into the <a href="https://app.datadoghq.com/account/login" target="_datadog">Datadog account</a> that was created for you by learn.datadoghq.com.
+Once the environment is set up and you are able to access the `$controlpane` in the terminal on the right, use the credentials provided and open a new window/tab, logging into the <a href="https://app.datadoghq.com/account/login" target="_datadog">Datadog account</a> that was created for you by learn.datadoghq.com.
 
 Run `kubectl get all`{{execute}} in the terminal to the right or use the execute command by clicking the code snippet. Once you see everything up and running, go ahead and click the StoredogV1 tab at the top of your terminal to the right. Take a look around and generate some traffic.
 
