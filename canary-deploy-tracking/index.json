@@ -63,10 +63,9 @@
     }
   },
   "environment":{
-    "uilayout":"terminal",
+    "uilayout":"editor-terminal-v1",
     "showide":true,
     "ide":"/root/k8s-yaml-files",
-    "idePort":23000,
     "showdashboard":true,
     "dashboards": [
       {
