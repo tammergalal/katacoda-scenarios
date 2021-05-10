@@ -63,9 +63,8 @@
     }
   },
   "environment":{
-    "uilayout":"editor-terminal-v1",
-    "showide":true,
-    "ide":"/root/k8s-yaml-files",
+    "uilayout": "editor-terminal",
+    "uieditorpath": "k8s-yaml-files",
     "showdashboard":true,
     "dashboards": [
       {
