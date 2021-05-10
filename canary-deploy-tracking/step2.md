@@ -8,7 +8,7 @@ Version `1.0` of the `advertisements` service is running and to the far right yo
 
 Since we currently only have one version deployed, there is no way to get any kind of deployment comparison data. The latency issue will need to be fixed to see if an improvement can be made over the `1.0` deployment. Thankfully, the engineers have gone ahead and built a new advertisements image, and even provided a new manifest which should *hopefully* fix users latency issues. 
 
-Let's make sure we have updated the version tag to `1.1` and given the deployment and service a name to help delineate it from the previous version.
+Let's make sure we have updated the version tag to `1.1`.
 
 1. First, copy the new manifest into the `k8s-yaml-files` directory. `cp /root/new-manifests/advertisements_1_1.yaml /root/k8s-yaml-files/advertisements.yaml`{{execute}}
 
@@ -16,9 +16,9 @@ Let's make sure we have updated the version tag to `1.1` and given the deploymen
 
 1. On lines 9 and 26 you'll see the engineering team didn't update the version number, so it's `1.0`. We need to update this to `1.1` so that Datadog will recognize this as a new versioned deployment and give us data specific to this deployment. `Version` is one of three Unified Service Tags reserved by Datadog, you can read more about these tags [here](https://docs.datadoghq.com/getting_started/tagging/unified_service_tagging/?tab=kubernetes).
 
-1. With our new kubernetes manifest ready, we can now deploy version `1.1` of the `advertisements` service by running the command: `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}}. You should see a new Deployment and Service were created in the terminal output.
+1. With our new kubernetes manifest ready, we can now deploy version `1.1` of the `advertisements` service by running the command: `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}}. You should see a new Deployment was created in the terminal output.
 
-1. Next, let's be sure our new deployment and service are running using `kubectl get all`{{execute}}. It may take anywhere from thirty seconds to one minute for the new deployment/service to show as 'running'. In the end you will see two separate `advertisements` pods, deployments, and services.
+1. Next, let's be sure our new deployment is running using `kubectl get deployment -n advertisements-canary`{{execute}}. It may take anywhere from thirty seconds to one minute for the new deployment to show as 'running'. In the end you will see two separate `advertisements` deployments. One with the name `advertisements` and one with the name `advertisements-canary`.
 
 Great! Version `1.1` of the `advertisements` service has been deployed. With the service running, open the [APM > Traces](https://app.datadoghq.com/apm/traces) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.1`. Once traces start flowing in, that means you are getting traffic to your newer deployment. Head back over to the [APM > Services > advertisements](https://app.datadoghq.com/apm/service/advertisements) page and after a few minutes you should be able to observe a `1.0` and `1.1` Deployment Version.
 
