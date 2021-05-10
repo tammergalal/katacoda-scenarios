@@ -24,11 +24,11 @@ With the failure of version `1.1`, word of a new useable and tested image from t
 
 Now you can deploy what is hopefully going to be a minor update that gives your end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}}. 
 
-Just like earlier, you can use `kubectl get deployment -n advertisements-canary`{{execute}} to get the status of the new `advertisements-canary` deployment. Once it is running, open the [APM > Traces](https://app.datadoghq.com/apm/traces?env=ruby-shop) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
+Just like earlier, you can use `kubectl get deployment advertisements-canary`{{execute}} to get the status of the new `advertisements-canary` deployment. Once it is ready, open the [APM > Traces](https://app.datadoghq.com/apm/traces?env=ruby-shop) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
 
 ![Service > Version](./assets/advertisementsv12_traces.png)
 
-Now you can go back to the [APM > Services > advertisements](https://app.datadoghq.com/apm/service/advertisements) page and within a few minutes you should see your new `1.2` deployment running alongside your `1.0`
+Now you can go back to the [APM > Services > advertisements](https://app.datadoghq.com/apm/service/advertisements?env=ruby-shop) page and within a few minutes you should see your new `1.2` deployment running alongside your `1.0`
 
 ![1.0 and 1.2 Deployment](./assets/deployments_old_newer.png)
 
