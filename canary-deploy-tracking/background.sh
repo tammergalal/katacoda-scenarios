@@ -16,7 +16,15 @@ git clone https://github.com/DataDog/ecommerce-workshop.git
 
 waitfork8s
 
-kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
+until kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
+do
+  kubeloopend=`date +%s`
+  kubeloopruntime=$((kubeloopend-kubeloopstart))
+  echo "kubectl isn't ready yet."
+  echo "It has been $kubeloopruntime seconds"
+  echo "If this doesn't resolve after 60 seconds, contact support."
+  sleep 2
+done
 
 kubectl apply -f k8s-yaml-files/db.yaml
 kubectl apply -f k8s-yaml-files/advertisements.yaml
