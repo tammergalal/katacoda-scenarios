@@ -14,9 +14,7 @@ helm repo update
 
 git clone https://github.com/DataDog/ecommerce-workshop.git
 
-waitfork8s
-
-until kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
+until kubectl apply -f k8s-yaml-files/db.yaml
 do
   kubeloopend=`date +%s`
   kubeloopruntime=$((kubeloopend-kubeloopstart))
@@ -26,7 +24,6 @@ do
   sleep 2
 done
 
-kubectl apply -f k8s-yaml-files/db.yaml
 kubectl apply -f k8s-yaml-files/advertisements.yaml
 kubectl apply -f k8s-yaml-files/discounts.yaml
 kubectl apply -f k8s-yaml-files/frontend.yaml
