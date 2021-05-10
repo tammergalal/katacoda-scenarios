@@ -12,8 +12,6 @@ helm repo add datadog https://helm.datadoghq.com
 
 helm repo update
 
-waitfork8s
-
 git clone https://github.com/DataDog/ecommerce-workshop.git
 
 kubectl create secret generic datadog-api --from-literal=token=$DD_API_KEY
