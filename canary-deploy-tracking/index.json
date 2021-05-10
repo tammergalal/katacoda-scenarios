@@ -36,6 +36,10 @@
           "target":"/root/k8s-yaml-files"
         },
         {
+          "file":"advertisements-service.yaml",
+          "target":"/root/k8s-yaml-files"
+        },
+        {
           "file":"advertisements_1_1.yaml",
           "target":"/root/new-manifests"
         },

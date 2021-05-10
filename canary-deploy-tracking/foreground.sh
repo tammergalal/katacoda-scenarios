@@ -4,8 +4,6 @@ while [ ! -f "/usr/local/bin/prepenvironment" ]; do
 done
 sleep 0.3
 
-waitfork8s
-
 clear
 
 prepenvironment
