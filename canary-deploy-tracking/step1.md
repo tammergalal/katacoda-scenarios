@@ -12,8 +12,8 @@ Since you started this lab, a background process has been automatically making r
 
 **Note**: Your `$DD_API_KEY` and `$DD_APP_KEY` are being grabbed from the environment, there is no need to manually edit the environment variables in this command.
 
-1. Running `kubectl get service, pod, deployment -n datadog`{{execute}} should show you that the datadog agent, cluster agent, and kube-state metrics are now running in addition to your deployment.
+1. Running `kubectl get service,pod,deployment datadog`{{execute}} should show you that the datadog agent, cluster agent, and kube-state metrics are now running in addition to your deployment.
 
-**Note**: You may need to wait up to a minute or two for the agents to be fully up and running. Try executing `kubectl get service, pod, deployment -n datadog`{{execute}} after a minute to see if everything is ready. 
+**Note**: You may need to wait up to a minute or two for the agents to be fully up and running. Try executing `kubectl get service,pod,deployment datadog`{{execute}} after a minute to see if everything is ready. 
 
 With the application receiving traffic and having used helm to install the datadog agent, the next step is to begin looking into some data about the app on the Datadog platform. 
