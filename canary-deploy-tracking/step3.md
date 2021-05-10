@@ -6,7 +6,7 @@ From the image above you can see the high latency shown in purple as opposed to 
 
 You need to take down the deployment of the `1.1` advertisements service before too many customers experience errors and it becomes a problem. Thankfully, the canary-like strategy used here has decreased the blast radius.
 
-In the terminal to the right, execute the following command: `kubectl delete deployments.apps advertisements-canary && kubectl delete service advertisements-canary && kubectl delete pod <name of advertisements v1.1 pod>`{{copy}}. Be sure to replace the `<name of advertisements v1.1 pod>` with the specific name of your pod. You can easily find the name of your pods with `kubectl get pods`{{execute}}.
+1. In the terminal to the right, execute the following command: `kubectl delete deployments advertisements-canary`{{execute}}.
 
 Heading back over to the [APM > Services > advertisements](https://app.datadoghq.com/apm/service/advertisements) page, looking down at your Deployments you should shortly see that only the version `1.0` is `Active`. 
 
@@ -14,7 +14,7 @@ Heading back over to the [APM > Services > advertisements](https://app.datadoghq
 
 Now that you have taken down the bad deployment and ensured no users will encounter any errors, you can get a new image from the engineering team. So while your users are still experiencing a bit of lag in load times, at least they are not experiencing any outright errors.
 
-With the failure of version `1.1`, word of a new useable and tested image from the engineering team has been quickly handed down. Again, they have provided a new manifest you will still need to update the version number and name. If you do not update the version numbers and name, you will not receive proper data about this specific version you are about to deploy. Remember, Datadog Deployment tracking relies on the reserved  `version` tag, and if it is not properly updated you will not receive relevant data for this new deployment.
+With the failure of version `1.1`, word of a new useable and tested image from the engineering team has been quickly handed down. Again, they have provided a new manifest, but you will still need to update the version number. If you do not update the version numbers, you will not receive proper data about this specific version you are about to deploy. Remember, Datadog Deployment tracking relies on the reserved  `version` tag, and if it is not properly updated you will not receive relevant data for this new deployment.
 
 1. First copy the new manifest into the `k8s-yaml-files` directory. `cp /root/new-manifests/advertisements_1_2.yaml /root/k8s-yaml-files/advertisements.yaml`{{execute}}
 
@@ -24,7 +24,7 @@ With the failure of version `1.1`, word of a new useable and tested image from t
 
 Now you can deploy what is hopefully going to be a minor update that gives your end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}}. 
 
-Just like earlier, you can use `kubectl get all`{{execute}} to get the status of all of your kubernetes resources and ensure that the new `advertisements-canary` service is fully up and running. Once it is, open the [APM > Traces](https://app.datadoghq.com/apm/traces) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
+Just like earlier, you can use `kubectl get deployment -n advertisements-canary`{{execute}} to get the status of the new `advertisements-canary` deployment. Once it is running, open the [APM > Traces](https://app.datadoghq.com/apm/traces?env=ruby-shop) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
 
 ![Service > Version](./assets/advertisementsv12_traces.png)
 
@@ -40,17 +40,8 @@ Comparing the two we can see there are no errors in the `Error Rate by Version` 
 
 The final steps will be to take down our `1.0` deployment, and shift all traffic to our stable `1.2` deployment.
 
-1. Back in the terminal, execute the following command to take down your `1.0` deployment. `kubectl delete deployments.apps advertisements && kubectl delete service advertisements && kubectl delete pod <name of advertisements v1 pod>`{{copy}}.
-
-1. With that down, we need to be sure that all traffic runs to the updated `1.2` deployment. Open the IDE tab and navigate to the `k8s-yaml-files/advertisements.yaml`{{open}}. 
-
-1. On lines 10 and 80, rename `advertisements-canary` to `advertisements`. The `Version` tag you have been modifying will handle tracking what version of the service is running on the Datadog Platform. For Kubernetes to run a unique deployment and service, the names provided in the metadata must be unique. If they are not, `kubectl apply -f` would simply reconfigure the already deployed service. 
-
-1. After making these changes, reapply the version `1.2` manifest. With the `1.2` service already running, `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}} will reconfigure our service and deployment with the new name. Within a few minutes, the only running deployment you should see in [APM > Services > advertisements](https://app.datadoghq.com/apm/service/advertisements) will be the `1.2` version.
+1. Back in the terminal, execute the following command to take down your `1.0` deployment. `kubectl delete deployment advertisements`{{execute}}. Now the only running deployment should be our `advertisements-canary` which we know is our stable version `1.2` deployment.
 
 ![1.2 running](./assets/deployments_1_2.png)
 
 At a glance we can see an 0% error rate along with a drastically lower latency.
-
-1. Lastly, we can take down the canary as all traffic has now been shifted to the main `advertisements` service which has been upgraded to version `1.2`: `kubectl delete deployments.apps advertisements-canary && kubectl delete service advertisements-canary && kubectl delete pod <name of advertisements v1.2 pod>`{{copy}}.
-

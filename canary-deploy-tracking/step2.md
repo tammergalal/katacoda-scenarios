@@ -4,7 +4,7 @@ Looking at the latency for this service shows a staggering 2.5 second response t
 
 ![Deployment 1.0](./assets/deployment_tab.png)
 
-Version `1.0` of the `advertisements` service is running and to the far right you will see its very high P95 latency. `P95` refers to the 95th percentile of latency. This means that 95% of your users are experiencing a latency equal to the P95 latency or lower. 
+Version `1.0` of the `advertisements` deployment is running and to the far right you will see its very high P95 latency. `P95` refers to the 95th percentile of latency. This means that 95% of your users are experiencing a latency equal to the P95 latency or lower. 
 
 Since we currently only have one version deployed, there is no way to get any kind of deployment comparison data. The latency issue will need to be fixed to see if an improvement can be made over the `1.0` deployment. Thankfully, the engineers have gone ahead and built a new advertisements image, and even provided a new manifest which should *hopefully* fix users latency issues. 
 
@@ -20,7 +20,7 @@ Let's make sure we have updated the version tag to `1.1`.
 
 1. Next, let's be sure our new deployment is running using `kubectl get deployment -n advertisements-canary`{{execute}}. It may take anywhere from thirty seconds to one minute for the new deployment to show as 'running'. In the end you will see two separate `advertisements` deployments. One with the name `advertisements` and one with the name `advertisements-canary`.
 
-Great! Version `1.1` of the `advertisements` service has been deployed. With the service running, open the [APM > Traces](https://app.datadoghq.com/apm/traces) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.1`. Once traces start flowing in, that means you are getting traffic to your newer deployment. Head back over to the [APM > Services > advertisements](https://app.datadoghq.com/apm/service/advertisements) page and after a few minutes you should be able to observe a `1.0` and `1.1` Deployment Version.
+Great! Version `1.1` of `advertisements` has been deployed. With the deployment running, open the [APM > Traces](https://app.datadoghq.com/apm/traces?env=ruby-shop) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.1`. Once traces start flowing in, that means you are getting traffic to your newer deployment. Head back over to the [APM > Services > advertisements](https://app.datadoghq.com/apm/service/advertisements) page and after a few minutes you should be able to observe a `1.0` and `1.1` Deployment Version.
 
 **Note**: It may take a few minutes for the new version of the application to show up in the Deployment section of APM > Services.
 
