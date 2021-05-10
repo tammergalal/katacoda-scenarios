@@ -12,9 +12,7 @@ helm repo add datadog https://helm.datadoghq.com
 
 helm repo update
 
-while [ "$( kubectl get nodes --no-headers 2>/dev/null | wc -l )" != "2" ]; do
-  sleep 1
-done
+waitfork8s
 
 git clone https://github.com/DataDog/ecommerce-workshop.git
 
