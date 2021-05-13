@@ -1,6 +1,10 @@
 With the application running and the Datadog agents installed, navigate to [APM > Traces](https://app.datadoghq.com/apm/traces?env=ruby-shop). You may need to wait a minute or so for data to show up in Datadog. Once traces begin flowing in, navigate to the [APM > Services](https://app.datadoghq.com/apm/services?env=ruby-shop) page and you should see a list of the services that comprise Storedog. In the top right of the page change the timeline to `Past 15 Minutes`, and now click the `advertisements` service. This will bring up a page showing many different aspects of your `advertisements` service including `Total Requests`, `Total Errors`, `Latency` and more. 
 
-Looking at the latency for this service shows a staggering 2.5 second response time! For our customers that is an unacceptable lag. Looking down just below the `Latency Distribution` graph you should see the `Deployments` section. 
+Looking at the latency for this service shows a staggering 2.5 second response time! This latency is causing not only slow load times, but is actually causing your application to intermittently crash! You can see this by navigating to the [APM > Traces](https://app.datadoghq.com/apm/traces?start=1620938913331&end=1620939813331&paused=false) page. Now on the left hand side navigation filter for `Status > Error` and `Service > store-frontend` 
+
+![Storefront Errors](./assets/storefront-errors.png)
+
+Looking down just below the `Latency Distribution` graph you should see the `Deployments` section. 
 
 ![Deployment 1.0](./assets/deployment_tab.png)
 
