@@ -1,6 +1,6 @@
 In the terminal on the right, the environment is set up with Kubernetes and a deployment of Storedog. Storedog is an e-commerce application that you can interact with via the StoredogV1 tab located to your right at the top of the terminal.
 
-Now open a new window/tab and log into the [Datadog account](https://app.datadoghq.com/account/login) that was created for you by learn.datadoghq.com. 
+Now open a new window/tab and log into your [Datadog account](https://app.datadoghq.com/account/login). If you do not already have an account, feel free to create a trial account.
 
 **Note**: You can access these login credentials whenever you need by typing `creds` in the terminal.
 
@@ -12,11 +12,11 @@ Click the StoredogV1 tab at the top of your terminal to the right. Take a look a
 
 Since you started this lab, a background process has been automatically making requests to the Storedog app. Between this traffic and the traffic you created while clicking around Storedog, you should have a good amount of activity to look at in the Datadog Platform. Next, you need to get the Datadog agent running in your cluster to collect data from Storedog. You can use our simple one line Helm install command.
 
-1. With all the kubernetes resources running and ready, execute the helm install command for the datadog agent and cluster-agent: `helm install datadogagent --set datadog.apiKey=$DD_API_KEY --set datadog.appKey=$DD_APP_KEY -f k8s-yaml-files/values.yaml datadog/datadog --version 2.13.0`{{execute}}
+1. With all the kubernetes resources running and ready, execute the helm install command for the datadog agent and cluster-agent: `helm install datadogagent --set datadog.apiKey=<YOUR_DATADOG_API_KEY> --set datadog.appKey=<YOUR_DATADOG_APP_KEY> -f k8s-yaml-files/values.yaml datadog/datadog --version 2.13.0`{{copy}}
 
-**Note**: Your `$DD_API_KEY` and `$DD_APP_KEY` are being grabbed from the environment, there is no need to manually edit the environment variables in this command.
+**Note**: You will need to substitute your account keys into the `<YOUR_DATADOG_API_KEY>` and `<YOUR_DATADOG_APP_KEY>`. They can be found in your account on the [Integrations > API](https://app.datadoghq.com/account/settings#api) page.
 
-1. Running `kubectl get service datadogagent-cluster-agent datadogagent-kube-state-metrics && kubectl get daemonset datadogagent`{{execute}} should show you that the datadog agent, cluster agent, and kube-state metrics are now running in addition to your deployment.
+1. Running `kubectl get deploy datadogagent-cluster-agent datadogagent-kube-state-metrics && kubectl get daemonset datadogagent && kubectl get pod -l app=datadogagent && kubectl get pod -l app=datadogagent-cluster-agent && kubectl get pod -l app.kubernetes.io/instance=datadogagent`{{execute}} should show you that the datadog agent, cluster agent, and kube-state metrics are now running in addition to your deployment.
 
 **Note**: You may need to wait up to a minute or two for the agents to be fully up and running. Try executing the above command again after a minute to see if everything is ready. 
 
