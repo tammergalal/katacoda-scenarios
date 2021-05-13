@@ -37,7 +37,9 @@ Now you can go back to the [APM > Services > advertisements](https://app.datadog
 
 ![1.0 and 1.2 Deployment](./assets/deployments_old_newer.png)
 
-Excellent! We can see from a glance that the `1.2` deployment has lowered the latency way down for this service, and the error rate is back down to normal.You can make a final check by comparing the `1.2` deployment to its previous `1.0` version. Click on the version `1.0` deployment to bring up the Deployment Tracking panel. At the top-left choose to compare `1.0` to `1.2` using the dropdown.
+Excellent! We can see from a glance that the `1.2` deployment has lowered the latency way down for this service, and the error rate is back down to normal. We can quickly check our `store-frontend` service to ensure there is no errors with our new lower latency. Navigate back to the [APM > Traces](https://app.datadoghq.com/apm/traces?start=1620938913331&end=1620939813331&paused=false) page. On the left hand side navigation filter for `Service > store-frontend`. No errors should be coming in.
+
+You can make a final check by comparing the `1.2` deployment to its previous `1.0` version. Navigate back to the `Services` page and click on the version `1.0` deployment to bring up the Deployment Tracking panel. At the top-left choose to compare `1.0` to `1.2` using the dropdown.
 
 ![Change Deployment Comparison](./assets/change_comparison.png)
 
