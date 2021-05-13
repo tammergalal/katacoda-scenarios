@@ -9,7 +9,7 @@ Let's quickly dig in and investigate this a bit more to see whats going on. From
 ![Endpoints error rate](./assets/error_rate.png)
 ![Latency rate](./assets/p95_latency.png)
 
-You need to take down the deployment of the `1.1` advertisements service before too many customers experience errors and it becomes a problem. Thankfully, the canary-like strategy used here has decreased the blast radius.
+You need to take down the deployment of the `1.1` advertisements service before too many customers experience even more errors and it becomes a serious problem. Thankfully, the canary-like strategy used here has decreased the blast radius.
 
 1. In the terminal to the right, execute the following command: `kubectl delete deployments advertisements-canary`{{execute}}.
 
@@ -17,7 +17,7 @@ Heading back over to the [APM > Services > advertisements](https://app.datadoghq
 
 ![1.0 Only Active](./assets/one_active_deploy.png)
 
-Now that you have taken down the bad deployment and ensured no users will encounter any errors, you can get a new image from the engineering team. So while your users are still experiencing a bit of lag in load times, at least they are not experiencing any outright errors.
+Now that you have taken down the bad deployment and ensured no users will encounter any errors, you can get a new image from the engineering team. So while your users are still experiencing a bit of lag in load times, at least they are not experiencing constant errors.
 
 With the failure of version `1.1`, word of a new useable and tested image from the engineering team has been quickly handed down. Again, they have provided a new manifest, but you will still need to update the version number. If you do not update the version numbers, you will not receive proper data about this specific version you are about to deploy. Remember, Datadog Deployment tracking relies on the reserved  `version` tag, and if it is not properly updated you will not receive relevant data for this new deployment.
 
@@ -27,7 +27,7 @@ With the failure of version `1.1`, word of a new useable and tested image from t
 
 1. On lines 9 and 26, update the version numbers from `1.1` to `1.2`. This is the tag that allows Datadog to track the version. 
 
-Now you can deploy what is hopefully going to be a minor update that gives your end user the latency they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}}. 
+Now you can deploy what is hopefully going to be a minor update that gives your end user the latency, error free experience they deserve! Apply the `1.2` manifest using `kubectl apply -f k8s-yaml-files/advertisements.yaml`{{execute}}. 
 
 Just like earlier, you can use `kubectl get deployment advertisements-canary`{{execute}} to get the status of the new `advertisements-canary` deployment. Once it is ready, open the [APM > Traces](https://app.datadoghq.com/apm/traces?env=ruby-shop) page and on the left-hand menu under `Service` choose `advertisements`. Below that click the `Version` drop down and click `1.2`. Once traces start flowing in that means we are getting traffic to this newer deployment. 
 
