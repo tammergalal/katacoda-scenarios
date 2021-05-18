@@ -3,6 +3,7 @@ In the terminal on the right, the environment is set up with Kubernetes and a de
 Now open a new window/tab and log into your [Datadog account](https://app.datadoghq.com/account/login). If you do not already have an account, feel free to create a trial account. You will need to substitute your account keys for use in a later command. They can be found in your account on the [Integrations > API](https://app.datadoghq.com/account/settings#api) page. When you have your keys handy, run the following commands:
 
 1. `export DD_API_KEY=<YOUR_DATADOG_API_KEY>`{{copy}}
+
 1. `export DD_APP_KEY=<YOUR_DATADOG_APP_KEY>`{{copy}}
 
 **Note**: You can access these login credentials whenever you need by typing `creds` in the terminal.
