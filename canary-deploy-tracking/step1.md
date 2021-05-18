@@ -1,10 +1,6 @@
 In the terminal on the right, the environment is set up with Kubernetes and a deployment of Storedog. Storedog is an e-commerce application that you can interact with via the StoredogV1 tab located to your right at the top of the terminal.
 
-Now open a new window/tab and log into your [Datadog account](https://app.datadoghq.com/account/login). If you do not already have an account, feel free to create a trial account. You will need to substitute your account keys for use in a later command. They can be found in your account on the [Integrations > API](https://app.datadoghq.com/account/settings#api) page. When you have your keys handy, run the following commands:
-
-1. `export DD_API_KEY=<YOUR_DATADOG_API_KEY>`{{copy}}
-
-1. `export DD_APP_KEY=<YOUR_DATADOG_APP_KEY>`{{copy}}
+In the terminal on the right, you should credentials for a newly provisioned Datadog trial account. Open a new window/tab and use the provided credentials to log into the [Datadog](https://app.datadoghq.com/account/login) platform.
 
 **Note**: You can access these login credentials whenever you need by typing `creds` in the terminal.
 
