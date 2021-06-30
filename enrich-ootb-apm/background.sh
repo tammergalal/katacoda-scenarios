@@ -2,7 +2,7 @@
 
 curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 
-https://github.com/DataDog/ecommerce-workshop.git
+git clone https://github.com/DataDog/ecommerce-workshop.git
 cd /ecommworkshop/docker-compose-files
 
 sudo sed -i '37i \ \ \ \ volumes:\n \ \ \ \ \ - "../../discounts-service-fixed:/app"' /root/ecommworkshop/deploy/docker-compose/docker-compose-fixed-instrumented.yml
