@@ -8,8 +8,6 @@ STATUS=$(cat /root/status.txt)
 
 if [ "$STATUS" != "complete" ]; then
   echo ""> /root/status.txt
-  
-  wall -n "Cloning necessary materials"
 
   git clone https://github.com/DataDog/ecommerce-workshop.git
   cd /ecommworkshop/docker-compose-files
