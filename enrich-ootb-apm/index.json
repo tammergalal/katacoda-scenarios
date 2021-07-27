@@ -27,6 +27,11 @@
     "showide": true,
     "uieditorpath": "/root",
     "showdashboard":true,
+    "terminals": [
+      {
+        "name": "Terminal 2"
+      }
+    ],
     "dashboards": [
       {
         "name":"Datadog",
@@ -34,7 +39,7 @@
       },
       {
         "name":"Storedog",
-        "port":30001
+        "port":3000
       }
     ]
   },
