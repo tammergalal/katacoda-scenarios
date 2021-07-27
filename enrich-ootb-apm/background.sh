@@ -13,7 +13,8 @@ if [ "$STATUS" != "complete" ]; then
   cd /ecommworkshop/docker-compose-files
   sudo sed -i '38i \ \ \ \ volumes:\n \ \ \ \ \ - "../../discounts-service-fixed:/app"' /root/ecommerce-workshop/deploy/docker-compose/docker-compose-fixed-instrumented.yml
   sudo sed -i '84i \ \ \ \ volumes:\n \ \ \ \ \ - "../../ads-service-fixed:/app"' /root/ecommerce-workshop/deploy/docker-compose/docker-compose-fixed-instrumented.yml
-
+  cd /ecommerce-workshop/deploy/docker-compose
+  docker-compose -f docker-compose-fixed-instrumented.yml up
   echo "complete"> /root/status.txt
 fi
 
