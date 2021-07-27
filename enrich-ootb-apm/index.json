@@ -1,6 +1,6 @@
 {
-  "title":"Enriching OOTB Instrumentation with APM",
-  "time":"2 hours",
+  "title":"Adding Custom Span Tags",
+  "time":"30 Minutes",
   "difficulty":"Intermediate",
   "details":{
     "intro":{
