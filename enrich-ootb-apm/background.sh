@@ -1,9 +1,9 @@
 #!/bin/bash
 curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 
-mkdir /ecommworkshop
-cd /ecommworkshop
-git fetch
+# mkdir /ecommworkshop
+# cd /ecommworkshop
+# git fetch
 
 # git clone https://github.com/DataDog/ecommerce-workshop.git
 

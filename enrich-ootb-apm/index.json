@@ -44,7 +44,6 @@
     ]
   },
   "backend":{
-    "imageid":"datadog-base-v2",
-    "reuseConnection":"false"
+    "imageid":"datadog-base-v2"
   }
 }
