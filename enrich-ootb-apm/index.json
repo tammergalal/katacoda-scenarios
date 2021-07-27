@@ -25,7 +25,7 @@
   "environment":{
     "uilayout": "terminal",
     "showide": true,
-    "uieditorpath": "/root",
+    "uieditorpath": "/ecommworkshop",
     "showdashboard":true,
     "terminals": [
       {
