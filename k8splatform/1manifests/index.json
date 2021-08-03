@@ -48,7 +48,7 @@
     "idePort": 23000
   },
   "backend": {
-    "imageid": "datadog-datadog-k8s-v118-cluster-running",
+    "imageid": "datadog-k8s-v120-cluster-running",
     "reuseConnection": "false"
   }
 }
