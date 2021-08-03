@@ -1,0 +1,62 @@
+{
+  "title": "Monitoring the Control Plane: CoreDNS",
+  "time": "25 minutes",
+  "difficulty": "Intermediate",
+  "details": {
+    "intro": {
+      "courseData": "background.sh",
+      "code": "foreground.sh",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "text": "step1.md",
+        "title": "Monitoring CoreDNS"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "values.yaml",
+          "target": "/root/k8s-yaml-files"
+        },
+        {
+          "file": "advertisements.yaml",
+          "target": "/root/k8s-yaml-files"
+        },
+        {
+          "file": "frontend.yaml",
+          "target": "/root/k8s-yaml-files"
+        },
+        {
+          "file": "discounts.yaml",
+          "target": "/root/k8s-yaml-files"
+        },
+        {
+          "file": "db.yaml",
+          "target": "/root/k8s-yaml-files"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "showide": true,
+    "uieditorpath": "/root/k8s-yaml-files",
+    "idePort": 23000,
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Datadog",
+        "href": "https://app.datadoghq.com"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "datadog-kubernetes-cluster-running:1.16",
+    "reuseConnection": "false"
+  }
+}
