@@ -48,7 +48,7 @@
     "idePort": 23000
   },
   "backend": {
-    "imageid": "datadog-k8s-v120-cluster-running",
+    "imageid": "kubernetes-cluster-running:1.20",
     "reuseConnection": "false"
   }
 }
