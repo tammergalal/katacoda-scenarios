@@ -12,14 +12,6 @@
       {
         "text":"step1.md",
         "title":"Install the Datadog Agent w/ Helm"
-      },
-      {
-        "text":"step2.md",
-        "title":"Deploy a new version"
-      },
-      {
-        "text":"step3.md",
-        "title": "Remediate and Deploy a fix"
       }
     ],
     "finish":{
@@ -27,45 +19,13 @@
     },
     "assets":{
       "host01":[
-        {
-          "file":"values.yaml",
-          "target":"/root/k8s-yaml-files"
-        },
-        {
-          "file":"advertisements.yaml",
-          "target":"/root/k8s-yaml-files"
-        },
-        {
-          "file":"advertisements-service.yaml",
-          "target":"/root/k8s-yaml-files"
-        },
-        {
-          "file":"advertisements_1_1.yaml",
-          "target":"/root/new-manifests"
-        },
-        {
-          "file":"advertisements_1_2.yaml",
-          "target":"/root/new-manifests"
-        },
-        {
-          "file":"frontend.yaml",
-          "target":"/root/k8s-yaml-files"
-        },
-        {
-          "file":"discounts.yaml",
-          "target":"/root/k8s-yaml-files"
-        },
-        {
-          "file":"db.yaml",
-          "target":"/root/k8s-yaml-files"
-        }
       ]
     }
   },
   "environment":{
     "uilayout": "terminal",
     "showide": true,
-    "uieditorpath": "/root/k8s-yaml-files",
+    "uieditorpath": "/root",
     "showdashboard":true,
     "dashboards": [
       {
@@ -79,7 +39,7 @@
     ]
   },
   "backend":{
-    "imageid":"kubernetes-cluster-running:1.18",
+    "imageid":"datadog-base-v3",
     "reuseConnection":"false"
   }
 }
