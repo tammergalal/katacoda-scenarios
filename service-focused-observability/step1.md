@@ -11,7 +11,7 @@ We'll focus on thinking through what observability might make sense in a real ap
 
 Our application should be cloned from Github in this scenario, and if we change into the directory, we should be able to start the code with the following:
 
-First run `cd /ecommerce-observability/docker-compose-files {{execute}}`{{execute}}.
+First run `cd /ecommworkshop/docker-compose-files {{execute}}`{{execute}}.
 
 Next, lets actually spin up our application. `POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres  docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}.
 
@@ -27,11 +27,11 @@ Try browsing around and take a look at what the shop has to offer. Notice the ho
 
 ## Spinning up Traffic for Our Site
 
-In our `/ecommerce-observability` folder, we've got a copy of [GoReplay](https://goreplay.org).
+In our `/ecommworkshop` folder, we've got a copy of [GoReplay](https://goreplay.org).
 
 We've also got a capture of "production" traffic using GoReplay. Let's spin up an infinite loop of that traffic. Click the "+" sign next to the `storedog` tab, and open a new terminal to spin it up:
 
-First run `cd /ecommerce-observability`{{execute}}.
+First run `cd /ecommworkshop`{{execute}}.
 
 We can now start sending traffic to our application by running `./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"`{{execute}}.
 
