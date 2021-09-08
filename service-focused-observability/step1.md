@@ -11,7 +11,7 @@ We'll focus on thinking through what observability might make sense in a real ap
 
 Our application should be cloned from Github in this scenario, and if we change into the directory, we should be able to start the code with the following:
 
-First run `cd /ecommworkshop/docker-compose-files {{execute}}`{{execute}}.
+First run `cd /ecommworkshop/docker-compose-files`{{execute}}.
 
 Next, lets actually spin up our application. `POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres  docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}.
 
