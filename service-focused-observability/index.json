@@ -41,18 +41,15 @@
         "text": "finish.md"
       }
   },
-    "files": [
-        "/ecommerce-observability/docker-compose-files/docker-compose-broken-no-instrumentation.yml"
-    ],
-    "environment": {
-      "uilayout": "editor-terminal",
-      "uieditorpath": "/ecommerce-observability/docker-compose-files",
-      "showdashboard": true,
-      "hideHiddenFiles": true,
-      "exclusionPatterns": ["**/store-frontend/tmp/*", "**/store-frontend/log/*"],
-      "dashboards": [{"name": "storedog", "port": 3000}]
-    },
-    "backend": {
-      "imageid": "datadog-base-v3"
-    }
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/ecommworkshop",
+    "showdashboard": true,
+    "hideHiddenFiles": true,
+    "exclusionPatterns": ["**/store-frontend/tmp/*", "**/store-frontend/log/*"],
+    "dashboards": [{"name": "storedog", "port": 3000}]
+  },
+  "backend": {
+    "imageid": "datadog-base-v3"
   }
+}
