@@ -1,5 +1,6 @@
 # Modern Observability in Practice with Datadog
 
+
 In this workshop, we'll apply observability principles to a partially broken eCommerce app who's team has started the move to microservices.
 
 We'll first run the app, confirm that it's broken, and then instrument it with Datadog. 
