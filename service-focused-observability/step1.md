@@ -1,12 +1,13 @@
-# Our Broken Legacy Web Application
+
+# Storedog
 
 Our legacy monolith shop uses Ruby on Rails and Spree. We've started to build out a first set of microservices, and these have been added to an initial set of containers.
 
 We use `docker-compose` to bring it up and running. There's a prebuilt Rails Docker container image, along with the new Python / Flask microservice which handle our Coupon codes and Ads which display in the store.
 
-In this workshop, we're going to spin up and instrument our application to see where things are broken, and next, find a few bottlenecks.
+In this workshop, we're going to start and instrument Storedog to see what things are broken, and next, find a few bottlenecks.
 
-We'll focus on thinking through what observability might make sense in a real application, and see how setting up observability works in practice.
+We'll focus on thinking through what observability might make sense in a real application, and see how setting up observability into a specific service works in practice.
 
 Our application should be cloned from Github in this scenario, and if we change into the directory, we should be able to start the code with the following:
 

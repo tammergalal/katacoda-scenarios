@@ -46,13 +46,13 @@
     ],
     "environment": {
       "uilayout": "editor-terminal",
-      "uieditorpath": "/ecommerce-observability",
+      "uieditorpath": "/ecommerce-observability/docker-compose-files",
       "showdashboard": true,
       "hideHiddenFiles": true,
       "exclusionPatterns": ["**/store-frontend/tmp/*", "**/store-frontend/log/*"],
       "dashboards": [{"name": "storedog", "port": 3000}]
     },
     "backend": {
-      "imageid": "datadog-ubuntu"
+      "imageid": "datadog-base-v3"
     }
   }
