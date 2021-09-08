@@ -11,11 +11,9 @@ We'll focus on thinking through what observability might make sense in a real ap
 
 Our application should be cloned from Github in this scenario, and if we change into the directory, we should be able to start the code with the following:
 
+First run `cd /ecommerce-observability/docker-compose-files {{execute}}`{{execute}}.
 
-1. `cd /ecommerce-observability/docker-compose-files {{execute}}`{{execute}}
-
-1 .`POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres  docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}
-
+Next, lets actually spin up our application. `POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres  docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}.
 
 Once our images are pulled and the application is running we can view our ecommerce application, Storedog. You can either:
 
@@ -33,11 +31,9 @@ In our `/ecommerce-observability` folder, we've got a copy of [GoReplay](https:/
 
 We've also got a capture of "production" traffic using GoReplay. Let's spin up an infinite loop of that traffic. Click the "+" sign next to the `storedog` tab, and open a new terminal to spin it up:
 
+First run `cd /ecommerce-observability`{{execute}}.
 
-1. `cd /ecommerce-observability`{{execute}}
-
-1. `./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"`{{execute}}
-
+We can now start sending traffic to our application by running `./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"`{{execute}}.
 
 With simulated traffic being sent to Storedog, we can then take a look at the first few microservices that the team has rolled out and investigate some issues we
 
