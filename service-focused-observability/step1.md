@@ -3,7 +3,7 @@
 
 Our legacy monolith shop uses Ruby on Rails and Spree. We've started to build out a first set of microservices, and these have been added to an initial set of containers.
 
-We use `docker-compose` to bring it up and running. There's a prebuilt Rails Docker container image, along with the new Python / Flask microservice which handle our Coupon codes and Ads which display in the store.
+We use `docker-compose` to get the application up and running. There's a prebuilt Rails Docker container image, along with the new Python / Flask microservice which handle our Coupon codes and Ads which display in the store.
 
 In this workshop, we're going to start and instrument Storedog to see what things are broken, and next, find a few bottlenecks.
 
@@ -16,9 +16,11 @@ $ cd /ecommerce-observability/docker-compose-files
 $ POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres  docker-compose -f docker-compose-broken-instrumented.yml up
 ```
 
-Once our images are pulled, we should be able to jump into and view the application within Katacoda:
+Once our images are pulled and the application is running we can view our ecommerce application, Storedog. You can either:
 
-https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
+1. Click the `storedog` tab to the right, next to `Terminal`.
+
+1. https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
 
 Try browsing around, and notice the homepage takes a very long time to load. 
 
