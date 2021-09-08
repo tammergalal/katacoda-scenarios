@@ -11,18 +11,18 @@ We'll focus on thinking through what observability might make sense in a real ap
 
 Our application should be cloned from Github in this scenario, and if we change into the directory, we should be able to start the code with the following:
 
-```
-$ cd /ecommerce-observability/docker-compose-files
-$ POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres  docker-compose -f docker-compose-broken-instrumented.yml up
-```
+
+1. `cd /ecommerce-observability/docker-compose-files {{execute}}`{{execute}}
+1 .`POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres  docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}
+
 
 Once our images are pulled and the application is running we can view our ecommerce application, Storedog. You can either:
 
 1. Click the `storedog` tab to the right, next to `Terminal`.
 
-1. https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
+1. Navigate to https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
 
-Try browsing around, and notice the homepage takes a very long time to load. 
+Try browsing around and take a look at what the shop has to offer. Notice the homepage takes a very long time to load....
 
 ![storedog](https://github.com/burningion/katacoda-tracing-datadog/raw/master/assets/ecommerce/storedog.png)
 
@@ -32,12 +32,12 @@ In our `/ecommerce-observability` folder, we've got a copy of [GoReplay](https:/
 
 We've also got a capture of "production" traffic using GoReplay. Let's spin up an infinite loop of that traffic. Click the "+" sign next to the `storedog` tab, and open a new terminal to spin it up:
 
-```
-$ cd /ecommerce-observability
-$ ./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"
-```
 
-Once we spin up that traffic, we can then take a look at the issues we've come across since the new team rolled out their first few microservices.
+`cd /ecommerce-observability`{{execute}}
+`./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"`{{execute}}
+
+
+With simulated traffic being sent to Storedog, we can then take a look at the first few microservices that the team has rolled out and investigate some issues we
 
 Before being instrumented with Datadog, there'd been reports that the new `advertisements-service` broke the website. With the new deployment on staging, the `frontend` team has blamed the `ads-service` team, and the `advertisements-service` team has blamed the ops team.
 
