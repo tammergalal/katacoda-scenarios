@@ -15,9 +15,7 @@ First run `cd /ecommworkshop/deploy/docker-compose`{{execute}}.
 
 Next, lets actually spin up our application. `POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}
 
-With the application running you should see running log output into your terminal. To create a new terminal tab, click the "+" sign next to the `storedog` tab and then choose `Open New Terminal Tab`.
-
-Once our images are pulled and the application is running we can view our ecommerce application, Storedog in the browser. You can either:
+With the application running you should see running log output into your terminal. Now we can view our ecommerce application, Storedog, in the browser. You can either:
 
 Click the `storedog` tab to the right, next to `Terminal`.
 
