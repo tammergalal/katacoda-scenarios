@@ -13,13 +13,17 @@ Our application should be cloned from Github in this scenario, and if we change 
 
 First run `cd /ecommworkshop/deploy/docker-compose`{{execute}}.
 
-Next, lets actually spin up our application. `POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}.
+Next, lets actually spin up our application. `POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}
+
+With the application running you should see running log output into your terminal. To create a new terminal tab, click the "+" sign next to the `storedog` tab
 
 Once our images are pulled and the application is running we can view our ecommerce application, Storedog. You can either:
 
-1. Click the `storedog` tab to the right, next to `Terminal`.
+Click the `storedog` tab to the right, next to `Terminal`.
 
-1. Navigate to https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
+or 
+
+Navigate to https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
 
 Try browsing around and take a look at what the shop has to offer. Notice the homepage takes a very long time to load....
 
