@@ -15,9 +15,9 @@ First run `cd /ecommworkshop/deploy/docker-compose`{{execute}}.
 
 Next, lets actually spin up our application. `POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}
 
-With the application running you should see running log output into your terminal. To create a new terminal tab, click the "+" sign next to the `storedog` tab
+With the application running you should see running log output into your terminal. To create a new terminal tab, click the "+" sign next to the `storedog` tab and then choose `Open New Terminal Tab`.
 
-Once our images are pulled and the application is running we can view our ecommerce application, Storedog. You can either:
+Once our images are pulled and the application is running we can view our ecommerce application, Storedog in the browser. You can either:
 
 Click the `storedog` tab to the right, next to `Terminal`.
 
@@ -35,12 +35,12 @@ In our `/ecommworkshop/deploy/docker-compose` folder, we've got a copy of [GoRep
 
 We've also got a capture of "production" traffic using GoReplay. Let's spin up an infinite loop of that traffic. Click the "+" sign next to the `storedog` tab, and open a new terminal to spin it up:
 
-First lets confirm we are still in `/ecommworkshop/deploy/docker-compose` with a quick `pwd`{{execute}}
+In our new terminal window, navigate to the `docker-compose` directory of our ecommerce application with: `cd ../ecommworkshop/deploy/docker-compose`{{execute}}
 
-Now, lets spin up our traffic replay container by executing `docker-compose -f docker-compose-traffic-replay.yml up`{{execute}}.
+To begin sending traffic to our application, we must first start our traffic container with: `docker-compose -f docker-compose-traffic-replay.yml up`{{execute}}. 
 
-With simulated traffic being sent to Storedog, we can then take a look at the first few microservices that the team has rolled out and investigate some issues we
+Similar to our Storedog docker-compose deployment, you should see some log output to the terminal, which should stop after a few lines. Traffic is now being sent to our app.
 
-Before being instrumented with Datadog, there'd been reports that the new `advertisements-service` broke the website. With the new deployment on staging, the `frontend` team has blamed the `ads-service` team, and the `advertisements-service` team has blamed the ops team.
+Now we can take a look at the first few microservices that the team has rolled out and investigate some issues we have been hearing about. Before being instrumented with Datadog, there'd been reports that the new `advertisements-service` broke the website. With the new deployment on staging, the `frontend` team is blaming the `ads-service` team, and the `advertisements-service` team is blaming the ops team...not great for overall morale.
 
 With Datadog and APM instrumented in our code, let's see what's really been breaking our application.
