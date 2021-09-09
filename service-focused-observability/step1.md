@@ -11,9 +11,9 @@ We'll focus on thinking through what observability might make sense in a real ap
 
 Our application should be cloned from Github in this scenario, and if we change into the directory, we should be able to start the code with the following:
 
-First run `cd /ecommworkshop/docker-compose-files`{{execute}}.
+First run `cd /ecommworkshop/deploy/docker-compose`{{execute}}.
 
-Next, lets actually spin up our application. `POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres  docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}.
+Next, lets actually spin up our application. `POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}.
 
 Once our images are pulled and the application is running we can view our ecommerce application, Storedog. You can either:
 
@@ -27,13 +27,13 @@ Try browsing around and take a look at what the shop has to offer. Notice the ho
 
 ## Spinning up Traffic for Our Site
 
-In our `/ecommworkshop` folder, we've got a copy of [GoReplay](https://goreplay.org).
+In our `/ecommworkshop/deploy/docker-compose` folder, we've got a copy of [GoReplay](https://goreplay.org) running in a Docker container.
 
 We've also got a capture of "production" traffic using GoReplay. Let's spin up an infinite loop of that traffic. Click the "+" sign next to the `storedog` tab, and open a new terminal to spin it up:
 
-First run `cd /ecommworkshop`{{execute}}.
+First lets confirm we are still in `/ecommworkshop/deploy/docker-compose` with a quick `pwd`{{execute}}
 
-We can now start sending traffic to our application by running `./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"`{{execute}}.
+Now, lets spin up our traffic replay container by executing `docker-compose -f docker-compose-traffic-replay.yml up`{{execute}}.
 
 With simulated traffic being sent to Storedog, we can then take a look at the first few microservices that the team has rolled out and investigate some issues we
 
