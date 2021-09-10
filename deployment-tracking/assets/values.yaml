@@ -39,8 +39,8 @@ datadog:
   #   enabled: true
 
   # Enable this block for process collection. It is required for Kubernetes Beta metrics
-  # processAgent:
-  #   processCollection: true
+  processAgent:
+    processCollection: true
 
   # Enable this block for network and DNS metric collection
   # systemProbe:
