@@ -10,4 +10,4 @@ cd /ecommerce-observability
 git checkout 9ce34516d9a65d6f09a6fffd5c4911a409d31e3f
 git reset --hard
 
-
+statusupdate complete

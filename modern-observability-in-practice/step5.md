@@ -4,7 +4,7 @@ When we click into each of the services we've configured in APM, we see some def
 
 ![Suggested Monitors](./assets/ecommerce/suggest-monitors.png)
 
-Let's add some of these monitors so we can tell when our application isn't performing properly.
+Let's add one of these monitors so we can tell when our applications latency has risen too high, ensuring we are quickly alerted and are able to fix the issue quickly.
 
 In this case, we are going to add the default, suggested `P90` latency monitors, so we can tell when things are taking too long to respond.
 
