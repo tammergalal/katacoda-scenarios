@@ -20,7 +20,7 @@ Once our images are pulled, we should be able to jump into and view the applicat
 
 Try browsing around, and notice the homepage takes a very long time to load. 
 
-![storedog](https://github.com/burningion/katacoda-tracing-datadog/raw/master/assets/ecommerce/storedog.png)
+![storedog](./assets/storedog.png)
 
 ## Spinning up Traffic for Our Site
 

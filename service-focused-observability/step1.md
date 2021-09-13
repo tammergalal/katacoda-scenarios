@@ -25,7 +25,7 @@ Navigate to https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katac
 
 Try browsing around and take a look at what the shop has to offer. Notice the homepage takes a very long time to load....
 
-![storedog](./assets/ecommerce/storedog.png)
+![storedog](./assets/storedog.png)
 
 ## Spinning up Traffic for Our Site
 
