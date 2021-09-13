@@ -30,7 +30,7 @@ We've also got a capture of "production" traffic using GoReplay. Let's spin up a
 
 `cd /ecommworkshop`{{execute}}
 
-`$ ./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"`{{execute}}
+`./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"`{{execute}}
 
 Once we spin up that traffic, we can then take a look at the issues we've come across since the new team rolled out their first few microservices.
 
