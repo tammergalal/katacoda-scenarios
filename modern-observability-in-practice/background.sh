@@ -13,7 +13,7 @@ if [ "$STATUS" != "complete" ]; then
 
   mkdir /ecommerce-observability
   git clone https://github.com/DataDog/ecommerce-workshop /ecommerce-observability
-  cd /ecommerce-observability
+  cd ../ecommerce-observability
 
   echo "complete">>/root/status.txt
 fi
