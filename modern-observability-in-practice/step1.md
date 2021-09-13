@@ -28,10 +28,9 @@ In our `/ecommerce-observability` folder, we've got a copy of [GoReplay](https:/
 
 We've also got a capture of "production" traffic using GoReplay. Let's spin up an infinite loop of that traffic. Click the "+" sign next to the `storedog` tab, and open a new terminal to spin it up:
 
-```
-$ cd /ecommerce-observability
-$ ./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"
-```
+`cd /ecommerce-observability`{{execute}}
+
+`$ ./gor --input-file-loop --input-file requests_0.gor --output-http "http://localhost:3000"`{{execute}}
 
 Once we spin up that traffic, we can then take a look at the issues we've come across since the new team rolled out their first few microservices.
 
