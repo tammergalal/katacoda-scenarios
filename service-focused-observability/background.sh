@@ -6,7 +6,7 @@ touch /root/status.txt
 sleep 1
 STATUS=$(cat /root/status.txt)
 
-if [ "$STATUS" != "complete" ]; then
+if [ ! -d "../ecommworkshop" ]; then
   echo ""> /root/status.txt
   mkdir /ecommworkshop
   git clone https://github.com/DataDog/ecommerce-workshop /ecommworkshop
@@ -15,7 +15,7 @@ if [ "$STATUS" != "complete" ]; then
   # locked to specific commit on 2020-10-02
   git checkout 9ce34516d9a65d6f09a6fffd5c4911a409d31e3f
   git reset --hard
-
+else
   echo "complete">>/root/status.txt
 if
 
