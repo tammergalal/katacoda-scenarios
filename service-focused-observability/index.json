@@ -1,18 +1,18 @@
 {
-  "title": "Service Observability in Practice with APM",
+  "title": "Service Focused Observability with Distributed Tracing",
   "description": "Tools and techniques to improve deployment in distributed software systems",
   "details": {
       "steps": [
         {
-          "title": "Our Broken Legacy Web Application",
+          "title": "Start up Storedog",
           "text": "step1.md"
         },
         {
-          "title": "How to Understand an Application with Datadog",
+          "title": "How to Grok an Application with Datadog",
           "text": "step2.md"
         },
         {
-          "title": "Estabilishing A Baseline for Systems",
+          "title": "Establishing A Baseline for Systems",
           "text": "step3.md"
         },
         {
@@ -41,15 +41,18 @@
         "text": "finish.md"
       }
   },
-  "environment": {
-    "uilayout": "editor-terminal",
-    "uieditorpath": "/ecommworkshop",
-    "showdashboard": true,
-    "hideHiddenFiles": true,
-    "exclusionPatterns": ["**/store-frontend/tmp/*", "**/store-frontend/log/*"],
-    "dashboards": [{"name": "storedog", "port": 3000}]
-  },
-  "backend": {
-    "imageid": "datadog-base-v3"
+    "files": [
+        "/ecommworkshop/deploy/docker-compose-files/docker-compose-broken-no-instrumentation.yml"
+    ],
+    "environment": {
+      "uilayout": "editor-terminal",
+      "uieditorpath": "/ecommworkshop",
+      "showdashboard": true,
+      "hideHiddenFiles": true,
+      "exclusionPatterns": ["**/store-frontend/tmp/*", "**/store-frontend/log/*"],
+      "dashboards": [{"name": "storedog", "port": 3000}]
+    },
+    "backend": {
+      "imageid": "datadog-base-v3"
+    }
   }
-}
