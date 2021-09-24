@@ -30,6 +30,8 @@ if [ "$STATUS" != "complete" ]; then
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
   kubectl apply -f k8s-yaml-files/discounts.yaml
   kubectl apply -f k8s-yaml-files/frontend.yaml
+  cd ../ecommworkshop/deploy/docker-compose/
+  FRONTEND_HOST=localhost FRONTEND_PORT=30001 docker-compose -f docker-compose-traffic-replay.yml
 
   while [ "$NPODS" != "4" ]; do
     sleep 0.3
@@ -39,4 +41,4 @@ if [ "$STATUS" != "complete" ]; then
   echo "complete">>/root/status.txt
 fi
 
-../ecommworkshop/gor --input-file-loop --input-file "./ecommworkshop/traffic-replay/requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
+
