@@ -32,6 +32,7 @@ if [ "$STATUS" != "complete" ]; then
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
   kubectl apply -f k8s-yaml-files/discounts.yaml
   kubectl apply -f k8s-yaml-files/frontend.yaml
+  kubectl apply -f k8s-yaml-files/traffic-replay.yaml
 
   while [ "$NPODS" != "4" ]; do
     sleep 0.3
