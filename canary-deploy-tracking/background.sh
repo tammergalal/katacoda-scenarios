@@ -2,13 +2,14 @@
 
 curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 
-export FRONTEND_HOST=http://localhost:3000
 touch /root/status.txt
 sleep 1
 STATUS=$(cat /root/status.txt)
 
 if [ "$STATUS" != "complete" ]; then
   echo ""> /root/status.txt
+
+  wall -n "Installing Helm and cloning necessary materials"
 
   curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
   chmod 700 get_helm.sh
@@ -25,6 +26,7 @@ if [ "$STATUS" != "complete" ]; then
     NNODES=$(kubectl get nodes | grep Ready | wc -l)
   done
 
+  wall -n "Creating ecommerce deployment"
   kubectl apply -f k8s-yaml-files/db.yaml
   kubectl apply -f k8s-yaml-files/advertisements.yaml
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
@@ -35,9 +37,6 @@ if [ "$STATUS" != "complete" ]; then
     sleep 0.3
     NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
   done
-
-  cd ecommerce-workshop/deploy/docker-compose
-  docker-compose -f docker-compose-traffic-replay.yml up
 
   echo "complete">>/root/status.txt
 fi
