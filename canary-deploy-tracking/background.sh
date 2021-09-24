@@ -26,8 +26,7 @@ if [ "$STATUS" != "complete" ]; then
     sleep 0.3
     NNODES=$(kubectl get nodes | grep Ready | wc -l)
   done
-
-  wall -n "Creating ecommerce deployment"
+  
   kubectl apply -f k8s-yaml-files/db.yaml
   kubectl apply -f k8s-yaml-files/advertisements.yaml
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
