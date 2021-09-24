@@ -40,7 +40,7 @@
           "target":"/root/k8s-yaml-files"
         },
         {
-          "file":"advertisements-service.yaml",
+          "file":"traffic-replay.yaml",
           "target":"/root/k8s-yaml-files"
         },
         {
