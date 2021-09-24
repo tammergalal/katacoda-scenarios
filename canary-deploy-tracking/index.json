@@ -40,10 +40,6 @@
           "target":"/root/k8s-yaml-files"
         },
         {
-          "file":"traffic-replay.yaml",
-          "target":"/root/k8s-yaml-files"
-        },
-        {
           "file":"advertisements_1_1.yaml",
           "target":"/root/new-manifests"
         },
@@ -83,7 +79,7 @@
     ]
   },
   "backend":{
-    "imageid":"kubernetes-cluster-running:1.18",
+    "imageid":"datadog-k8s-v120-cluster-running",
     "reuseConnection":"false"
   }
 }

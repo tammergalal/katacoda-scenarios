@@ -17,8 +17,6 @@ if [ "$STATUS" != "complete" ]; then
   helm repo add datadog https://helm.datadoghq.com
   helm repo update
 
-  git clone https://github.com/DataDog/ecommerce-workshop.git
-
   NNODES=$(kubectl get nodes | grep Ready | wc -l)
 
   while [ "$NNODES" != "2" ]; do
@@ -32,7 +30,6 @@ if [ "$STATUS" != "complete" ]; then
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
   kubectl apply -f k8s-yaml-files/discounts.yaml
   kubectl apply -f k8s-yaml-files/frontend.yaml
-  kubectl apply -f k8s-yaml-files/traffic-replay.yaml
 
   while [ "$NPODS" != "4" ]; do
     sleep 0.3
@@ -42,4 +39,4 @@ if [ "$STATUS" != "complete" ]; then
   echo "complete">>/root/status.txt
 fi
 
-
+./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
