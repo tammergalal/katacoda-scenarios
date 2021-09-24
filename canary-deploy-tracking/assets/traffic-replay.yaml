@@ -24,7 +24,7 @@ spec:
           name: traffic-replay
           env:
             - name: FRONTEND_HOST
-              value: frontend
+              value: https://localhost:30001
           resources: {}
       restartPolicy: Always
 status: {}
