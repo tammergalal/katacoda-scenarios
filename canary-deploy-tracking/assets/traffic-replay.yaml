@@ -1,21 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
-    io.kompose.service: traffic-replay
+    app: ecommerce 
+    service: traffic-replay 
   name: traffic-replay
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: traffic-replay
+      service: traffic-replay
+      app: ecommerce
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: traffic-replay
+        app: ecommerce 
+        service: traffic-replay 
     spec:
       containers:
         - image: ddtraining/traffic-replay:latest
