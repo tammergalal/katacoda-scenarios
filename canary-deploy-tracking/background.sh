@@ -2,6 +2,7 @@
 
 curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 
+export FRONTEND_HOST=http://localhost:3000
 touch /root/status.txt
 sleep 1
 STATUS=$(cat /root/status.txt)
@@ -38,9 +39,10 @@ if [ "$STATUS" != "complete" ]; then
     NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
   done
 
+  cd ecommerce-workshop/deploy/docker-compose
+  docker-compose -f docker-compose-traffic-replay.yml up
+
   echo "complete">>/root/status.txt
 fi
 
 
-
-./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
