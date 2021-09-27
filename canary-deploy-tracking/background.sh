@@ -41,6 +41,6 @@ if [ "$STATUS" != "complete" ]; then
   echo "complete">>/root/status.txt
 fi
 
-./ecommworkshop/gor --input-file-loop --input-file "./ecommworkshop/traffic-replay/requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
+../ecommworkshop/gor --input-file-loop --input-file "../ecommworkshop/traffic-replay/requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
 
 
