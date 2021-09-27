@@ -16,6 +16,7 @@ if [ "$STATUS" != "complete" ]; then
   ./get_helm.sh
   helm repo add datadog https://helm.datadoghq.com
   helm repo update
+  wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
 
   NNODES=$(kubectl get nodes | grep Ready | wc -l)
 
@@ -30,8 +31,6 @@ if [ "$STATUS" != "complete" ]; then
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
   kubectl apply -f k8s-yaml-files/discounts.yaml
   kubectl apply -f k8s-yaml-files/frontend.yaml
-  cd ../ecommworkshop/deploy/docker-compose/
-  FRONTEND_HOST=localhost FRONTEND_PORT=30001 docker-compose -f docker-compose-traffic-replay.yml
 
   while [ "$NPODS" != "4" ]; do
     sleep 0.3
@@ -40,5 +39,7 @@ if [ "$STATUS" != "complete" ]; then
 
   echo "complete">>/root/status.txt
 fi
+
+./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
 
 
