@@ -48,6 +48,9 @@ metadata:
   labels:
     service: db
     app: ecommerce
+    tags.datadoghq.com/env: "ruby-shop"
+    tags.datadoghq.com/service: "db"
+    tags.datadoghq.com/version: "1.0"
   name: db
 spec:
   replicas: 1
@@ -61,6 +64,9 @@ spec:
       labels:
         service: db
         app: ecommerce
+        tags.datadoghq.com/env: "ruby-shop"
+        tags.datadoghq.com/service: "db"
+        tags.datadoghq.com/version: "1.0"
     spec:
       containers:
       - image: postgres:11-alpine
