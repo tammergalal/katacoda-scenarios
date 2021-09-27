@@ -17,6 +17,7 @@ if [ "$STATUS" != "complete" ]; then
   helm repo add datadog https://helm.datadoghq.com
   helm repo update
   wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
+  mv /usr/local/bin/gor /ecommworksop
 
   NNODES=$(kubectl get nodes | grep Ready | wc -l)
 
@@ -40,6 +41,6 @@ if [ "$STATUS" != "complete" ]; then
   echo "complete">>/root/status.txt
 fi
 
-./ecommerce-workshop/gor --input-file-loop --input-file "./ecommerce-workshop/traffic-replay/requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
+./ecommworkshop/gor --input-file-loop --input-file "./ecommworkshop/traffic-replay/requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
 
 
