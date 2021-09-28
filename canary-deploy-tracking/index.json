@@ -28,6 +28,10 @@
     "assets":{
       "host01":[
         {
+          "file":"requests_0.gor",
+          "target":"/root"
+        },
+        {
           "file":"values.yaml",
           "target":"/root/k8s-yaml-files"
         },
@@ -79,6 +83,6 @@
     ]
   },
   "backend":{
-    "imageid":"datadog-k8s-v118-cluster-running"
+    "imageid":"kubernetes-cluster-running-1.18"
   }
 }
