@@ -79,7 +79,6 @@
     ]
   },
   "backend":{
-    "imageid":"datadog-k8s-v120-cluster-running",
-    "reuseConnection":"false"
+    "imageid":"datadog-k8s-v118-cluster-running"
   }
 }
