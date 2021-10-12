@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
+curl -sk https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 
 touch /root/status.txt
 sleep 1
@@ -36,7 +36,7 @@ if [ "$STATUS" != "complete" ]; then
 
   while [ "$NPODS" != "4" ]; do
     sleep 0.3
-    NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
+    NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)c
   done
 
   echo "complete">>/root/status.txt
