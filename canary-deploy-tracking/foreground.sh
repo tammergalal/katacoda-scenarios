@@ -8,4 +8,4 @@ clear
 statuscheck installingHelm 
 statusupdate checkPods
 statuscheck deployment
-prepenvironment
+# prepenvironment
