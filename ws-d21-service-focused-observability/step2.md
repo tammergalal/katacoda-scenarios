@@ -26,7 +26,7 @@ In the above yaml, we've added a Datadog Agent container and along with it, volu
 
 In addition, on line 6, we created an `DD_API_KEY` along with enabling logs and the process Agent. Finally, on line 12 and 13, we've opened the port `8126` - where traces get shipped for collection at the Agent level.
 
-If we run the `env | grep ^DD`{{execute}} command in a new shell tab for our lab, we can see that our lab environment already has the Datadog API key injected into our scenario.
+If we run the `env | grep ^DD`{{execute}} command in a new shell tab for our lab, we can see that our lab environment already has the Datadog API key injected into our scenario. To open a new shell tab, click the `+` sign and then `Open New Terminal`
 
 On line 10 in our yaml file, we set `- DD_TAGS='env:sfo101'`. In this line, we've set an `env` tag for Datadog that allows us to filter to a specific environment, making sure we don't pollute other environments while testing.
 
