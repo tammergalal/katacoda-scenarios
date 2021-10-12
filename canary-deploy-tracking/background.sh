@@ -10,6 +10,7 @@ if [ "$STATUS" != "complete" ]; then
   echo ""> /root/status.txt
 
   # wall -n "Installing Helm and cloning necessary materials"
+  statusupdate installingHelm
 
   curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
   chmod 700 get_helm.sh
@@ -18,6 +19,7 @@ if [ "$STATUS" != "complete" ]; then
   helm repo update
   mv /usr/local/bin/gor /root/gor
   mv /ecommworkshop/traffic-replay/requests_0.gor /root/requests_0.gor
+
 
   NNODES=$(kubectl get nodes | grep Ready | wc -l)
   NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
@@ -30,17 +32,17 @@ if [ "$STATUS" != "complete" ]; then
   while ! [  -f /root/k8s-yaml-files/db.yaml ]; do
     sleep .5
   done
-  
-  wall -n "Creating ecommerce deployment"
+
+  statusupdate deployment
+  # wall -n "Creating ecommerce deployment"
   kubectl apply -f k8s-yaml-files/db.yaml
   kubectl apply -f k8s-yaml-files/advertisements.yaml
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
   kubectl apply -f k8s-yaml-files/discounts.yaml
   kubectl apply -f k8s-yaml-files/frontend.yaml
 
-  wall -n "Checking pods"
+  statusupdate checkPods
   while [ "$NPODS" != "4" ]; do
-    wall -n "Actually checking pods"
     sleep 0.3
     NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
   done

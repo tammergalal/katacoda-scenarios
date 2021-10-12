@@ -5,5 +5,7 @@ done
 sleep 0.3
 
 clear
-
+statuscheck installingHelm 
+statusupdate checkPods
+statuscheck deployment
 prepenvironment
