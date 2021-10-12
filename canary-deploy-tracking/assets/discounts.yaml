@@ -5,8 +5,6 @@ metadata:
     app: ecommerce
     service: discounts
     tags.datadoghq.com/env: "ruby-shop"
-    tags.datadoghq.com/service: "discounts"
-    tags.datadoghq.com/env: "1.0"
   name: discounts
 spec:
   replicas: 1
@@ -22,8 +20,6 @@ spec:
         service: discounts
         app: ecommerce
         tags.datadoghq.com/env: "ruby-shop"
-        tags.datadoghq.com/service: "discounts"
-        tags.datadoghq.com/env: "1.0"
     spec:
       containers:
       - image: ddtraining/discounts-fixed:1.0.0

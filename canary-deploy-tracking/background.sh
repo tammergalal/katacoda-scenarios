@@ -27,6 +27,7 @@ if [ "$STATUS" != "complete" ]; then
   done
 
   wall -n "Creating ecommerce deployment"
+  kubectl delete -f /opt/katacoda-cloud-provider.yaml
   kubectl apply -f k8s-yaml-files/db.yaml
   kubectl apply -f k8s-yaml-files/advertisements.yaml
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml

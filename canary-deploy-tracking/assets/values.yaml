@@ -33,4 +33,16 @@ datadog:
   - name: DD_KUBELET_TLS_VERIFY
     value: "false"
 
-  containerExclude: "image:gcr.io/google_containers/kube-keepalived-vip image:katacoda/katacoda-cloud-provider"
+
+  # Enable this block for the Kubernetes Beta metrics
+  # orchestratorExplorer:
+  #   enabled: true
+
+  # Enable this block for process collection. It is required for Kubernetes Beta metrics
+  # processAgent:
+  #   processCollection: true
+
+  # Enable this block for network and DNS metric collection
+  # systemProbe:
+  #   enabled: true
+  #   collectDNSStats: true
