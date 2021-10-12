@@ -22,9 +22,7 @@ if [ "$STATUS" != "complete" ]; then
     NPODS=$(kubectl get pods -n kube-system -l component=kube-apiserver --field-selector=status.phase=Running | grep -v NAME | wc -l)
   done
 
-  # wall -n "Installing Helm and cloning necessary materials"
-  statusupdate installingHelm
-
+  wall -n "Installing Helm and cloning necessary materials"
   curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
   chmod 700 get_helm.sh
   ./get_helm.sh
@@ -34,26 +32,21 @@ if [ "$STATUS" != "complete" ]; then
   mv /usr/local/bin/gor /root/gor
   mv /ecommworkshop/traffic-replay/requests_0.gor /root/requests_0.gor
 
-  statusupdate deployment
-  # wall -n "Creating ecommerce deployment"
-  kubectl apply -f k8s-yaml-files/advertisements.yaml
+
+  wall -n "Creating ecommerce deployment"
   kubectl apply -f k8s-yaml-files/db.yaml
+  kubectl apply -f k8s-yaml-files/advertisements.yaml
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
   kubectl apply -f k8s-yaml-files/discounts.yaml
   kubectl apply -f k8s-yaml-files/frontend.yaml
 
-  statusupdate checkPods
-  sleep 1
   NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
   while [ "$NPODS" != "4" ]; do
     sleep 0.3
     NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
   done
 
-
   statusupdate complete
-
 fi
-
 
 ./gor --input-file-loop --input-file "./requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
