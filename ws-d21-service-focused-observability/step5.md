@@ -41,7 +41,7 @@ In this case, the banner ads were meant to be put under `show.html.erb`{{open}} 
 
 We can assume our developers have done that, and deploy the code changes with our new Docker image name, `ddtraining/storefront-fixed:latest`.
 
-Edit the `/deploy/docker-compose/docker-compose-broken-instrumented.yml`{{open}}, changing the `frontend` service to point to the:
+Edit the `docker-compose.yml`{{open}}, changing the `frontend` service to point to the:
 
 ```
   image: "ddtraining/storefront-fixed:latest"
@@ -52,7 +52,7 @@ It's also a good recommendation to update the `DD_VERSION` so that we can track 
 With that, we can spin up our project. Let's see if there's anything else going on. Click back over to our original terminal where our application is currently running and dumping logs and stop it with `ctrl + C`.
 
 Next run:
-`POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres  docker-compose -f docker-compose-broken-instrumented.yml up`{{execute}}
+`docker-compose up -d`{{execute}}
 
 This will spin up our application using the changes made to the yaml file.
 
