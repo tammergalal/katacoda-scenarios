@@ -45,6 +45,14 @@ if [ "$STATUS" != "complete" ]; then
     sleep .5
   done
 
+  NPODS=$(kubectl get pods -n kube-system -l component=kube-apiserver --field-selector=status.phase=Running | grep -v NAME | wc -l)
+  while [ "$NPODS" != "1" ]; do
+    sleep 0.3
+    NPODS=$(kubectl get pods -n kube-system -l component=kube-apiserver --field-selector=status.phase=Running | grep -v NAME | wc -l)
+  done
+
+
+
   statusupdate deployment
   # wall -n "Creating ecommerce deployment"
   kubectl apply -f k8s-yaml-files/advertisements.yaml
