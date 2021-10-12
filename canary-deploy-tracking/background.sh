@@ -16,7 +16,6 @@ if [ "$STATUS" != "complete" ]; then
   ./get_helm.sh
   helm repo add datadog https://helm.datadoghq.com
   helm repo update
-  wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
   mv /usr/local/bin/gor /root/gor
   mv /ecommworkshop/traffic-replay/requests_0.gor /root/requests_0.gor
 
@@ -27,20 +26,21 @@ if [ "$STATUS" != "complete" ]; then
     NNODES=$(kubectl get nodes | grep Ready | wc -l)
   done
 
-  wall -n "Creating ecommerce deployment"
   kubectl apply -f k8s-yaml-files/db.yaml
   kubectl apply -f k8s-yaml-files/advertisements.yaml
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
   kubectl apply -f k8s-yaml-files/discounts.yaml
   kubectl apply -f k8s-yaml-files/frontend.yaml
 
-  # while [ "$NPODS" != "3" ]; do
-    # sleep 0.3
-    # NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
-  # done
-
+  while [ "$NPODS" != "3" ]; do
+    sleep 0.3
+    NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
+  done
+  
+  wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
   echo "complete">>/root/status.txt
 fi
+
 
 ./gor --input-file-loop --input-file "./requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
 
