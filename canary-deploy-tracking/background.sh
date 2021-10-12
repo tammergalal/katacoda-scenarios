@@ -34,10 +34,10 @@ if [ "$STATUS" != "complete" ]; then
   kubectl apply -f k8s-yaml-files/discounts.yaml
   kubectl apply -f k8s-yaml-files/frontend.yaml
 
-  while [ "$NPODS" != "3" ]; do
-    sleep 0.3
-    NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
-  done
+  # while [ "$NPODS" != "3" ]; do
+    # sleep 0.3
+    # NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
+  # done
 
   echo "complete">>/root/status.txt
 fi
