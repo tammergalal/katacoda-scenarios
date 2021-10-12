@@ -21,6 +21,19 @@ STATUS=$(cat /root/status.txt)
 if [ "$STATUS" != "complete" ]; then
   echo ""> /root/status.txt
 
+  NNODES=$(kubectl get nodes | grep Ready | wc -l)
+
+  while [ "$NNODES" != "2" ]; do
+    sleep 0.3
+    NNODES=$(kubectl get nodes | grep Ready | wc -l)
+  done
+
+  NPODS=$(kubectl get pods -n kube-system -l component=kube-apiserver --field-selector=status.phase=Running | grep -v NAME | wc -l)
+  while [ "$NPODS" != "1" ]; do
+    sleep 0.3
+    NPODS=$(kubectl get pods -n kube-system -l component=kube-apiserver --field-selector=status.phase=Running | grep -v NAME | wc -l)
+  done
+
   # wall -n "Installing Helm and cloning necessary materials"
   statusupdate installingHelm
 
@@ -32,26 +45,6 @@ if [ "$STATUS" != "complete" ]; then
   wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
   mv /usr/local/bin/gor /root/gor
   mv /ecommworkshop/traffic-replay/requests_0.gor /root/requests_0.gor
-
-
-  NNODES=$(kubectl get nodes | grep Ready | wc -l)
-
-  while [ "$NNODES" != "2" ]; do
-    sleep 0.3
-    NNODES=$(kubectl get nodes | grep Ready | wc -l)
-  done
-
-  while ! [  -f /root/k8s-yaml-files/db.yaml ]; do
-    sleep .5
-  done
-
-  NPODS=$(kubectl get pods -n kube-system -l component=kube-apiserver --field-selector=status.phase=Running | grep -v NAME | wc -l)
-  while [ "$NPODS" != "1" ]; do
-    sleep 0.3
-    NPODS=$(kubectl get pods -n kube-system -l component=kube-apiserver --field-selector=status.phase=Running | grep -v NAME | wc -l)
-  done
-
-
 
   statusupdate deployment
   # wall -n "Creating ecommerce deployment"
@@ -76,5 +69,3 @@ fi
 
 
 ./gor --input-file-loop --input-file "./requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
-
-
