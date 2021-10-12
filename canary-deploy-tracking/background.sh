@@ -35,8 +35,8 @@ if [ "$STATUS" != "complete" ]; then
 
   statusupdate deployment
   # wall -n "Creating ecommerce deployment"
-  kubectl apply -f k8s-yaml-files/db.yaml
   kubectl apply -f k8s-yaml-files/advertisements.yaml
+  kubectl apply -f k8s-yaml-files/db.yaml
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
   kubectl apply -f k8s-yaml-files/discounts.yaml
   kubectl apply -f k8s-yaml-files/frontend.yaml
