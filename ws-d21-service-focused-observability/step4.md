@@ -18,7 +18,7 @@ The `ddtrace` Python library includes an executable that allows us to automatica
 
 With this, we're now ready to *configure* our application's instrumentation.
 
-Automatic instrumentation is done via environment variables in our `docker-compose.yml`{{open}} starting on line 72:
+Automatic instrumentation is done via environment variables in our `docker-compose.yml`{{open}} starting on line 82:
 
 ```
       - DD_SERVICE=advertisements-service
@@ -32,7 +32,7 @@ Automatic instrumentation is done via environment variables in our `docker-compo
 
 With this, we've connected and instrumented all of our services to APM.
 
-The last thing we need to add is a *label* to our container, so our logs are sent with the label of the service, and with the proper language pipeline processor on line 88:
+The last thing we need to add is a *label* to our container, so our logs are sent with the label of the service, and with the proper language pipeline processor on line 106:
 
 
 ```
