@@ -22,7 +22,6 @@ if [ "$STATUS" != "complete" ]; then
 
 
   NNODES=$(kubectl get nodes | grep Ready | wc -l)
-  NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
 
   while [ "$NNODES" != "2" ]; do
     sleep 0.3
@@ -42,6 +41,8 @@ if [ "$STATUS" != "complete" ]; then
   kubectl apply -f k8s-yaml-files/frontend.yaml
 
   statusupdate checkPods
+  sleep 1
+  NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
   while [ "$NPODS" != "4" ]; do
     sleep 0.3
     NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
