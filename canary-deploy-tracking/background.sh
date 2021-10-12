@@ -36,7 +36,7 @@ if [ "$STATUS" != "complete" ]; then
 
   while [ "$NPODS" != "3" ]; do
     sleep 0.3
-    NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)c
+    NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
   done
 
   echo "complete">>/root/status.txt
