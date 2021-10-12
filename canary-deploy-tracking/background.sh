@@ -28,7 +28,6 @@ if [ "$STATUS" != "complete" ]; then
   done
 
   wall -n "Creating ecommerce deployment"
-  kubectl delete -f /opt/katacoda-cloud-provider.yaml
   kubectl apply -f k8s-yaml-files/db.yaml
   kubectl apply -f k8s-yaml-files/advertisements.yaml
   kubectl apply -f k8s-yaml-files/advertisements-service.yaml
@@ -43,6 +42,7 @@ if [ "$STATUS" != "complete" ]; then
   echo "complete">>/root/status.txt
 fi
 
+kubectl delete -f /opt/katacoda-cloud-provider.yaml
 ./gor --input-file-loop --input-file "./requests_0.gor|300%" --output-http "http://localhost:30001" >> /dev/null 2>&1
 
 
