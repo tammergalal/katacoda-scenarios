@@ -21,7 +21,6 @@ if [ "$STATUS" != "complete" ]; then
   mv /ecommworkshop/traffic-replay/requests_0.gor /root/requests_0.gor
 
   NNODES=$(kubectl get nodes | grep Ready | wc -l)
-  NPODS=$(kubectl get pods --field-selector=status.phase=Running | grep -v NAME | wc -l)
 
   while [ "$NNODES" != "2" ]; do
     sleep 0.3
