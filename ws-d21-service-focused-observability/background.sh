@@ -30,6 +30,7 @@ mv /usr/local/bin/gor /root/lab/gor
 mv /ecommworkshop/traffic-replay/requests_0.gor /root/lab/requests_0.gor
 
 docker-compose up -d
-./gor --input-file-loop --input-file "./requests_0.gor|300%" --output-http "http://localhost:3000" >> /dev/null 2>&1
 
 statusupdate "workspace"
+
+./gor --input-file-loop --input-file "./requests_0.gor|300%" --output-http "http://localhost:3000" >> /dev/null 2>&1
