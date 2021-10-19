@@ -24,11 +24,11 @@ services:
       - POSTGRES_HOST=db
       - DD_SERVICE=discounts-service
       - DD_ENV=sfo101
+      - DD_VERSION=2.0
       - DD_LOGS_INJECTION=true
       - DD_TRACE_SAMPLE_RATE=1
       - DD_PROFILING_ENABLED=true
-      - DD_AGENT_HOST=agent
-      - DD_VERSION=1.0
+      - DD_AGENT_HOST=agent 
     image: 'ddtraining/discounts:2.0.0'
     command:
       [
@@ -38,38 +38,38 @@ services:
       ]
     ports:
       - '5001:5001'
+    volumes:
+      - /root/discounts.py:/app/discounts.py
     depends_on:
-      - datadog
+      - agent
       - db
     labels:
       com.datadoghq.tags.env: 'sfo101'
       com.datadoghq.tags.service: 'discounts-service'
-      com.datadoghq.tags.version: '2.0'
       my.custom.label.team: 'discounts'
       com.datadoghq.ad.logs: '[{"source": "python", "service": "discounts-service"}]'
   frontend:
     environment:
       - DD_SERVICE=store-frontend
       - DD_ENV=sfo101
+      - DD_VERSION=2.0
       - DD_LOGS_INJECTION=true
       - DD_TRACE_SAMPLE_RATE=1
       - DD_PROFILING_ENABLED=true
-      - DD_AGENT_HOST=agent
+      - DD_AGENT_HOST=agent 
       - DD_CLIENT_TOKEN
       - DD_APPLICATION_ID
-      - DD_VERSION=1.0
     image: 'ddtraining/storefront:2.0.0'
     command: sh docker-entrypoint.sh
     ports:
       - '3000:3000'
     depends_on:
-      - datadog
+      - agent
       - discounts
       - advertisements
     labels:
       com.datadoghq.tags.env: 'sfo101'
       com.datadoghq.tags.service: 'store-frontend'
-      com.datadoghq.tags.version: '2.0'
       my.custom.label.team: 'frontend'
       com.datadoghq.ad.logs: '[{"source": "ruby", "service": "store-frontend"}]'
   advertisements:
@@ -81,11 +81,11 @@ services:
       - POSTGRES_HOST=db
       - DD_SERVICE=advertisements-service
       - DD_ENV=sfo101
+      - DD_VERSION=2.0
       - DD_LOGS_INJECTION=true
       - DD_TRACE_SAMPLE_RATE=1
       - DD_PROFILING_ENABLED=true
-      - DD_AGENT_HOST=agent
-      - DD_VERSION=1.0
+      - DD_AGENT_HOST=agent 
     image: 'ddtraining/advertisements:2.0.0'
     command:
       [
@@ -95,13 +95,14 @@ services:
       ]
     ports:
       - '5002:5002'
+    volumes:
+      - /root/ads.py:/app/ads.py
     depends_on:
-      - datadog
+      - agent
       - db
     labels:
       com.datadoghq.tags.env: 'sfo101'
       com.datadoghq.tags.service: 'advertisements-service'
-      com.datadoghq.tags.version: '2.0'
       my.custom.label.team: 'advertisements'
       com.datadoghq.ad.logs: '[{"source": "python", "service": "advertisements-service"}]'
   db:
