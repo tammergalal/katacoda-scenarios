@@ -10,17 +10,17 @@ You can login at http://app.datadoghq.com using
 the following credentials:
 ```
 
+1. You have your lab instructions on the left and a terminal on the right. On the top of your terminal is another tab which will oen Visual Studio Code IDE tab. Whenever working in the IDE, your work will be **saved automatically**.
+
+    You'll also find a tab titled "Storedog", which you'll learn more about soon.
+
 1. Take a look at the command listed below. See the little curled arrow icon that appears next to it? That means it's a clickable command. Just click it and the command will be copied to the terminal and executed.
 
     `ls -la`{{execute}}
 
-1. You have your lab instructions on the left, a terminal on the bottom right, and a Visual Studio Code IDE tabs on the towards the top of the pane. Whenever working in the IDE, your work will be **saved automatically**.
+1. In the terminal on the right you should see login information for the account we created for you. Later if you forget the login information, run `creds`{{execute}} and you will see the information again. Now , using the provided credentials, login to your account on<a href="https://app.datadoghq.com" target="_datadog">Datadog </a>. 
 
-    You'll also find a tab titled "Storedog", which you'll learn more about soon.
-
-1. Now login to your <a href="https://app.datadoghq.com" target="_datadog">Datadog account</a>. In the terminal on the right you should see login information for the account we created for you. Later if you forget the login information, run `creds`{{execute}} and you will see the information again.
-
-1. Now verify that you are in the right organization. Visit <a href="https://app.datadoghq.com/account/settings#api" target="_datadog">the API Keys section</a>, which you can find in the Global Navigation under **Integrations > APIs**. Expand API Keys and hover over the purple rectangle to reveal the API key we have created for you.
+1. Now that you are logged into the platform , visit <a href="https://app.datadoghq.com/account/settings#api" target="_datadog">the API Keys section</a>, which you can find in the Global Navigation under **Integrations > APIs**. Expand API Keys and hover over the purple rectangle to reveal the API key we have created for you.
 
 ![API Key in the Datadog App](./assets/api_key_in_datadog.png)
 
@@ -42,9 +42,7 @@ The Datadog Community team created this application for use in the Learning Cent
 
     Open the `docker-compose.yml`{{open}} file and review how these services are configured. 
 
-2. (Optional) The code for the Storedog services is available in the IDE file explorer, if you'd like to look at it.
-
-2. The application is already running. To see the containers, execute the following command in the terminal:
+2. The application is already running. To see the containers and their statuses, execute the following command in the terminal:
 
     `docker-compose ps`{{execute}}
 
