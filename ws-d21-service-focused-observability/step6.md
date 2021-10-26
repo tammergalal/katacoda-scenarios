@@ -1,4 +1,4 @@
-With the [Service List](https://app.datadoghq.com/apm/services), we get a high level view of overall service performance. We can quickly see services that are running slower than the rest. When working with a team migrating to microservices, this view can be a great first approach to breaking down existing problems.
+With the [Service List](https://app.datadoghq.com/apm/services?env=sfo101), we get a high level view of overall service performance. We can quickly see services that are running slower than the rest. When working with a team migrating to microservices, this view can be a great first approach to breaking down existing problems.
 
 ![Slow Services](./assets/bottleneck.gif)
 
@@ -19,7 +19,7 @@ Since this is a simple fix, let's take care of this on our own.
 
 **Hint:** Look for `flask_request.method == 'GET'` 
 
-Before we restart the services, open the `docker-compose.yml`{{open}} file and find the `advertisements` settings starting on line 73. Update the `DD_VERSION` to `2.1` then restart the service using `docker-compose up -d`{{execute}}
+Before we restart the services, open the `docker-compose.yml`{{open}} file and find the `advertisements` settings starting on line 73. Update the `DD_VERSION` to `2.1` then restart the service using `docker-compose down && docker-compose up -d`{{execute}}
 
 What sort of an improvement in page load time do you see now? Can you graph the differences over time?
 
