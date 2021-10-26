@@ -30,7 +30,7 @@ the following credentials:
 
     If this is not the same API key that you saw in your Datadog account, you may have been in the wrong organization. You can switch organizations by clicking on the Account menu in the Datadog nav bar and selecting the new organization we created for you.
 
-1. Now that you have verified that you are in the correct organization, move on to learn about the application you'll use to learn about the Datadog platform.
+1. Now that you have verified that you are in the correct organization, move on to read about the application you'll use to learn about the Datadog Deployment Tracking.
 
 ## Storedog
 
