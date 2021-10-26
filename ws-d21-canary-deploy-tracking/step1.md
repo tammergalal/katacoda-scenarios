@@ -14,13 +14,11 @@ the following credentials:
 
     `ls -la`{{execute}}
 
-1. The lab instructions left. A terminal and Visual Studio Code IDE tabs on the right. Whenever working in the IDE, your work will be **saved automatically**.
+1. You have your lab instructions on the left, a terminal on the bottom right, and a Visual Studio Code IDE tabs on the towards the top of the pane. Whenever working in the IDE, your work will be **saved automatically**.
 
     You'll also find a tab titled "Storedog", which you'll learn more about soon.
 
-1. Now login to your <a href="https://app.datadoghq.com" target="_datadog">Datadog account</a>. On the right side in the terminal you should see login information for the account we created for you. Later if you forget the login information, run `creds`{{execute}} and you will see the information again.
-
-1. Take a look around. We will be trying out many of the sections during this training.
+1. Now login to your <a href="https://app.datadoghq.com" target="_datadog">Datadog account</a>. In the terminal on the right you should see login information for the account we created for you. Later if you forget the login information, run `creds`{{execute}} and you will see the information again.
 
 1. Now verify that you are in the right organization. Visit <a href="https://app.datadoghq.com/account/settings#api" target="_datadog">the API Keys section</a>, which you can find in the Global Navigation under **Integrations > APIs**. Expand API Keys and hover over the purple rectangle to reveal the API key we have created for you.
 
