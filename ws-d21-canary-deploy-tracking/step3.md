@@ -6,7 +6,7 @@ For example, if we look at the [Frontend Service](https://app.datadoghq.com/apm/
 
 ![Storefront Errors](./assets/error_logs.png)
 
-Let's go ahead and click on one of our traces to bring up the full view. We can see when investigating the flaming graph that there is a template error coming in. 
+Let's go ahead and click on one of our traces to bring up the full view. We can see when investigating the flame graph that there is a template error coming in. 
 
 ![Flame Graph](./assets/flame_graph.png)
 
@@ -18,7 +18,7 @@ Now that we are on the Frontend Service page, we can scroll down to the endpoint
 
 ![Slow Services](./assets/bottleneck.gif)
 
-Both the `HomeController#index` and the `ProductController#show` enpoints are showing *much* longer latency times. If we click in and view a trace, we'll see that we've got a downstream microservice taking up a substantial portion of our time.
+Both the `HomeController#index` and the `ProductController#show` endpoints are showing *much* longer latency times. If we click in and view a trace, we'll see that we've got a downstream microservice taking up a substantial portion of our time.
 
 Heading back to the [APM > Services](https://app.datadoghq.com/apm/services?env=ruby-shop) and clicking the `advertisements` service, down just below the `Latency Distribution` graph you should see the `Deployments` section. 
 

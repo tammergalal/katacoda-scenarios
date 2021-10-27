@@ -91,7 +91,7 @@
     ]
   },
   "backend":{
-    "imageid":"datadog-k8s-v118-cluster-running",
+    "imageid":"kubernetes-cluster-running:1.18",
     "reuseConnection":"false"
   }
 }
