@@ -20,6 +20,10 @@
       {
         "text":"step3.md",
         "title": "Remediate and Deploy a fix"
+      },
+      {
+        "text":"step3.md",
+        "title": "Verify the Remedy"
       }
     ],
     "finish":{
