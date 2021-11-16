@@ -5,4 +5,5 @@ done
 sleep 0.3
 
 clear
+
 prepenvironment

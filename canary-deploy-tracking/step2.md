@@ -1,10 +1,28 @@
-With the application running and the Datadog agents installed, navigate to [APM > Traces](https://app.datadoghq.com/apm/traces?env=ruby-shop). You may need to wait a minute or so for data to show up in Datadog. Once traces begin flowing in, navigate to the [APM > Services](https://app.datadoghq.com/apm/services?env=ruby-shop) page and you should see a list of the services that comprise Storedog. In the top right of the page change the timeline to `Past 15 Minutes`, and now click the `advertisements` service. This will bring up a page showing many different aspects of your `advertisements` service including `Total Requests`, `Total Errors`, `Latency` and more. 
+With the application running and the Datadog agents installed, navigate to [APM > Traces](https://app.datadoghq.com/apm/traces?env=ruby-shop). You may need to wait a minute or so for data to show up in Datadog. Once traces begin flowing in, navigate to the [APM > Services](https://app.datadoghq.com/apm/services?env=ruby-shop) page and you should see a list of the services that comprise Storedog. 
 
-Looking at the latency for this service shows a staggering 2.5 second response time! This latency is causing not only slow load times, but is actually causing your application to intermittently crash! You can see this by navigating to the [APM > Traces](https://app.datadoghq.com/apm/traces?start=1620938913331&end=1620939813331&paused=false) page. Now on the left hand side navigation filter for `Status > Error` and `Service > store-frontend` 
+With the [Service List](https://app.datadoghq.com/apm/services?env=ruby-shop), we get a high level view of overall service performance and can quickly see services that are running slower than the rest. When working with a team migrating to microservices, this view can be a great first approach to breaking down existing problems. 
+
+1. If we look at the [Frontend Service](https://app.datadoghq.com/apm/service/store-frontend), we can see errors coming in by navigating to the [APM > Traces](https://app.datadoghq.com/apm/traces?start=1620938913331&end=1620939813331&paused=false) page. Now on the left hand side, filter the facets for `Status > Error` and `Service > store-frontend`. Errors are not a good experience for our end users. 
 
 ![Storefront Errors](./assets/storefront-errors.png)
 
 Looking down just below the `Latency Distribution` graph you should see the `Deployments` section. 
+
+2. Let's go ahead and click on one of our traces to bring up the full view. We can see when investigating the flame graph that there is a template error coming in. 
+
+![Flame Graph](./assets/flame_graph.png)
+
+3. We can go directly from this view to our Frontend Service page to see if we can pinpoint what is going on. 
+
+![Flame Graph to Service Page](./assets/go_to_service.png)
+
+4. Now that we are on the Frontend Service page, we can scroll down to the endpoints panel and see there are two endpoints in particular that are substantially slower than the rest...
+
+![Slow Services](./assets/bottleneck.gif)
+
+Both the `HomeController#index` and the `ProductController#show` endpoints are showing *much* longer latency times. If we click in and view a trace, we'll see that we've got a downstream microservice taking up a substantial portion of our time.
+
+Now, head back to the [APM > Services](https://app.datadoghq.com/apm/services?env=ruby-shop). Clicking the `advertisements` service, looking down just below the `Latency Distribution` graph you should see the `Deployments` section. 
 
 ![Deployment 1.0](./assets/deployment_tab.png)
 
