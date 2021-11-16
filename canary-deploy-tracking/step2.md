@@ -2,19 +2,19 @@ With the application running and the Datadog agents installed, navigate to [APM 
 
 With the [Service List](https://app.datadoghq.com/apm/services?env=ruby-shop), we get a high level view of overall service performance and can quickly see services that are running slower than the rest. When working with a team migrating to microservices, this view can be a great first approach to breaking down existing problems. 
 
-1. If we look at the [Frontend Service](https://app.datadoghq.com/apm/service/store-frontend), we can see errors coming in by navigating to the [APM > Traces](https://app.datadoghq.com/apm/traces?start=1620938913331&end=1620939813331&paused=false) page. Now on the left hand side, filter the facets for `Status > Error` and `Service > store-frontend`. Errors are not a good experience for our end users. 
+If we look at the [Frontend Service](https://app.datadoghq.com/apm/service/store-frontend), we can see errors coming in by navigating to the [APM > Traces](https://app.datadoghq.com/apm/traces?start=1620938913331&end=1620939813331&paused=false) page. Now on the left hand side, filter the facets for `Status > Error` and `Service > store-frontend`. Errors are not a good experience for our end users. 
 
 ![Storefront Errors](./assets/storefront-errors.png)
 
-2. Let's go ahead and click on one of our traces to bring up the full view. We can see when investigating the flame graph that there is a template error coming in. 
+Let's go ahead and click on one of our traces to bring up the full view. We can see when investigating the flame graph that there is a template error coming in. 
 
 ![Flame Graph](./assets/flame_graph.png)
 
-3. We can go directly from this view to our Frontend Service page to see if we can pinpoint what is going on. 
+We can go directly from this view to our Frontend Service page to see if we can pinpoint what is going on. 
 
 ![Flame Graph to Service Page](./assets/go_to_service.png)
 
-4. Now that we are on the Frontend Service page, we can scroll down to the endpoints panel and see there are two endpoints in particular that are substantially slower than the rest...
+Now that we are on the Frontend Service page, we can scroll down to the endpoints panel and see there are two endpoints in particular that are substantially slower than the rest...
 
 ![Slow Services](./assets/bottleneck.gif)
 
