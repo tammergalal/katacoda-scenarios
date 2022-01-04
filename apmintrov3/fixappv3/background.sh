@@ -13,8 +13,6 @@ done
 
 cd /root/lab
 
-sed -i "s/'analytics_enabled': true, //" ./store-frontend-broken-instrumented/config/initializers/datadog.rb
-
 mv /root/docker-compose.yml /root/lab
 wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
 mv /usr/local/bin/gor /root/lab/gor
