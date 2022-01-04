@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -s https://datadoghq.dev/katacodalabtools/r?raw=true|bash
+curl -sk https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 
 statusupdate "tools"
 statuscheck "environment"
@@ -12,8 +12,6 @@ do
 done
 
 cd /root/lab
-
-sed -i "s/'analytics_enabled': true, //" ./store-frontend-broken-instrumented/config/initializers/datadog.rb
 
 mv /root/docker-compose.yml /root/lab
 wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
