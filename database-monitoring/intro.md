@@ -1,0 +1,1 @@
+In this scenario you are going to take an already deployed application and examine its database using Database Monitoring.

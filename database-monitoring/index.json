@@ -1,0 +1,45 @@
+{
+  "title":"Using Datadog Deployment Tracking to monitor Canary Deployments",
+  "time":"30 minutes",
+  "difficulty":"Intermediate",
+  "details":{
+    "intro":{
+      "courseData":"background.sh",
+      "code":"foreground.sh",
+      "text":"intro.md"
+    },
+    "steps":[
+      {
+        "text":"step1.md",
+        "title":"Install the Datadog Agent w/ Helm"
+      }
+    ],
+    "finish":{
+      "text":"finish.md"
+    },
+    "assets":{
+      "host01":[
+      ]
+    }
+  },
+  "environment":{
+    "uilayout": "terminal",
+    "showide": true,
+    "uieditorpath": "/root",
+    "showdashboard":true,
+    "dashboards": [
+      {
+        "name":"Datadog",
+        "href": "https://app.datadoghq.com"
+      },
+      {
+        "name":"StoredogV1",
+        "port":30001
+      }
+    ]
+  },
+  "backend":{
+    "imageid":"datadog-base-v3",
+    "reuseConnection":"false"
+  }
+}

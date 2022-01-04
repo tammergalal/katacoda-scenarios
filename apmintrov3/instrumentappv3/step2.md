@@ -12,11 +12,10 @@ For APM in Datadog, you need to enable trace collection by the Datadog agent. To
       - DD_DOCKER_LABELS_AS_TAGS={"my.custom.label.team":"team"}
       - DD_TAGS='env:ruby-shop'
       - DD_APM_NON_LOCAL_TRAFFIC=true</pre> 
+
+    `DD_APM_ENABLED=true` enables trace collection. (Note: This is enabled by default for Agent 6+.) 
     
-    `DD_LOGS_ENABLED=true` enables log collection from the agent container. <p>
-    `DD_PROCESS_AGENT_ENABLED=true` enables <a href="https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows" target="_blank"> live process collection</a> with the process agent.
-    `DD_DOCKER_LABELS_AS_TAGS` extracts the docker container labels for us.
-    `DD_TAGS='env:ruby-shop'` Can be used to set Host tags separated by spaces. Here you set the `env` tag to `ruby-shop`.
+    `DD_LOGS_ENABLED=true` enables log collection from the agent container. <p> `DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true` enable log collection from the all other containers. 
     
     To learn more, view the <a href="https://docs.datadoghq.com/agent/docker/?tab=standard#optional-collection-agents" target="_blank">Tracing Docker Applications</a> and <a href="https://docs.datadoghq.com/agent/docker/log/?tab=dockercompose#one-step-install-to-collect-all-the-container-logs" target="_blank">Docker Log Collection</a> documentation.
 
@@ -24,9 +23,9 @@ For APM in Datadog, you need to enable trace collection by the Datadog agent. To
 
     <pre class="file" data-filename="docker-compose-broken-no-apm-instrumentation.yml" data-target="insert" data-marker="# add agent trace port">
        ports:
-         - 127.0.0.1:8126:8126/tcp</pre> 
+         - "8126:8126"</pre> 
     
-    Port `8126` is the default port for tracing. The longer more specific port we are hitting allows for better Docker tracing. To learn more, view the <a href="https://docs.datadoghq.com/agent/docker/apm/?tab=java#tracing-from-the-host" target="_blank">Tracing Docker Applications</a> documentation. 
+    Port `8126` is the default port for tracing. To learn more, view the <a href="https://docs.datadoghq.com/agent/docker/apm/?tab=java#tracing-from-the-host" target="_blank">Tracing Docker Applications</a> documentation. 
 
 5. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to the logs. 
 

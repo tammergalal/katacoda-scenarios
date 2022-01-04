@@ -1,0 +1,42 @@
+{
+  "title": "Monitoring the Kubernetes Control Plane",
+  "description": "",
+  "icon": "fa-katacoda",
+  "courses": [
+    {
+      "course_id": "1manifests",
+      "title": "Installing the Agent with Manifests",
+      "description": ""
+    },
+    {
+      "course_id": "2installhelm",
+      "title": "Installing the Agent with Helm",
+      "description": ""
+    },
+    {
+      "course_id": "3clusteragent",
+      "title": "Working with the Cluster Agent",
+      "description": ""
+    },
+    {
+      "course_id": "4etcd",
+      "title": "Working with etcd",
+      "description": ""
+    },
+    {
+      "course_id": "5apiserver",
+      "title": "Working with the APIServer",
+      "description": ""
+    },
+    {
+      "course_id": "6controller",
+      "title": "Working with the Controller and Scheduler",
+      "description": ""
+    },
+    {
+      "course_id": "7dns",
+      "title": "Working with DNS",
+      "description": ""
+    }
+  ]
+}
