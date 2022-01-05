@@ -57,7 +57,7 @@
   "environment": {
     "uilayout": "terminal-iframe",
     "showide" : true,
-    "uieditorpath": "/root/lab",
+    "uieditorpath": "/ecommworkshop",
     "showdashboard": true,
     "hideHiddenFiles": true,
     "dashboards": [{"name": "Storedog", "port": 3000}]
