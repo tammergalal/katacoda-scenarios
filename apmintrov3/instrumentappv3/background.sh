@@ -5,7 +5,24 @@ curl -sk https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 statusupdate "tools"
 statuscheck "environment"
 
+# Wait for required assets to appear in the filesystem
+until  [ -f /root/dd_agent.sql ]
+do
+  sleep 2
+done
+
 cd /root/lab
+
+ln -s /ecommworkshop/discounts-service/discounts.py
+ln -s /ecommworkshop/ads-service/ads.py
+
+ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/layouts/spree_application.html.erb
+ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/home/index.html.erb
+ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/products/show.html.erb
+ln -s /ecommworkshop/store-frontend-broken-instrumented/config/initializers/datadog.rb
+ln -s /ecommworkshop/store-frontend-broken-instrumented/Gemfile
+
+sed -i "s/'analytics_enabled': true, //" ./store-frontend-broken-instrumented/config/initializers/datadog.rb
 
 mv /root/docker-compose.yml /root/lab
 wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
