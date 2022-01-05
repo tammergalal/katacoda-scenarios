@@ -54,6 +54,10 @@
         {
           "file": "docker-compose.yml",
           "target": "/root"
+        },
+        {
+          "file": "dd_agent.sql",
+          "target": "/root"
         }
       ]
     }
@@ -61,7 +65,7 @@
   "environment": {
     "uilayout": "terminal-iframe",
     "showide" : true,
-    "uieditorpath": "/ecommworkshop",
+    "uieditorpath": "/root/lab",
     "showdashboard": true,
     "hideHiddenFiles": true,
     "dashboards": [{"name": "Storedog", "port": 3000}]
