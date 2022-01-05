@@ -38,7 +38,6 @@ services:
       - DB_PASSWORD
 # add frontend env variables
     image: "ddtraining/storefront-no-instrumentation:latest"
-    command: sh docker-entrypoint.sh
     ports:
       - "3000:3000"
     depends_on:
