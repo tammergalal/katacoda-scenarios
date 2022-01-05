@@ -27,7 +27,7 @@ services:
     ports:
       - "5001:5001"
     volumes:
-      - "../../discounts-service:/app"
+      - "/ecommworkshop/discounts-service:/app"
     depends_on:
       - agent
       - db
@@ -60,7 +60,7 @@ services:
     ports:
       - "5002:5002"
     volumes:
-      - "../../ads-service:/app"
+      - "/ecommworkshop/ads-service:/app"
     depends_on:
       - agent
       - db
