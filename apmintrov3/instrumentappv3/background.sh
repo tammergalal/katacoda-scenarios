@@ -11,7 +11,7 @@ wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.
 mv /usr/local/bin/gor /root/lab/gor
 mv /ecommworkshop/traffic-replay/requests_0.gor /root/lab/requests_0.gor
 
-docker-compose up -d
+docker-compose deploy/docker-compose/docker-compose-broken-no-apm-instrumentation.yml up -d
 
 statusupdate "workspace"
 
