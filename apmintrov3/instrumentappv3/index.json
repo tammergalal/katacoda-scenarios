@@ -22,8 +22,12 @@
         "text": "step4.md"
       },
       {
-        "title": "Instrumenting Python Flask App Services",
+        "title": "Instrumenting the Discounts Service",
         "text": "step5.md"
+      },
+      {
+        "title": "Instrumenting the Advertisements Service",
+        "text": "step6.md"
       }
     ],
     "intro": {
