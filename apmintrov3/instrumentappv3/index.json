@@ -55,12 +55,12 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal", 
-    "uieditorpath": "/ecommworkshop",
-    "hideHiddenFiles": true,
-    "exclusionPatterns": ["**/store-frontend/tmp/*", "**/store-frontend/log/*"],
+    "uilayout": "terminal-iframe",
+    "showide" : true,
+    "uieditorpath": "/root/lab",
     "showdashboard": true,
-    "dashboards": [{"name": "storedog", "port": 3000}]
+    "hideHiddenFiles": true,
+    "dashboards": [{"name": "Storedog", "port": 3000}]
   },
   "backend": {
     "imageid": "datadog-base-v3"
