@@ -5,11 +5,13 @@ curl -sk https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 statusupdate "tools"
 statuscheck "environment"
 
-cd /root/lab
+cd /ecommworkshop
 
 wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
 mv /usr/local/bin/gor /root/lab/gor
 mv /ecommworkshop/traffic-replay/requests_0.gor /root/lab/requests_0.gor
+
+ln -s 
 
 docker-compose deploy/docker-compose/docker-compose-broken-no-apm-instrumentation.yml up -d
 
