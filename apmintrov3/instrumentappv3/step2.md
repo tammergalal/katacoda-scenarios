@@ -25,7 +25,7 @@ For APM in Datadog, you need to enable trace collection by the Datadog agent. To
        ports:
          - 127.0.0.1:8126:8126/tcp</pre> 
     
-    Port `8126` is the default port for tracing. To learn more, view the <a href="https://docs.datadoghq.com/agent/docker/apm/?tab=java#tracing-from-the-host" target="_blank">Tracing Docker Applications</a> documentation. 
+    Port `8126` is the default port for tracing. Prefixing `127.0.0.1:` will isolate the requests going to the agent to the local network. To learn more, view the <a href="https://docs.datadoghq.com/agent/docker/apm/?tab=java#tracing-from-the-host" target="_blank">Tracing Docker Applications</a> documentation. 
 
 5. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to the logs. 
 

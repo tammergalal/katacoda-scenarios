@@ -15,6 +15,7 @@ done
 cd /root/lab
 
 ln -s /ecommworkshop/discounts-service/discounts.py
+ln -s /ecommworkshop/discounts-service/requirements.txt
 ln -s /ecommworkshop/ads-service/ads.py
 
 ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/layouts/spree_application.html.erb

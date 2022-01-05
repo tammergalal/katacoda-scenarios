@@ -16,7 +16,7 @@ The store-frontend service has been instrumented for you, but you will update th
 
 7. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service. These environment variables are required for each service in the app that will be monitored. 
 
-    <pre class="file" data-filename="docker-compose-broken-no-apm-instrumentation.yml" data-target="insert" data-marker="# add frontend env variables">
+    <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add frontend env variables">
          - DD_AGENT_HOST=agent
          - DD_LOGS_INJECTION=true
          - DD_ANALYTICS_ENABLED=true</pre> 
@@ -29,7 +29,7 @@ The store-frontend service has been instrumented for you, but you will update th
 
 8. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs.
 
-    <pre class="file" data-filename="docker-compose-broken-no-apm-instrumentation.yml" data-target="insert" data-marker="# add frontend log labels">
+    <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add frontend log labels">
        labels:
          com.datadoghq.ad.logs: '[{"source": "ruby", "service": "store-frontend"}]'</pre> 
 
