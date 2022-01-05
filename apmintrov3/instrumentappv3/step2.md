@@ -1,8 +1,8 @@
 For APM in Datadog, you need to enable trace collection by the Datadog agent. To use the added feature of correlating trace and log data, you will also need to enable log collection. 
 
-1. Click `docker-compose-files/docker-compose-broken-no-apm-instrumentation.yml`{{open}}.
+1. Open the IDE tab, and then open the `docker-compose.yml`{{open}} file.
 
-2. Under **services** (**Line 2**), view the details for **agent**. <p> Let's add the code for enabling trace and log collection.
+2. Under **services** (**Line 2**), view the details for **agent**. <p>  It is simple to work with the agent and enable more features, so let's add the code for enabling trace and log collection.
 
 3. Click **Copy to Editor** in the block below or manually copy and paste the text where indicated to add the following to the list of environment variables for the agent.
 
@@ -23,7 +23,7 @@ For APM in Datadog, you need to enable trace collection by the Datadog agent. To
 
     <pre class="file" data-filename="docker-compose-broken-no-apm-instrumentation.yml" data-target="insert" data-marker="# add agent trace port">
        ports:
-         - "8126:8126"</pre> 
+         - 127.0.0.1:8126:8126/tcp</pre> 
     
     Port `8126` is the default port for tracing. To learn more, view the <a href="https://docs.datadoghq.com/agent/docker/apm/?tab=java#tracing-from-the-host" target="_blank">Tracing Docker Applications</a> documentation. 
 
@@ -37,4 +37,4 @@ For APM in Datadog, you need to enable trace collection by the Datadog agent. To
 
 The **agent** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-agent](instrumentapp2/assets/instrumented-agent.png)
 
-With trace and log collection enabled for the Datadog Agent, let's go through instrumentation of one of the app services.
+With trace and log collection enabled for the Datadog Agent, let's go through instrumenting of one of Storedog's services.
