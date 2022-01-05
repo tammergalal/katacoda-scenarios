@@ -58,7 +58,7 @@ services:
       - POSTGRES_HOST=db
       - DATADOG_SERVICE_NAME=advertisements-service
 # add ads env variables
-    image: "ddtraining/advertisements:1.0.0"
+    image: "ddtraining/advertisements:latest"
     command: flask run --port=5002 --host=0.0.0.0
     ports:
       - "5002:5002"
