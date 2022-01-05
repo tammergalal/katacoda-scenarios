@@ -31,6 +31,4 @@ mv /ecommworkshop/traffic-replay/requests_0.gor /root/lab/requests_0.gor
 
 docker-compose up -d
 
-statusupdate "workspace"
-
 ./gor --input-file-loop --input-file "./requests_0.gor|350%" --output-http "http://localhost:3000" >> /dev/null 2>&1
