@@ -1,6 +1,6 @@
 First, you'll restart the docker deployment to apply the changes for monitoring the `store-frontend` service. Then, you'll view the trace and log data being collected by Datadog from the app.
 
-1. Click `docker-compose down && docker-compose docker-compose.yml up -d`{{execute}} to redeploy Storedog with the updated yml changes.
+1. First, navigate back to the Terminal tab. Click `docker-compose down && docker-compose up -d`{{execute}} to redeploy Storedog with the updated yml changes.
 
 ![restarted-agent-frontend](instrumentapp2/assets/restarted-agent-frontend.png)
 
