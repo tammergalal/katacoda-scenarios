@@ -31,14 +31,15 @@ Next lets Instrument our `store-frontend` in the `yml` file.
 
 1. Click `docker-compose.yml`{{open}}.
 
-1. Under **services**, view the details for **frontend**. <p> Let's add the code for enabling trace and log collection.
+1. Under **services**, on **line 40**, view the details for **frontend**. Let's add the code for enabling trace and log collection.
 
-1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service. These environment variables are required for each service in the app that will be monitored. 
+1. To instrument the frontend service, only a few environment variables need to be added to the yml config. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service.
 
-    <pre class="file" data-filename="docker-compose-broken-no-apm-instrumentation.yml" data-target="insert" data-marker="# add frontend env variables">
+    <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add frontend env variables">
          - DD_AGENT_HOST=agent
          - DD_LOGS_INJECTION=true
-         - DD_ANALYTICS_ENABLED=true</pre> 
+         - DD_ANALYTICS_ENABLED=true
+         - DD_TRACE_SAMPLE_RATE=1</pre> 
 
     `DD_AGENT_HOST=agent` defines the address of the Agent that the tracer submits traces to. 
     
@@ -46,9 +47,11 @@ Next lets Instrument our `store-frontend` in the `yml` file.
     
     `DD_ANALYTICS_ENABLED=true` enables App Analytics for the traces.
 
+    `DD_TRACE_SAMPLE_RATE=1` configures a service to send all traffic. <p> **Note:** services that send more than 50 traces per second will send all traces by default.
+
 1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs.
 
-    <pre class="file" data-filename="docker-compose-broken-no-apm-instrumentation.yml" data-target="insert" data-marker="# add frontend log labels">
+    <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add frontend log labels">
        labels:
          com.datadoghq.ad.logs: '[{"source": "ruby", "service": "store-frontend"}]'</pre> 
 
