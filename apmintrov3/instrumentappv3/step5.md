@@ -1,5 +1,10 @@
-The `discounts` and `advertisements` services of Storedog have a Python Flask framework, so the services are instrumented using the Python tracing library `ddtrace`. First, the `ddtrace` library is added to the list of required libraries, and then, the docker-compose.yml is updated for trace injection, log injection, and App Analytics.
+Now that we've set up our main Ruby on Rails application and viewed traces coming into the platform, we can now instrument our downstream Python services.
 
+Looking at the [documentation](https://ddtrace.readthedocs.io/en/stable/integrations.html#flask) for the Python tracer, we have a utility called `ddtrace-run`. 
+
+Wrapping our Python executable in a `ddtrace-run` allows us to run an instance of our application fully instrumented with our trace library, so long as our Python libraries are supported by `ddtrace`.
+
+For supported applications like Flask, `ddtrace-run` dramatically simplifies the process of instrumentation.
 Let's start by instrumenting the Discounts service.
 
 #### Discounts Service
@@ -11,7 +16,6 @@ Let's start by instrumenting the Discounts service.
 1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service.
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add discounts env variables">
-         - DATADOG_SERVICE=discounts-service
          - DD_ENV=ruby-shop
          - DD_VERSION=1.0
          - DD_LOGS_INJECTION=true
@@ -33,8 +37,10 @@ command: ddtrace-run flask run --port=5001 --host=0.0.0.0</pre>
        labels:
          com.datadoghq.ad.logs: '[{"source": "python", "service": "discounts-service"}]'</pre>
 
-1. Click `rm /ecommworkshop/store-frontend-broken-instrumented/store-frontend/tmp/pids/*; docker-compose -f docker-compose.yml up -d`{{execute}} to restart the docker deployment to apply these changes. <p> The **discounts** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-discounts](instrumentapp2/assets/instrumented-discounts.png)
+1. Click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. <p> The **discounts** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-discounts](instrumentapp2/assets/instrumented-discounts.png)
 
 1. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog to view the list of traces that are coming in. <p> You should now see traces for the `discounts` service in the list. This may take a couple of minutes.
 
 1. Click a trace for the `discounts` service to view the Flame Graph, Span List, Tags, related Hosts, and related Logs.
+
+The next and final service that needs instrumentation is the Python based advertisements service.
