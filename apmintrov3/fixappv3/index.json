@@ -67,7 +67,7 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal", 
+    "uilayout": "terminal-iframe", 
     "uieditorpath": "/root/lab",
     "hideHiddenFiles": true,
     "exclusionPatterns": ["**/store-frontend/tmp/*", "**/store-frontend/log/*"],
