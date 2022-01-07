@@ -52,6 +52,6 @@ Next lets Instrument our `store-frontend` in the `yml` file.
        labels:
          com.datadoghq.ad.logs: '[{"source": "ruby", "service": "store-frontend"}]'</pre> 
 
-With these steps, the Rails `store-frontend` service is instrumented for APM and Log management with Datadog. The **frontend** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-frontend](instrumentapp2/assets/instrumented-frontend.png) 
+With these steps, the Rails `store-frontend` service is instrumented for APM and Log management with Datadog. The **frontend** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-frontend](instrumentapp2/assets/instrumented-frontend.png)
 
 Before instrumenting the discounts and advertisements services, let's log in to Datadog to view the traces and logs being collected for the store-frontend service. 
