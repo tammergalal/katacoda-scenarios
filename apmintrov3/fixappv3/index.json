@@ -67,12 +67,12 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-iframe", 
+    "uilayout": "terminal-iframe",
+    "showide" : true,
     "uieditorpath": "/root/lab",
-    "hideHiddenFiles": true,
-    "exclusionPatterns": ["**/store-frontend/tmp/*", "**/store-frontend/log/*"],
     "showdashboard": true,
-    "dashboards": [{"name": "storedog", "port": 3000}]
+    "hideHiddenFiles": true,
+    "dashboards": [{"name": "Storedog", "port": 3000}]
   },
   "backend": {
     "imageid": "datadog-base-v3"
