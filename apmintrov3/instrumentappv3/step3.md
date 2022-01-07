@@ -12,7 +12,7 @@ Open the IDE tab. Take a look at `Gemfile`{{open}} in the Katacoda file explorer
 
 1. **Line 46** installs the `ddtrace` Gem, which is [Datadog’s tracing client for Ruby](https://docs.datadoghq.com/tracing/setup/ruby/). The `ddtrace` library traces requests as they flow across web servers, databases, and microservices so that developers have high visibility into bottlenecks and troublesome requests.
 
-2. **Line 49** installs the `rails_semantic_logger` Gem, which is a feature rich replacement for the Ruby and Rails loggers. To learn more, view the [rails_semantic_logger](https://logger.rocketjob.io/) documentation.
+1. **Line 49** installs the `rails_semantic_logger` Gem, which is a feature rich replacement for the Ruby and Rails loggers. To learn more, view the [rails_semantic_logger](https://logger.rocketjob.io/) documentation.
 
 To enable the Rails instrumentation, an initializer file was created in the config/initializers folder. Open the file `datadog.rb`{{open}}.
 
@@ -27,6 +27,31 @@ Datadog.configure do |c|
 end
 ```
 
-With this, our Ruby application is instrumented. 
+Next lets Instrument our `store-frontend` in the `yml` file.
+
+1. Click `docker-compose.yml`{{open}}.
+
+1. Under **services**, view the details for **frontend**. <p> Let's add the code for enabling trace and log collection.
+
+1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service. These environment variables are required for each service in the app that will be monitored. 
+
+    <pre class="file" data-filename="docker-compose-broken-no-apm-instrumentation.yml" data-target="insert" data-marker="# add frontend env variables">
+         - DD_AGENT_HOST=agent
+         - DD_LOGS_INJECTION=true
+         - DD_ANALYTICS_ENABLED=true</pre> 
+
+    `DD_AGENT_HOST=agent` defines the address of the Agent that the tracer submits traces to. 
+    
+    `DD_LOGS_INJECTION=true` enables automatic injection of trace IDs into the logs from the supported logging libraries to correlate traces and logs. 
+    
+    `DD_ANALYTICS_ENABLED=true` enables App Analytics for the traces.
+
+1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs.
+
+    <pre class="file" data-filename="docker-compose-broken-no-apm-instrumentation.yml" data-target="insert" data-marker="# add frontend log labels">
+       labels:
+         com.datadoghq.ad.logs: '[{"source": "ruby", "service": "store-frontend"}]'</pre> 
+
+With these steps, the Rails `store-frontend` service is instrumented for APM and Log management with Datadog. The **frontend** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-frontend](instrumentapp2/assets/instrumented-frontend.png) 
 
 Before instrumenting the discounts and advertisements services, let's log in to Datadog to view the traces and logs being collected for the store-frontend service. 
