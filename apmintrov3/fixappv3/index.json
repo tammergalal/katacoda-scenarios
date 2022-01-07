@@ -54,13 +54,21 @@
           "file": "check-file",
           "target": "/usr/local/bin/",
           "chmod": "+x"
+        },
+        {
+          "file": "docker-compose.yml",
+          "target": "/root"
+        },
+        {
+          "file": "dd_agent.sql",
+          "target": "/root"
         }
       ]
     }
   },
   "environment": {
     "uilayout": "editor-terminal", 
-    "uieditorpath": "/ecommworkshop",
+    "uieditorpath": "/root/lab",
     "hideHiddenFiles": true,
     "exclusionPatterns": ["**/store-frontend/tmp/*", "**/store-frontend/log/*"],
     "showdashboard": true,
