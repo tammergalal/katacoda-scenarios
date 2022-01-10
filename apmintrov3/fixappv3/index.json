@@ -58,10 +58,6 @@
         {
           "file": "docker-compose.yml",
           "target": "/root"
-        },
-        {
-          "file": "dd_agent.sql",
-          "target": "/root"
         }
       ]
     }
