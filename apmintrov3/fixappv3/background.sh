@@ -8,6 +8,7 @@ statuscheck "environment"
 # Wait for required assets to appear in the filesystem
 until  [ -f /root/docker-compose.yml ]
 do
+  echo "DOCKER-COMPOSE!!!!!"
   sleep 2
 done
 
