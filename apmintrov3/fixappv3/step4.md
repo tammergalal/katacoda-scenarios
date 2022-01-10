@@ -18,11 +18,11 @@ The monitors you created should have gathered some data. Because the monitors ar
 
 9. Repeat steps 3 to 7 for the **advertisements-service**. <p> For step 6, click the **Get /ads** endpoint. This is the endpoint you created the monitor for. <p> Notice the **AVG LATENCY** for this endpoint is also about 2.5 seconds. *The **Get /ads** endpoint has the same latency as the **Get /discount** endpoint!* <p> There is something in the build for these endpoints that is causing a consistent latency. Let's check the applications files that define these endpoints to see what may be causing the issue. 
 
-10. Click `discounts-service/discounts.py`{{open}}.
+10. Click `discounts.py`{{open}}.
 
 11. Browse the file. Notice that two sleep commands (**Lines 32-33** and **Lines 52-53**) were left after testing. Delete these lines.
 
-12. Click `ads-service/ads.py`{{open}}.
+12. Click `ads.py`{{open}}.
 
 13. Browse the file. Notice that two sleep commands (**Lines 41-42** and **Lines 55-56**) were left after testing. Delete these lines.
 

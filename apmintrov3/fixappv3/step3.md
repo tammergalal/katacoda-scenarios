@@ -10,16 +10,16 @@ While the monitors are gathering data, let's see how the store-frontend service 
 
 5. Below the Flame Graph, click the **Errors (#)** tab. <p> Browse the details for the errors titled `ActionView::Template::Error: undefined method [] for nil:NilClass`. <p> The first line in the details indicates `/spree/store-frontend/app/views/spree/layouts/spree_application.html.erb:##`. The error is originating from the indicated line of the spree_applications.html.erb file for the store-frontend service. <p> Let's fix the error.
 
-6. Click `store-frontend-broken-instrumented/store-frontend/app/views/spree/layouts/spree_application.html.erb`{{open}} to open the file. Locate the line indicated in the error in step 5.
+6. Click `spree_application.html.erb`{{open}} to open the file. Locate the line indicated in the error in step 5.
 
 7. Copy and delete (or cut) the text `<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>` from the line. <p> This line for banner ads should be in two other files for the store-frontend.
 
-8. Click `store-frontend-broken-instrumented/store-frontend/app/views/spree/products/show.html.erb`{{open}} to open this file. 
+8. Click `show.html.erb`{{open}} to open this file. 
 
 9. Scroll to the bottom of the file (**Line 48**). Paste the line from step 7. 
 ```<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>```{{copy}}
 
-10. Click `store-frontend-broken-instrumented/store-frontend/app/views/spree/home/index.html.erb`{{open}} to open this file. 
+10. Click `index.html.erb`{{open}} to open this file. 
 
 11. Create a new line under **Line 11** and paste the line from step 7. 
 ```<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>```{{copy}} Make sure to match the indent of the new line (**Line 12**) to that of the next line (**Line 13**).
