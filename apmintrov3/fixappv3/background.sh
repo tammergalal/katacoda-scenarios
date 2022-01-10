@@ -21,6 +21,7 @@ ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/home/ind
 ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/products/show.html.erb
 
 mv /root/docker-compose.yml /root/lab
+echo "moved"
 wget -q -O - https://github.com/buger/goreplay/releases/download/v1.1.0/gor_1.1.0_x64.tar.gz | tar -xz -C /usr/local/bin
 mv /usr/local/bin/gor /root/lab/gor
 mv /ecommworkshop/traffic-replay/requests_0.gor /root/lab/requests_0.gor
