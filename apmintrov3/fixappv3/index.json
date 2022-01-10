@@ -41,6 +41,21 @@
     "assets": {
       "host01": [
         {
+          "file": "grademe",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "envready",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "check-file",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
           "file": "docker-compose.yml",
           "target": "/root"
         },
