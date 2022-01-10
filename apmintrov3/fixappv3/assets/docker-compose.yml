@@ -7,7 +7,7 @@ services:
       - DD_LOGS_ENABLED=true
       - DD_PROCESS_AGENT_ENABLED=true
       - DD_DOCKER_LABELS_AS_TAGS={"my.custom.label.team":"team"}
-      - DD_TAGS='env:sfo101'
+      - DD_TAGS='env:ruby-shop'
     ports:
       - 127.0.0.1:8126:8126/tcp
     volumes:
@@ -22,7 +22,7 @@ services:
       - POSTGRES_USER
       - POSTGRES_HOST=db
       - DD_SERVICE=discounts-service
-      - DD_ENV=sfo101
+      - DD_ENV=ruby-shop
       - DD_VERSION=2.0
       - DD_LOGS_INJECTION=true
       - DD_TRACE_SAMPLE_RATE=1
@@ -43,14 +43,14 @@ services:
       - agent
       - db
     labels:
-      com.datadoghq.tags.env: 'sfo101'
+      com.datadoghq.tags.env: 'ruby-shop'
       com.datadoghq.tags.service: 'discounts-service'
       my.custom.label.team: 'discounts'
       com.datadoghq.ad.logs: '[{"source": "python", "service": "discounts-service"}]'
   frontend:
     environment:
       - DD_SERVICE=store-frontend
-      - DD_ENV=sfo101
+      - DD_ENV=ruby-shop
       - DD_VERSION=2.0
       - DD_LOGS_INJECTION=true
       - DD_TRACE_SAMPLE_RATE=1
@@ -67,7 +67,7 @@ services:
       - discounts
       - advertisements
     labels:
-      com.datadoghq.tags.env: 'sfo101'
+      com.datadoghq.tags.env: 'ruby-shop'
       com.datadoghq.tags.service: 'store-frontend'
       my.custom.label.team: 'frontend'
       com.datadoghq.ad.logs: '[{"source": "ruby", "service": "store-frontend"}]'
@@ -79,7 +79,7 @@ services:
       - POSTGRES_USER
       - POSTGRES_HOST=db
       - DD_SERVICE=advertisements-service
-      - DD_ENV=sfo101
+      - DD_ENV=ruby-shop
       - DD_VERSION=2.0
       - DD_LOGS_INJECTION=true
       - DD_TRACE_SAMPLE_RATE=1
@@ -100,7 +100,7 @@ services:
       - agent
       - db
     labels:
-      com.datadoghq.tags.env: 'sfo101'
+      com.datadoghq.tags.env: 'ruby-shop'
       com.datadoghq.tags.service: 'advertisements-service'
       my.custom.label.team: 'advertisements'
       com.datadoghq.ad.logs: '[{"source": "python", "service": "advertisements-service"}]'
@@ -113,7 +113,7 @@ services:
     ports:
       - '5432:5432'
     labels:
-      com.datadoghq.tags.env: 'sfo101'
+      com.datadoghq.tags.env: 'ruby-shop'
       com.datadoghq.tags.service: 'database'
       com.datadoghq.tags.version: '11.12'
       my.custom.label.team: 'database'
