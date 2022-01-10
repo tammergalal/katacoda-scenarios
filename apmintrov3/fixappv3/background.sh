@@ -6,7 +6,7 @@ statusupdate "tools"
 statuscheck "environment"
 
 # Wait for required assets to appear in the filesystem
-until  [ -f /root/dd_agent.sql ]
+until  [ -f /root/docker-compose.yml ]
 do
   sleep 2
 done
