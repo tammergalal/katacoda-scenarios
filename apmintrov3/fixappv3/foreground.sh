@@ -1,23 +1,21 @@
-# #!/bin/bash
+#!/bin/bash
+statuscheck "tools"
 
-echo "HELLO!!!"
-# statuscheck "tools"
+export POSTGRES_USER=postgres
+export POSTGRES_PASSWORD=postgres
 
-# export POSTGRES_USER=postgres
-# export POSTGRES_PASSWORD=postgres
+[ ! -d "/root/lab" ] && mkdir /root/lab 
 
-# [ ! -d "/root/lab" ] && mkdir /root/lab 
+cd /root/lab
 
-# cd /root/lab
+printf "DD_API_KEY=$DD_API_KEY\n\
+DD_APP_KEY=$DD_APP_KEY\n\
+POSTGRES_USER=$POSTGRES_USER\n\
+POSTGRES_PASSWORD=$POSTGRES_PASSWORD\n" > /root/lab/.env 
 
-# printf "DD_API_KEY=$DD_API_KEY\n\
-# DD_APP_KEY=$DD_APP_KEY\n\
-# POSTGRES_USER=$POSTGRES_USER\n\
-# POSTGRES_PASSWORD=$POSTGRES_PASSWORD\n" > /root/lab/.env 
+clear
 
-# clear
+statusupdate "environment"
 
-# statusupdate "environment"
-
-# statusupdate complete
-# prepenvironment
+statusupdate complete
+prepenvironment
