@@ -16,7 +16,7 @@ POSTGRES_PASSWORD=$POSTGRES_PASSWORD\n" > /root/lab/.env
 clear
 
 statusupdate "environment"
-statuscheck "workspace"
+
 
 statusupdate complete
 prepenvironment
