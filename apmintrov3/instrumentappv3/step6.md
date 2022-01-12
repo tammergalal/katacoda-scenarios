@@ -1,22 +1,25 @@
 The `Advertisements` is a small flask service that can be instrumented much like the `Discounts` service. Let's go ahead and setup that instrumentation for a full view into the applications performance.
 
-## Instrumenting the Advertisements Service
+## Advertisements yml changes
 
-In our `docker-compose.yml`{{open}} there's a command to bring up our Flask server. If we look at **line 73**, we'll see:
+1. Click `docker-compose.yml`{{open}}. If we look at **line 73**, we'll see:
 
-```
-flask run --port=5002 --host=0.0.0.0
-```
+    ```
+    flask run --port=5002 --host=0.0.0.0
+    ```
 
-The `ddtrace` Python library includes an executable that allows us to automatically instrument our Python application. We simply call the `ddtrace-run` application, followed by our normal deployment, and magically, everything is instrumented.
+    The `ddtrace` Python library includes an executable that allows us to automatically instrument our Python application. We simply call the `ddtrace-run` application, followed by our normal deployment, and magically, everything is instrumented.
+
+2. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the `ddtrace-run` wrapper to the command that brings up the Flask server. Note that the port for this service is 5002. 
+
+    <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="command: flask run --port=5002 --host=0.0.0.0">
+command: ddtrace-run flask run --port=5002 --host=0.0.0.0</pre> 
 
 With this, we're now ready to *configure* our application's instrumentation.
 
 Automatic instrumentation is done via environment variables in our docker yml files starting on **line 82**:
 
-1. Click `docker-compose.yml`{{open}}. 
-
-2. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service. 
+3. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service. 
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add ads env variables">
          - DATADOG_SERVICE=advertisements-service
@@ -26,11 +29,6 @@ Automatic instrumentation is done via environment variables in our docker yml fi
          - DD_TRACE_SAMPLE_RATE=1
          - DD_PROFILING_ENABLED=true
          - DD_AGENT_HOST=agent</pre>
-
-3. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the `ddtrace-run` wrapper to the command that brings up the Flask server. Note that the port for this service is 5002. 
-
-    <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="command: flask run --port=5002 --host=0.0.0.0">
-command: ddtrace-run flask run --port=5002 --host=0.0.0.0</pre> 
 
 4. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs. 
 

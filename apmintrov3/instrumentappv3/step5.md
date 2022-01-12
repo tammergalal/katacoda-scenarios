@@ -9,9 +9,9 @@ Let's start by instrumenting the Discounts service.
 
 #### Discounts Service
 
-1. Click `requirements.txt`{{open}} to view the list of required libraries that are installed for the service. The `ddtrace` library (**Line 4**) has already been included.
+1. Navigate to your IDE tab and click `requirements.txt`{{open}} to view the list of required libraries that are installed for the service. The `ddtrace` library (**Line 4**) has already been included.
 
-1. Click `docker-compose.yml`{{open}}. Under **services**, view the details for **discounts**. <p> Let's add the code for enabling trace and log collection.
+1. Click `docker-compose.yml`{{open}}. Under **services**, view the details for **discounts**. <p> Let's add the code for enabling trace and log collection for the `discounts` service.
 
 1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service.
 
@@ -37,9 +37,9 @@ command: ddtrace-run flask run --port=5001 --host=0.0.0.0</pre>
        labels:
          com.datadoghq.ad.logs: '[{"source": "python", "service": "discounts-service"}]'</pre>
 
-1. Click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. <p> The **discounts** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-discounts](instrumentapp2/assets/instrumented-discounts.png)
+1. Going back to your terminal tab, click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. <p> The **discounts** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-discounts](instrumentapp2/assets/instrumented-discounts.png)
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog to view the list of traces that are coming in. <p> You should now see traces for the `discounts` service in the list. This may take a couple of minutes.
+1. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog and within a few minutes you should see traces from the `discount-service` coming into the platform.
 
 1. Click a trace for the `discounts` service to view the Flame Graph, Span List, Tags, related Hosts, and related Logs.
 
