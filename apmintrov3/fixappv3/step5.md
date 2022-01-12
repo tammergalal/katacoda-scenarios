@@ -1,16 +1,20 @@
-Let's analyze how the changes you made affected app performance.
+Let's analyze how the changes you made affected that services performance.
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/app-analytics/analytics" target="_datadog">**APM** > **App Analytics**</a>. Make sure that the Graph icon is selected on the left of the search field.
+1. Navigate to <a href="https://app.datadoghq.com/apm/services?env=ruby-shop" target="_datadog">**APM** > **Services**</a>. 
 
-2. In the graph metrics editor below the search field, select `Resource` for **group by**.
+2. Click on the `advertisements-service`.
 
-3. In the **Facets** on the left, select `Error` under **Status**. `ERROR` appears in the search field as a filter. <p> Notice that the resources/endpoints that had the `ActionView::Template::Error: undefined method [] for nil:NilClass` error are the only resources in the graph. <p> Also, notice that there are no more errors since you restarted the app.
+3. Scroll down and click the `GET /ads` endpoint.
 
-4. Delete `ERROR` from the search field. 
+You can see by looking at the `Latency` graph for this service there has been a sharp decline in latency down to an acceptable range. The fix worked! <p> ![Fixed Latency](fixappv3/assets/fixed-ads-latency.png)
 
-5. In the graph metrics editor, change `*` to `Duration`. (**Count** will automatically change to **Measure**.) <p> Notice the drop in durations for certain resources after you restarted the app. <p> Hover over each name in the legend below the graph to see which resources had improved performance after fixing the discounts and advertisements services.
+It would also be a good idea to confirm that the upstream services are now running properly after the fix.
 
-6. Navigate to <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. <p> The outline of the store-frontend, discounts-service, and advertisements-service nodes are now green, meaning the monitor for each service is in the `OK` status.
+1. Navigate back to the <a href="https://app.datadoghq.com/apm/services?env=ruby-shop" target="_datadog">**APM** > **Services**</a> page and enter the `store-frontend` service. 
+
+1. Looking at the provided `Latency` graph, you will also see a reduction in overall latency for this service. To get better view, you can click and drag over the area of interest on the graph to zoom in. <p> ![Latency Fix](fixappv3/assets/fixed-latency-zoom.gif).
+
+Another quick place to check the overall health of our application is by using the <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. At a glance, the markers on the store-frontend and advertisements-service nodes are now green with discounts remaining green, meaning the monitor for each service is in the `OK` status.
 
 7. Click the store-frontend service node and select **View service overview**. <p> Notice that the **Total Requests** and **Total Errors** graphs have no new error data since you fixed the store-frontend.
 

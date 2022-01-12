@@ -1,6 +1,6 @@
 The monitors you created should have gathered some data. Because the monitors are linked to the related services and resources, we can see the status of the monitors in the Service Map. If any monitors are in the `ALERT` status, we can start investigating the service from the Service Map.
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. <p> The red lines on the nodes of the store-frontend and advertisements services. This means that the monitor that you created for each service endpoint is in the `ALERT` status.
+1. Navigate to <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. <p> The red lines on the nodes of the store-frontend and advertisements services indicate that the monitor that you created for each service endpoint is in the `ALERT` status.
 
 2. Click the **store-frontend** node, then click **Inspect**. <p> Because the discounts service and advertisements service are downstream, let's start investigating those services.  
 
@@ -22,18 +22,16 @@ The monitors you created should have gathered some data. Because the monitors ar
 
 3. Scroll down and click the **Get /ads** endpoint. This is the endpoint you created the monitor for earlier. <p> Notice the **AVG LATENCY** for this endpoint is ~2.5 seconds. *The **Get /ads** endpoint has a very steadily high latency, thats a problem* <p> There must be something in the code for this endpoints that is causing a consistent latency. Let's check the services files that defines this endpoint to see what may be causing the issue. 
 
-3. Head back over to the IDE tab and open the `ads.py`{{open}} file to view the code.
+4. Go back to the Service Map browser tab where you were inspecting the store-frontend.
 
-4. Browse the file. You may notice that two sleep commands are in the codebase, and they appear to be leftovers from some testing. Let's remove these sleeps. <p> Delete **Lines 41-42** and **Lines 55-56**
+5. Click the **store-frontend** node, then click **View service overview**. 
 
-5. Go back to the Service Map browser tab where you were inspecting the store-frontend.
+6. Scroll to the **Endpoints** list and sort the list by **AVG LATENCY**. <p> Note: If the **AVG LATENCY** column is not displayed, click the **Options** icon next to the **Search Endpoints** field and select **AVG LANTECY**. <p> Notice that the `Spree::HomeController#index` and `Spree::ProductsController#show` have latencies more than 2.5 seconds. 
 
-6. Click the **store-frontend** node, then click **View service overview**. 
+7. For each endpoint listed in step 15, click the endpoint to view its page. <p> Scroll to the **Span Summary** and sort by **AVG DURATION**. <p> Scroll to the **Traces** list. Click any of the traces to view the details. <p> Notice from the **Span Summary** and **Traces** that the endpoint is dependent on the advertisements service. <p> For the `Spree::HomeController#index` endpoint, notice the monitor you created is in the alert status. (Note: To save time, you didn't create monitors for the other endpoints. You can always create monitors for the other two endpoints to see how they are affected by fixing the app.) <p> *With this investigation something is definitely wrong with the service, let's go to the code.
 
-7. Scroll to the **Endpoints** list and sort the list by **AVG LATENCY**. <p> Note: If the **AVG LATENCY** column is not displayed, click the **Options** icon next to the **Search Endpoints** field and select **AVG LANTECY**. <p> Notice the `Spree::HomeController#index` and `Spree::ProductsController#show` have latencies more than 2.5 seconds. 
+8. Head back over to the IDE tab and open the `ads.py`{{open}} file to view the code.
 
-8. For each endpoint listed in step 15, click the endpoint to view its page. <p> Scroll to the **Span Summary** and sort by **AVG DURATION**. <p> Scroll to the **Traces** list. Click any of the traces to view the details. <p> Notice from the **Span Summary** and **Traces** that the endpoint is dependent on the advertisements service. <p> For the `Spree::HomeController#index` endpoint, notice the monitor you created is in the alert status. (Note: To save time, you didn't create monitors for the other endpoints. You can always create monitors for the other two endpoints to see how they are affected by fixing the app.)
+9. Browse the file. You may notice that two sleep commands are in the codebase, and they appear to be leftovers from some testing. Let's remove these sleeps. <p> Delete **Lines 43-44** and **Lines 66-67**
 
-Deleting the lines in step 11 and 13 that cause the 2.5 second latencies in the advertisements endpoints should also remove these latencies in the store-frontend endpoints. 
-
-With all of these changes in place, let's restart our application. `docker-compose down && docker-compose up -d`{{execute}}
+The removal of the erroneously left test code should also remove the high latencies in the store-frontend endpoints.

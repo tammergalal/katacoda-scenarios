@@ -16,8 +16,4 @@ Inefficient database queries can affect service performance, and cause upstream 
 
 8. Click a new trace and zoom in on the `postgres.query` span below the **discounts.status */discounts***. Notice that this is only one span now. <p> ![fixedquery](fixapp/assets/fixedquery.gif)
 
-As you've seen in this activity, Datadog APM enables you to investigate and diagnose a variety of issues that affect performance of services and endpoints in your applications.
-
-### Assessment
-
-Click `grademe`{{execute}} to receive a grade for this activity.
+As you've seen in this activity, Datadog APM enables you to investigate and diagnose a variety of issues that affect performance of services and endpoints in your applications. 

@@ -22,7 +22,6 @@ Let's create monitors to track the latency of specific store-frontend, discounts
 
 9. Click **Create** on the bottom right. <p> You will be redirected to the new monitor page. Browse the details. <p> Notice that **Tags** for the resource, service, and environment were automatically assigned to the monitor. These tags will correlate the monitor to the respective Service Page and Resource Page.
 
-
 #### Discounts Service
 
 Next, let's setup a monitor for the Discounts service. 
