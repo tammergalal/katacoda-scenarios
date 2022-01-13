@@ -18,8 +18,8 @@ It would also be a good idea to confirm that the upstream services are now runni
 
 1. You can also see on the provided `Errors` graph that there are no new traces with errors coming in. It seems all of the fixes have done their job.
 
-Another quick place to check the overall health of our application is by using the <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. When used in conjuction with monitors you can get insights on your services with a glance. The markers on the `store-frontend` and `advertisements-service` nodes are now green with `discounts-service` remaining green, meaning the monitor for each service is in the `OK` status.
+Another quick place to check the overall health of our application is by using the <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. When used in conjuction with monitors you can get insights on your services with a glance. The markers on the `store-frontend` and `advertisements-service` nodes are now green, indicating the monitor for each service is in the `OK` status.
 
 7. Click the `store-frontend` service node and select **View service overview**. <p> Notice that the **Total Requests** and **Total Errors** graphs have no new error data since you fixed the `store-frontend`.
 
-Let's explore the `store-frontend` service more to see if the app has any other undesired behavior.
+Let's explore the `store-frontend` service more to see if the app has any other undesired behaviors.

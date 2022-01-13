@@ -1,6 +1,6 @@
 In Datadog, you can create a variety of <a href="https://docs.datadoghq.com/monitors/" target="_datadog">**Monitors**</a> to track the health of your applications and to alert you if action is needed. 
 
-Let's create monitors to track the latency of specific store-frontend, discounts, and advertisements service resources. You will use these monitors later in the activity.
+Let's create monitors to track the latency of specific `store-frontend` and `advertisements-service` resources. You will use these monitors later in the activity.
 
 #### Store-frontend Service
 
@@ -22,21 +22,17 @@ Let's create monitors to track the latency of specific store-frontend, discounts
 
 9. Click **Create** on the bottom right. <p> You will be redirected to the new monitor page. Browse the details. <p> Notice that **Tags** for the resource, service, and environment were automatically assigned to the monitor. These tags will correlate the monitor to the respective Service Page and Resource Page.
 
-#### Discounts Service
-
-Next, let's setup a monitor for the Discounts service. 
-
-1. Head back to the <a href="https://app.datadoghq.com/apm/services?env=ruby-shop" target="_datadog">**Service List**</a>, and hover over the `discounts-service`. To the right, click `View Suggested` in the monitor column. <p> ![Discounts Suggest Monitors](fixappv3/assets/discounts-monitors.png)
-
-4. Under **Select monitor scope**, select `get_/discount` as the **Resource**.
-
-5. Repeat steps 5 - 8 from the store-frontend monitor above.
-
 #### Advertisements Service
 
-1. Repeat the steps you completed for the discounts service monitor. <p>In step 3, select `advertisements-service` for the **Service** and `get_/ads` for the **Resource**.
+Next, let's setup a monitor for the Advertisements service. 
 
-When you view the monitors in <a href="https://app.datadoghq.com/monitors/manage" target="_datadog">**Monitor** > **Manage Monitors**</a>, you'll notice that their status is `No Data`. Because the monitors are new, it may take a few minutes for the status of the monitors to update. After waiting, you may begin to see some monitor data populating the Monitor list.
+1. Head back to the <a href="https://app.datadoghq.com/apm/services?env=ruby-shop" target="_datadog">**Service List**</a>, and hover over the `advertisements-service`. To the right, click `View Suggested` in the monitor column to the right side of list.
+
+4. Under **Select monitor scope**, select `get_/ads` as the **Resource**.
+
+5. Repeat steps 5 - 8 from the `store-frontend` monitor above.
+
+You can view the monitors on the <a href="https://app.datadoghq.com/monitors/manage" target="_datadog">**Monitor** > **Manage Monitors**</a> page, you may initially notice that they have a status of `No Data`. Because the monitors are new, it may take a few minutes for the status of the monitors to update. After waiting, you may begin to see some monitor data populating the Monitor list.
 
 ![Monitor Data on Service List](fixappv3/assets/monitor-data-list.png)
 
