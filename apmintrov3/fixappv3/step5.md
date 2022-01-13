@@ -1,12 +1,14 @@
 Let's analyze how the changes you made affected that services performance.
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/services?env=ruby-shop" target="_datadog">**APM** > **Services**</a>. 
+1. Navigate to <a href="https://app.datadoghq.com/apm/traces?query=%40_top_level%3A1%20%20env%3Aruby-shop&cols=core_service%2Ccore_resource_name%2Clog_duration%2Clog_http.method%2Clog_http.status_code&env=ruby-shopquery%3D%40_top_level%3A1%20&historicalData=false&messageDisplay=inline&sort=desc&streamTraces=true&start=1642092518176&end=1642093418176&paused=false" target="_datadog">**APM** > **Traces**</a>. 
 
-2. Click on the `advertisements-service`.
+2. In the left hand side Facet search, click the `advertisements-service` to view only traces coming from that services. This includes two endpoints, one of which we didn't change. Let's make a more targeted search.
 
-3. Scroll down and click the `GET /ads` endpoint.
+3. In the search at the top, enter `resource_name`, before hitting enter click on `resource_name:Resource facet`. <p> ![Resource](fixappv3/assets/resource_name.png).
 
-You can see by looking at the `Latency` graph for this service there has been a sharp decline in latency down to an acceptable range. The fix worked! <p> ![Fixed Latency](fixappv3/assets/fixed-ads-latency.png)
+4. Next, choose the `GET /ads` resource. This will ensure we are only viewing traces from the `advertisements-service`, and specifically from the `GET /ads` endpoint. <p> The final search parameter should be to define the `duration` we want to view, to ensure the latency from that endpoint is fixed. Ideally, the `2.5s` traces should be gone.
+
+5. In the trace search, enter `@duration:>2.45s`. There we have it, no new traces coming in at a duration of 2.5 seconds. <p> As another test, remove the current `duration` filter, search again, and you should see new traces coming in with more reasonable latency. Trace Search is a great way to filter your traces to quickly get the information you need.
 
 It would also be a good idea to confirm that the upstream services are now running properly after the fix.
 
@@ -14,8 +16,10 @@ It would also be a good idea to confirm that the upstream services are now runni
 
 1. Looking at the provided `Latency` graph, you will also see a reduction in overall latency for this service. To get better view, you can click and drag over the area of interest on the graph to zoom in. <p> ![Latency Fix](fixappv3/assets/fixed-latency-zoom.gif).
 
-Another quick place to check the overall health of our application is by using the <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. At a glance, the markers on the store-frontend and advertisements-service nodes are now green with discounts remaining green, meaning the monitor for each service is in the `OK` status.
+1. You can also see on the provided `Errors` graph that there are no new traces with errors coming in. It seems all of the fixes have done their job.
 
-7. Click the store-frontend service node and select **View service overview**. <p> Notice that the **Total Requests** and **Total Errors** graphs have no new error data since you fixed the store-frontend.
+Another quick place to check the overall health of our application is by using the <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. When used in conjuction with monitors you can get insights on your services with a glance. The markers on the `store-frontend` and `advertisements-service` nodes are now green with `discounts-service` remaining green, meaning the monitor for each service is in the `OK` status.
 
-Let's explore the store-frontend service more to see if the app has any other undesired behavior.
+7. Click the `store-frontend` service node and select **View service overview**. <p> Notice that the **Total Requests** and **Total Errors** graphs have no new error data since you fixed the `store-frontend`.
+
+Let's explore the `store-frontend` service more to see if the app has any other undesired behavior.
