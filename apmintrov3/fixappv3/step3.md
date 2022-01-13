@@ -10,9 +10,9 @@ Now let's use APM to see how the store-frontend service is performing.
 
 5. Below the Flame Graph, click the **Errors (#)** tab. <p> Browse the details for the errors titled `ActionView::Template::Error: undefined method [] for nil:NilClass`. <p> The first line in the details indicates `/spree/store-frontend/app/views/spree/layouts/spree_application.html.erb:##`. The error is originating from the indicated line of the `spree_applications.html.erb` file for the store-frontend service. <p> Using this information, we can now easily go fix this error.
 
-6. Click IDE tab, and then click `spree_application.html.erb`{{open}} to open the file. Locate the line indicated in the error in step 5, which is 39.
+6. Click IDE tab, and then click `spree_application.html.erb`{{open}} to open the file. Locate the line indicated in the error in step 5, `line 39`.
 
-7. Delete (or cut) the text `<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>` from line 39. <p> This line for banner ads should be in two other files for the store-frontend, and not this one!
+7. Copy and delete (or cut) the text `<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>` from `line 39`. <p> This line for the banner ads should be in two other files for the store-frontend, not this one!
 
 8. Click `show.html.erb`{{open}} to open this file. 
 

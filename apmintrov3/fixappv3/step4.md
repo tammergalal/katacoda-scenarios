@@ -1,18 +1,18 @@
 The monitors you created should have gathered some data. Because the monitors are linked to the related services and resources, we can see the status of the monitors in the Service Map. If any monitors are in the `ALERT` status, we can start investigating the service from the Service Map.
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. <p> The red lines on the nodes of the store-frontend and advertisements services indicate that the monitor that you created for each service endpoint is in the `ALERT` status.
+1. Navigate to <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. <p> The red lines on the nodes of the store-frontend and advertisements services indicate that the monitor that you created for each service endpoint is in the `ALERT` status. <p> ![Alert Monitors Map](fixappv3/assets/alert-map.png)
 
 2. Click the **store-frontend** node, then click **Inspect**. <p> Because the discounts service and advertisements service are downstream, let's start investigating those services.  
 
-3. Click the **discounts-service** node, then click **View service overview**. A new tab will open for the discounts-service page.
+3. Click the **advertisements-service** node, then click **View service overview**. A new tab will open for the advertisements-service page.
 
 4. Expand the **Latency** graph by clicking the arrow icon in the top right of the graph. <p> The service latency seems to hover at 2.5 seconds. *That's a noticable and consistent lag in performance!* <p> Close the graph window.
 
-5. Scroll down to the **Endpoints** list and click the **Get /discount** endpoint to view its details. 
+5. Scroll down to the **Endpoints** list and click the **Get /ads** endpoint to view its details. 
 
-6. The monitor status for this service is in the **OK** status, though if we scroll down and look at the `GET /discount` Endpoint, the latency is nearing the 1s threshold.
+6. The monitor for this service is in the **ALERT** status. If we scroll down and look at the Span Summary and order by `AVG DURATION` we can see the `flask.request GET /ads` Endpoint has a high average latency.
 
-7. Scrolling up back to the top, view the **Latency** graph and you can see some variance in latency, but a fairly steady average. Clicking the `GET /discount` Endpoint, view the **Span Summary** and the **Traces** list for the endpoint. Things *seem* normal with this service for now. Let's turn our attention to the `advertisements` service.
+Let's turn our attention to the `advertisements-service`.
 
 ## Investigate Advertisements
 
