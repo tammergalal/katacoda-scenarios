@@ -44,7 +44,9 @@ Next you must instrument our `store-frontend` in the `yml` file.
     
     `DD_ANALYTICS_ENABLED=true` enables App Analytics for the traces.
 
-    `DD_TRACE_SAMPLE_RATE=1` configures a service to send all traffic. <p> **Note:** services that send more than 50 traces per second will send all traces by default.
+    `DD_TRACE_SAMPLE_RATE=1` configures a service to send all traffic. 
+    
+    **Note:** services that send more than 50 traces per second will send all traces by default.
 
 1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs.
 
@@ -52,6 +54,8 @@ Next you must instrument our `store-frontend` in the `yml` file.
        labels:
          com.datadoghq.ad.logs: '[{"source": "ruby", "service": "store-frontend"}]'</pre> 
 
-With these steps, the Rails `store-frontend` service is instrumented for APM and Log management with Datadog. The **frontend** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-frontend](instrumentapp2/assets/instrumented-frontend.png)
+With these steps, the Rails `store-frontend` service is instrumented for APM and Log management with Datadog. The **frontend** section of the docker-compose file should now look like the screenshot below. 
+
+![instrumented-frontend](instrumentapp2/assets/instrumented-frontend.png)
 
 Before instrumenting the discounts and advertisements services, you should log into Datadog to view the traces and logs being collected for the store-frontend service. 

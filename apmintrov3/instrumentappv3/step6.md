@@ -36,9 +36,15 @@ Automatic instrumentation is done via environment variables in our docker yml fi
        labels:
          com.datadoghq.ad.logs: '[{"source": "python", "service": "advertisements-service"}]'</pre>
 
-5. Click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. <p> The **advertisements** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-adverstisements](instrumentapp2/assets/instrumented-advertisements.png)
+5. Click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. 
 
-6. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog to view the list of traces that are coming in. <p> You should now see traces for the `advertisements` service in the list. This may take a couple of minutes.
+    The **advertisements** section of the docker-compose file should now look like the screenshot below. 
+    
+    ![instrumented-adverstisements](instrumentapp2/assets/instrumented-advertisements.png)
+
+6. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog to view the list of traces that are coming in.
+
+    You should now see traces for the `advertisements` service in the list. This may take a couple of minutes.
 
 7. Click a trace for the `advertisements` service to view the Flame Graph, Span List, Tags, related Hosts, and related Logs.
 

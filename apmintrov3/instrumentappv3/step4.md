@@ -12,7 +12,9 @@ First, you'll restart the docker deployment to apply the changes for monitoring 
 
 1. In the search field, type `env:intro-apm` if it is not listed so that the traces list displays traces for the storedog app only.
 
-1. In the **Facets** list, expand **Service** to view the services from the app that are injecting traces into Datadog. <p>![trace-frontendservices](instrumentapp2/assets/trace-frontendservices.png)
+1. In the **Facets** list, expand **Service** to view the services from the app that are injecting traces into Datadog. 
+
+    ![trace-frontendservices](instrumentapp2/assets/trace-frontendservices.png)
 
 1. Click a trace for the `store-frontend` service to view the Flame Graph and Span List. The color of each span is based on the associated service, listed on the right of the Flame Graph. To zoom in and out of the Flame Graph, hover the cursor over the Flame Graph and scroll up and down. 
 

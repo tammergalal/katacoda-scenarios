@@ -14,7 +14,9 @@ You are going to create monitors to track the latency of specific `store-fronten
 
 4. Based on the Service and Endpoint from which you began creating a Resource Monitor, the **Select monitor scope** section is already filled out with the relevant information.
 
-5. Expand **Set alert conditions**, select **Threshold Alert**. <p>Set the alert as follows: **Alert when `Avg latency` is above the threshold over the last `1 minute`**. To change it to `1 minute`, click the `5 minute` dropdown and set it to `custom`.
+5. Expand **Set alert conditions**, select **Threshold Alert**. 
+
+    Set the alert as follows: **Alert when `Avg latency` is above the threshold over the last `1 minute`**. To change it to `1 minute`, click the `5 minute` dropdown and set it to `custom`.
 
 6. Set the **Alert Threshold** to `1`. Leave the setting of **Never** auto resolving from an alerted state.
 
@@ -22,7 +24,9 @@ You are going to create monitors to track the latency of specific `store-fronten
 
 8. Expand **Say what's happening**, leave the message as is. 
 
-9. Click **Create** on the bottom right. <p> You will be redirected to the new monitor page. Browse the details. <p> Notice that **Tags** for the resource, service, and environment were automatically assigned to the monitor. These tags will correlate the monitor to the respective Service Page and Resource Page.
+9. Click **Create** on the bottom right. You will be redirected to the new monitor page. Browse the details.
+
+    Notice that **Tags** for the resource, service, and environment were automatically assigned to the monitor. These tags will correlate the monitor to the respective Service Page and Resource Page.
 
 #### Advertisements Service
 
