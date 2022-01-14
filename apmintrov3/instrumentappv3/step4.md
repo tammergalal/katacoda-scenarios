@@ -10,7 +10,7 @@ First, you'll restart the docker deployment to apply the changes for monitoring 
 
 1. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog to view the list of traces that are being ingested. 
 
-1. In the search field, type `env:ruby-shop` if it is not listed so that the traces list displays traces for the storedog app only.
+1. In the search field, type `env:intro-apm` if it is not listed so that the traces list displays traces for the storedog app only.
 
 1. In the **Facets** list, expand **Service** to view the services from the app that are injecting traces into Datadog. <p>![trace-frontendservices](instrumentapp2/assets/trace-frontendservices.png)
 

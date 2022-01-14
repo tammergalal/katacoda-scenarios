@@ -1,6 +1,6 @@
 Now let's use APM to see how the store-frontend service is performing. 
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/services" target="_datadog">**APM** > **Services**</a>. <p> If there is a menu next to the **Search services** field, make sure that `env:ruby-shop` is selected. A menu is available if you've monitored more than one application environment in this Datadog organization.
+1. Navigate to <a href="https://app.datadoghq.com/apm/services" target="_datadog">**APM** > **Services**</a>. <p> If there is a menu next to the **Search services** field, make sure that `env:intro-apm` is selected. A menu is available if you've monitored more than one application environment in this Datadog organization.
 
 2. Select the **store-frontend** service and browse its details. <p> You may notice that there is error data in the **Errors by Version** graph. Click the **Errors by Version** dropdown and change it to **Errors**. There are a large amount of 500's coming in. *Looks like the store-frontend is not working correctly!*
 

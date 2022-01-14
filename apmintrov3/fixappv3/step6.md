@@ -1,6 +1,6 @@
 Inefficient database queries can affect service performance, and cause upstream degradations felt by end users. N+1 queries are a common example in which a database is queried multiple times to retrieve data that can be retrieved with just a single query. 
 
-1. In the **store-frontend service page**, scroll to the **Endpoints**  and click **Spree::HomeController#index** endpoint to navigate to <a href="https://app.datadoghq.com/apm/resource/store-frontend/rack.request/69d105fa043dba7f?end=1593549125250&env=ruby-shop&index=apm-search&paused=false&start=1593545525250&query=env%3Aruby-shop%20service%3Astore-frontend%20operation_name%3Arack.request%20resource_name%3A%22Spree%3A%3AHomeController%23index%22" target="_datadog">**APM** > **Services** > **store-frontend** > **Spree::HomeController#index**</a>.
+1. In the **store-frontend service page**, scroll to the **Endpoints**  and click **Spree::HomeController#index** endpoint to navigate to <a href="https://app.datadoghq.com/apm/resource/store-frontend/rack.request/69d105fa043dba7f?end=1593549125250&env=intro-apm&index=apm-search&paused=false&start=1593545525250&query=env%3Aintro-apm%20service%3Astore-frontend%20operation_name%3Arack.request%20resource_name%3A%22Spree%3A%3AHomeController%23index%22" target="_datadog">**APM** > **Services** > **store-frontend** > **Spree::HomeController#index**</a>.
 
 2. In the **Span Summary**, click the **AVG SPANS/TRACE** column header to sort the column in descending order. <p> The top two spans are linked to two Postgres queries. There are Spans here with over 200 spans per trace! Something is definitely going on with the database query to be producing so many spans for a single trace.
 
@@ -12,7 +12,7 @@ Inefficient database queries can affect service performance, and cause upstream 
 
 6. Update **line 29** to `discounts = Discount.query.options(joinedload('*')).all()`. (See the note on lines 27-28). 
 
-7. In the Traces list in <a href="https://app.datadoghq.com/apm/resource/store-frontend/rack.request/69d105fa043dba7f?end=1593549125250&env=ruby-shop&index=apm-search&paused=false&start=1593545525250&query=env%3Aruby-shop%20service%3Astore-frontend%20operation_name%3Arack.request%20resource_name%3A%22Spree%3A%3AHomeController%23index%22" target="_datadog">**APM** > **Services** > **store-frontend** > **Spree::HomeController#index**</a>, wait until you see new traces coming in.
+7. In the Traces list in <a href="https://app.datadoghq.com/apm/resource/store-frontend/rack.request/69d105fa043dba7f?end=1593549125250&env=intro-apm&index=apm-search&paused=false&start=1593545525250&query=env%3Aintro-apm%20service%3Astore-frontend%20operation_name%3Arack.request%20resource_name%3A%22Spree%3A%3AHomeController%23index%22" target="_datadog">**APM** > **Services** > **store-frontend** > **Spree::HomeController#index**</a>, wait until you see new traces coming in.
 
 8. Click a new trace and zoom in on the `postgres.query` span below the **discounts.status */discounts***. Notice that this is only one span now. <p> ![fixedquery](fixapp/assets/fixedquery.gif)
 

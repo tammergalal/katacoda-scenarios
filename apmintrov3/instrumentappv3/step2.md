@@ -13,7 +13,7 @@ To use the added feature of correlating trace and log data, you will also need t
          - DD_LOGS_ENABLED=true
          - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
          - DD_DOCKER_LABELS_AS_TAGS={"my.custom.label.team":"team"}
-         - DD_TAGS='env:ruby-shop'
+         - DD_TAGS='env:intro-apm'
          - DD_APM_NON_LOCAL_TRAFFIC=true</pre> 
 
     The above added environment variables enable a few key pieces of functionality for the agent:
@@ -26,7 +26,7 @@ To use the added feature of correlating trace and log data, you will also need t
 
     `DD_DOCKER_LABELS_AS_TAGS={"my.custom.label.team":"team"}` extracts docker container labels.
 
-    `DD_TAGS='env:ruby-shop` sets custom tags in Datadog, in this instance tagging the agent with the environment tag of `ruby-shop`.
+    `DD_TAGS='env:intro-apm` sets custom tags in Datadog, in this instance tagging the agent with the environment tag of `intro-apm`.
 
     `DD_APM_NON_LOCAL_TRAFFIC=true` allows for non local traffic when tracing from other containers.
     

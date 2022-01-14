@@ -4,10 +4,10 @@ In the terminal on the right, the Storedog app is being instrumented for APM wit
 
 2. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM** > **Traces**</a> in Datadog to view the list of traces that are being ingested for the storedog app. <p> If you are working in a new Datadog organization, the link will be redirected to the **APM** > **Introduction** page. You may need to wait about two minutes as Datadog's Autodiscovery feature picks up the traces that are coming in. In the main menu, when the option appears, click the **APM > Traces** to see the list of traces.
 
-3. In the search field, enter `env:ruby-shop` if it is not listed to make sure that you are only viewing traces for the Storedog app. 
+3. In the search field, enter `env:intro-apm` if it is not listed to make sure that you are only viewing traces for the Storedog app. 
 
 4. Under **Facets**, expand **Services** to confirm that all the services shown below are reporting traces. <p> ![trace-services](fixapp/assets/trace-services.png)
 
-5. Navigate to <a href="https://app.datadoghq.com/apm/map?env=ruby-shop" target="_datadog">**APM** > **Service Map**</a> to visualize the services and their dependencies. <p> In the `Scope to` dropdown, make sure that `env:ruby-shop` is selected. <p> Hover over each service node to view the direction flow of information from service to service, and see what is dependent on what. <p> Click each node, then click **Inspect** to view the services more clearly. <p> Notice that users primarily interact with the `store-frontend` service, which is on the top when you **Inspect** any service node linked to it.
+5. Navigate to <a href="https://app.datadoghq.com/apm/map?env=intro-apm" target="_datadog">**APM** > **Service Map**</a> to visualize the services and their dependencies. <p> In the `Scope to` dropdown, make sure that `env:intro-apm` is selected. <p> Hover over each service node to view the direction flow of information from service to service, and see what is dependent on what. <p> Click each node, then click **Inspect** to view the services more clearly. <p> Notice that users primarily interact with the `store-frontend` service, which is on the top when you **Inspect** any service node linked to it.
 
 With Datadog collecting trace and log data from the Storedog app, let's create monitors for some of its services.

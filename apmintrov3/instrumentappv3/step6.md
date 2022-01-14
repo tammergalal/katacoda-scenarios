@@ -23,7 +23,7 @@ Automatic instrumentation is done via environment variables in our docker yml fi
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add ads env variables">
          - DATADOG_SERVICE=advertisements-service
-         - DD_ENV=ruby-shop
+         - DD_ENV=intro-apm
          - DD_VERSION=1.0
          - DD_LOGS_INJECTION=true
          - DD_TRACE_SAMPLE_RATE=1

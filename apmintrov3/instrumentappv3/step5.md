@@ -16,7 +16,7 @@ Let's start by instrumenting the Discounts service.
 1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service.
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add discounts env variables">
-         - DD_ENV=ruby-shop
+         - DD_ENV=intro-apm
          - DD_VERSION=1.0
          - DD_LOGS_INJECTION=true
          - DD_TRACE_SAMPLE_RATE=1

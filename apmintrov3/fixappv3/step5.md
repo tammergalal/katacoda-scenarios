@@ -1,6 +1,6 @@
 Let's analyze how the changes you made affected that services performance.
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/traces?query=%40_top_level%3A1%20%20env%3Aruby-shop&cols=core_service%2Ccore_resource_name%2Clog_duration%2Clog_http.method%2Clog_http.status_code&env=ruby-shopquery%3D%40_top_level%3A1%20&historicalData=false&messageDisplay=inline&sort=desc&streamTraces=true&start=1642092518176&end=1642093418176&paused=false" target="_datadog">**APM** > **Traces**</a>. 
+1. Navigate to <a href="https://app.datadoghq.com/apm/traces?query=%40_top_level%3A1%20%20env%3Aintro-apm&cols=core_service%2Ccore_resource_name%2Clog_duration%2Clog_http.method%2Clog_http.status_code&env=intro-apmquery%3D%40_top_level%3A1%20&historicalData=false&messageDisplay=inline&sort=desc&streamTraces=true&start=1642092518176&end=1642093418176&paused=false" target="_datadog">**APM** > **Traces**</a>. 
 
 2. In the left hand side Facet search, click the `advertisements-service` to view only traces coming from that service. This includes two endpoints, one of which we didn't change. Let's write a more targeted search.
 
@@ -12,7 +12,7 @@ Let's analyze how the changes you made affected that services performance.
 
 It would also be a good idea to confirm that the upstream services are now running properly after the fix.
 
-1. Navigate back to the <a href="https://app.datadoghq.com/apm/services?env=ruby-shop" target="_datadog">**APM** > **Services**</a> page and enter the `store-frontend` service. 
+1. Navigate back to the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**APM** > **Services**</a> page and enter the `store-frontend` service. 
 
 1. Looking at the provided `Latency` graph, you will also see a reduction in overall latency for this service. To get better view, you can click and drag over the area of interest on the graph to zoom in. <p> ![Latency Fix](fixappv3/assets/fixed-latency-zoom.gif).
 

@@ -39,7 +39,8 @@ Next lets Instrument our `store-frontend` in the `yml` file.
          - DD_AGENT_HOST=agent
          - DD_LOGS_INJECTION=true
          - DD_ANALYTICS_ENABLED=true
-         - DD_TRACE_SAMPLE_RATE=1</pre> 
+         - DD_TRACE_SAMPLE_RATE=1
+         - DD_VERSION=1.0</pre> 
 
     `DD_AGENT_HOST=agent` defines the address of the Agent that the tracer submits traces to. 
     

@@ -4,7 +4,7 @@ Let's create monitors to track the latency of specific `store-frontend` and `adv
 
 #### Store-frontend Service
 
-1. In the <a href="https://app.datadoghq.com/apm/services?env=ruby-shop" target="_datadog">**Service List**</a>, click on **store-frontend** to see a more detailed overview of the service. <p> ![Store Frontend Flow](fixappv3/assets/store-frontend-list.png)
+1. In the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, click on **store-frontend** to see a more detailed overview of the service. <p> ![Store Frontend Flow](fixappv3/assets/store-frontend-list.png)
 
 2. Scroll to the **Endpoints** list and click **Spree::HomeController#index**.
 
@@ -26,7 +26,7 @@ Let's create monitors to track the latency of specific `store-frontend` and `adv
 
 Next, let's setup a monitor for the Advertisements service. 
 
-1. Head back to the <a href="https://app.datadoghq.com/apm/services?env=ruby-shop" target="_datadog">**Service List**</a>, and hover over the `advertisements-service`. To the right, click `View Suggested` in the monitor column to the right side of list.
+1. Head back to the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, and hover over the `advertisements-service`. To the right, click `View Suggested` in the monitor column to the right side of list.
 
 4. Under **Select monitor scope**, select `get_/ads` as the **Resource**.
 
