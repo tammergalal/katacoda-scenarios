@@ -1,17 +1,18 @@
-Now that we've set up our main Ruby on Rails application and viewed traces coming into the platform, we can now instrument our downstream Python services.
+Now that you've set up our main Ruby on Rails application and viewed traces coming into the platform, you can now instrument our downstream Python services.
 
-Looking at the [documentation](https://ddtrace.readthedocs.io/en/stable/integrations.html#flask) for the Python tracer, we have a utility called `ddtrace-run`. 
+Looking at the [documentation](https://ddtrace.readthedocs.io/en/stable/integrations.html#flask) for the Python tracer, there is a utility called `ddtrace-run`. 
 
-Wrapping our Python executable in a `ddtrace-run` allows us to run an instance of our application fully instrumented with our trace library, so long as our Python libraries are supported by `ddtrace`.
+Wrapping our Python executable in a `ddtrace-run` allows you to run an instance of our application fully instrumented with our trace library, so long as our Python libraries are supported by `ddtrace`.
 
-For supported applications like Flask, `ddtrace-run` dramatically simplifies the process of instrumentation.
-Let's start by instrumenting the Discounts service.
+For supported applications like Flask, `ddtrace-run` dramatically simplifies the process of instrumentation. You can start by instrumenting the Discounts service.
 
 #### Discounts Service
 
 1. Navigate to your IDE tab and click `requirements.txt`{{open}} to view the list of required libraries that are installed for the service. The `ddtrace` library (**Line 4**) has already been included.
 
-1. Click `docker-compose.yml`{{open}}. Under **services**, view the details for **discounts**. <p> Let's add the code for enabling trace and log collection for the `discounts` service.
+1. Click `docker-compose.yml`{{open}}. Under **services**, view the details for **discounts**. 
+
+    Add the code for enabling trace and log collection for the `discounts` service.
 
 1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service.
 
@@ -37,7 +38,11 @@ command: ddtrace-run flask run --port=5001 --host=0.0.0.0</pre>
        labels:
          com.datadoghq.ad.logs: '[{"source": "python", "service": "discounts-service"}]'</pre>
 
-1. Going back to your terminal tab, click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. <p> The **discounts** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-discounts](instrumentapp2/assets/instrumented-discounts.png)
+1. Going back to your terminal tab, click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. 
+
+    The **discounts** section of the docker-compose file should now look like the screenshot below. 
+    
+    ![instrumented-discounts](instrumentapp2/assets/instrumented-discounts.png)
 
 1. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog and within a few minutes you should see traces from the `discount-service` coming into the platform.
 

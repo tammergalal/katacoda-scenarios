@@ -50,4 +50,4 @@ To use the added feature of correlating trace and log data, you will also need t
 
 The **agent** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-agent](instrumentapp2/assets/instrumented-agent.png)
 
-With trace and log collection enabled for the Datadog Agent, let's go through instrumenting one of Storedog's services, the discounts service.
+With trace and log collection enabled for the Datadog Agent, you can now go through instrumenting one of Storedog's services, the discounts service.

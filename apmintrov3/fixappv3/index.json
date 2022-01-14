@@ -47,6 +47,16 @@
         {
           "file": "dd_agent.sql",
           "target": "/root"
+        },
+        {
+          "file": "puppeteer.sh",
+          "target": "/root",
+          "chmod": "+x"
+        },
+        {
+          "file": "puppeteer-mobile.js",
+          "target": "/root",
+          "chmod": "+x"
         }
       ]
     }
@@ -60,6 +70,6 @@
     "dashboards": [{"name": "Storedog", "port": 3000}]
   },
   "backend": {
-    "imageid": "datadog-base-v3"
+    "imageid": "datadog-base-v4"
   }
 }

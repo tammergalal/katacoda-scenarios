@@ -8,7 +8,7 @@ Now let's use APM to see how the store-frontend service is performing.
 
 4. Click into any of the related traces to view its details. <p> Looking at the flame graph for one of the 500 error traces will show the top level `rack.request` failing, but it seems the error begins from a downstream method called `rails.action_controller`.
 
-5. Below the Flame Graph, click the **Errors (#)** tab. <p> Browse the details for the errors titled `ActionView::Template::Error: undefined method [] for nil:NilClass`. <p> The first line in the details indicates `/spree/store-frontend/app/views/spree/layouts/spree_application.html.erb:##`. The error is originating from the indicated line of the `spree_applications.html.erb` file for the store-frontend service. <p> Using this information, we can now easily go fix this error.
+5. Below the Flame Graph, click the **Errors (#)** tab. <p> Browse the details for the errors titled `ActionView::Template::Error: undefined method [] for nil:NilClass`. <p> The first line in the details indicates `/spree/store-frontend/app/views/spree/layouts/spree_application.html.erb:##`. The error is originating from the indicated line of the `spree_applications.html.erb` file for the store-frontend service. <p> Using this information, you can now easily go fix this error.
 
 6. Click IDE tab, and then click `spree_application.html.erb`{{open}} to open the file. Locate the line indicated in the error in step 5, `line 39`.
 

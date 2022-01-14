@@ -10,4 +10,4 @@ In the terminal on the right, the Storedog app is being instrumented for APM wit
 
 5. Navigate to <a href="https://app.datadoghq.com/apm/map?env=intro-apm" target="_datadog">**APM** > **Service Map**</a> to visualize the services and their dependencies. <p> In the `Scope to` dropdown, make sure that `env:intro-apm` is selected. <p> Hover over each service node to view the direction flow of information from service to service, and see what is dependent on what. <p> Click each node, then click **Inspect** to view the services more clearly. <p> Notice that users primarily interact with the `store-frontend` service, which is on the top when you **Inspect** any service node linked to it.
 
-With Datadog collecting trace and log data from the Storedog app, let's create monitors for some of its services.
+With Datadog collecting trace and log data from the Storedog app, you'll create monitors for some of its services.

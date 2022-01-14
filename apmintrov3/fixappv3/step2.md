@@ -1,16 +1,18 @@
 In Datadog, you can create a variety of <a href="https://docs.datadoghq.com/monitors/" target="_datadog">**Monitors**</a> to track the health of your applications and to alert you if action is needed. 
 
-Let's create monitors to track the latency of specific `store-frontend` and `advertisements-service` resources. You will use these monitors later in the activity.
+You are going to create monitors to track the latency of specific `store-frontend` and `advertisements-service` resources. You will use these monitors later in the activity.
 
 #### Store-frontend Service
 
-1. In the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, click on **store-frontend** to see a more detailed overview of the service. <p> ![Store Frontend Flow](fixappv3/assets/store-frontend-list.png)
+1. In the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, click on **store-frontend** to see a more detailed overview of the service. 
+
+    ![Store Frontend Flow](fixappv3/assets/store-frontend-list.png)
 
 2. Scroll to the **Endpoints** list and click **Spree::HomeController#index**.
 
 3. Click the **No Monitors or Synthetics Tests** banner near the top and click **New Resource Monitor**. You will be redirected to a new APM monitor page.
 
-4. Based on the Service and Endpoint from which we began creating a Resource Monitor, the **Select monitor scope** section is already filled out with the relevant information.
+4. Based on the Service and Endpoint from which you began creating a Resource Monitor, the **Select monitor scope** section is already filled out with the relevant information.
 
 5. Expand **Set alert conditions**, select **Threshold Alert**. <p>Set the alert as follows: **Alert when `Avg latency` is above the threshold over the last `1 minute`**. To change it to `1 minute`, click the `5 minute` dropdown and set it to `custom`.
 
@@ -24,7 +26,7 @@ Let's create monitors to track the latency of specific `store-frontend` and `adv
 
 #### Advertisements Service
 
-Next, let's setup a monitor for the Advertisements service. 
+Next, setup a monitor for the Advertisements service. 
 
 1. Head back to the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, and hover over the `advertisements-service`. To the right, click `View Suggested` in the monitor column to the right side of list.
 
