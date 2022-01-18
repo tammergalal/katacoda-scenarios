@@ -2,7 +2,6 @@
 
 curl -sk https://datadoghq.dev/katacodalabtools/r?raw=true|bash
 
-statusupdate "tools"
 statuscheck "environment"
 
 # Wait for required assets to appear in the filesystem
