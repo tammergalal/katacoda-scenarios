@@ -6,7 +6,6 @@ export STOREDOG_URL=https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environmen
 
 clear
 statusupdate "environment"
-statuscheck "workspace"
 
 [ ! -d "/root/lab" ] && mkdir /root/lab 
 
@@ -17,6 +16,8 @@ DD_APP_KEY=$DD_APP_KEY\n\
 POSTGRES_USER=$POSTGRES_USER\n\
 POSTGRES_PASSWORD=$POSTGRES_PASSWORD\n\
 STOREDOG_URL=$STOREDOG_URL" > .env 
+
+statuscheck "workspace"
 
 clear
 
