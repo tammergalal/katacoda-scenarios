@@ -24,5 +24,3 @@ mv /root/docker-compose.yml /root/lab
 docker-compose up -d
 
 statusupdate "workspace"
-
-./gor --input-file-loop --input-file "./requests_0.gor|350%" --output-http "http://localhost:3000" >> /dev/null 2>&1
