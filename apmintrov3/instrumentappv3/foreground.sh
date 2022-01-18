@@ -4,9 +4,6 @@ export POSTGRES_USER=postgres
 export POSTGRES_PASSWORD=postgres
 export STOREDOG_URL=https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com
 
-clear
-statusupdate "environment"
-
 [ ! -d "/root/lab" ] && mkdir /root/lab 
 
 cd /root/lab
@@ -17,6 +14,7 @@ POSTGRES_USER=$POSTGRES_USER\n\
 POSTGRES_PASSWORD=$POSTGRES_PASSWORD\n\
 STOREDOG_URL=$STOREDOG_URL" > .env 
 
+statusupdate "environment"
 statuscheck "workspace"
 
 clear
