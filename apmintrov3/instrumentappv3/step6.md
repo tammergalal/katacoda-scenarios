@@ -38,12 +38,14 @@ Automatic instrumentation is done via environment variables in our docker yml fi
 
 5. Click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. <p> The **advertisements** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-adverstisements](instrumentapp2/assets/instrumented-advertisements.png)
 
-6. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog to view the list of traces that are coming in. <p> You should now see traces for the `advertisements` service in the list. This may take a couple of minutes.
+6. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog to view the list of traces that are coming in. 
+
+    You should now see traces for the `advertisements` service in the list. This may take a couple of minutes.
 
 7. Click a trace for the `advertisements` service to view the Flame Graph, Span List, Tags, related Hosts, and related Logs.
 
 With these steps, the Python-based services are also instrumented for APM with Datadog. The final list for **Service** under **Facets** is shown below.
 
-![trace-services](instrumentapp2/assets/trace-allservices.png)
+  ![trace-services](instrumentapp2/assets/trace-allservices.png)
 
 The `postgres` service appears in the list because it is installed and automatically instrumented to support the discounts and advertisements services using **Line 12** in their `requirements.txt`{{open}} for both services. You can view <a href="https://ddtrace.readthedocs.io/en/stable/integrations.html#module-ddtrace.contrib.psycopg" target="_blank"> Datadog's Python tracing client</a> for more details. 
