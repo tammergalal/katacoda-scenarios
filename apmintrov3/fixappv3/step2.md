@@ -4,7 +4,9 @@ Let's create monitors to track the latency of specific `store-frontend` and `adv
 
 #### Store-frontend Service
 
-1. In the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, click on **store-frontend** to see a more detailed overview of the service. <p> ![Store Frontend Flow](fixappv3/assets/store-frontend-list.png)
+1. In the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, click on **store-frontend** to see a more detailed overview of the service. 
+
+    ![Store Frontend Flow](fixappv3/assets/store-frontend-list.png)
 
 2. Scroll to the **Endpoints** list and click **Spree::HomeController#index**.
 
@@ -12,7 +14,9 @@ Let's create monitors to track the latency of specific `store-frontend` and `adv
 
 4. Based on the Service and Endpoint from which we began creating a Resource Monitor, the **Select monitor scope** section is already filled out with the relevant information.
 
-5. Expand **Set alert conditions**, select **Threshold Alert**. <p>Set the alert as follows: **Alert when `Avg latency` is above the threshold over the last `1 minute`**. To change it to `1 minute`, click the `5 minute` dropdown and set it to `custom`.
+5. Expand **Set alert conditions**, select **Threshold Alert**. 
+
+    1. Set the alert as follows: **Alert when `Avg latency` is above the threshold over the last `1 minute`**. To change it to `1 minute`, click the `5 minute` dropdown and set it to `custom`.
 
 6. Set the **Alert Threshold** to `1`. Leave the setting of **Never** auto resolving from an alerted state.
 
@@ -20,7 +24,11 @@ Let's create monitors to track the latency of specific `store-frontend` and `adv
 
 8. Expand **Say what's happening**, leave the message as is. 
 
-9. Click **Create** on the bottom right. <p> You will be redirected to the new monitor page. Browse the details. <p> Notice that **Tags** for the resource, service, and environment were automatically assigned to the monitor. These tags will correlate the monitor to the respective Service Page and Resource Page.
+9. Click **Create** on the bottom right. 
+
+    1. You will be redirected to the new monitor page. Browse the details. 
+    
+    2. Notice that **Tags** for the resource, service, and environment were automatically assigned to the monitor. These tags will correlate the monitor to the respective Service Page and Resource Page.
 
 #### Advertisements Service
 
@@ -28,9 +36,9 @@ Next, let's setup a monitor for the Advertisements service.
 
 1. Head back to the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, and hover over the `advertisements-service`. To the right, click `View Suggested` in the monitor column to the right side of list.
 
-4. Under **Select monitor scope**, select `get_/ads` as the **Resource**.
+2. Under **Select monitor scope**, select `get_/ads` as the **Resource**.
 
-5. Repeat steps 5 - 8 from the `store-frontend` monitor above.
+3. Repeat steps 5 - 8 from the `store-frontend` monitor above.
 
 You can view the monitors on the <a href="https://app.datadoghq.com/monitors/manage" target="_datadog">**Monitor** > **Manage Monitors**</a> page, you may initially notice that they have a status of `No Data`. Because the monitors are new, it may take a few minutes for the status of the monitors to update. After waiting, you may begin to see some monitor data populating the Monitor list.
 
