@@ -13,6 +13,7 @@ To use the added feature of correlating trace and log data, you will also need t
          - DD_LOGS_ENABLED=true
          - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
          - DD_DOCKER_LABELS_AS_TAGS={"my.custom.label.team":"team"}
+         - DD_VERSION=1.0
          - DD_TAGS='env:intro-apm'
          - DD_APM_NON_LOCAL_TRAFFIC=true</pre> 
 
