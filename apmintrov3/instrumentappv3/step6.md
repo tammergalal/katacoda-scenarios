@@ -1,21 +1,21 @@
-The `Advertisements` is a small flask service that can be instrumented much like the `Discounts` service. Go ahead and setup that instrumentation for a full view into the applications performance.
+The `Advertisements` is a small flask service that can be instrumented much like the `Discounts` service. Let's go ahead and setup that instrumentation for a full view into the applications performance.
 
 ## Advertisements yml changes
 
-1. Click `docker-compose.yml`{{open}}. If you look at **line 73**, you'll see:
+1. Click `docker-compose.yml`{{open}}. If we look at **line 73**, we'll see:
 
     ```
     flask run --port=5002 --host=0.0.0.0
     ```
 
-    The `ddtrace` Python library includes an executable that allows you to automatically instrument our Python application. You simply call the `ddtrace-run` application, followed by our normal deployment, and magically, everything is instrumented.
+    The `ddtrace` Python library includes an executable that allows us to automatically instrument our Python application. We simply call the `ddtrace-run` application, followed by our normal deployment, and magically, everything is instrumented.
 
 2. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the `ddtrace-run` wrapper to the command that brings up the Flask server. Note that the port for this service is 5002. 
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="command: flask run --port=5002 --host=0.0.0.0">
 command: ddtrace-run flask run --port=5002 --host=0.0.0.0</pre> 
 
-With this, you're now ready to *configure* our application's instrumentation.
+With this, we're now ready to *configure* our application's instrumentation.
 
 Automatic instrumentation is done via environment variables in our docker yml files starting on **line 82**:
 
@@ -36,15 +36,9 @@ Automatic instrumentation is done via environment variables in our docker yml fi
        labels:
          com.datadoghq.ad.logs: '[{"source": "python", "service": "advertisements-service"}]'</pre>
 
-5. Click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. 
+5. Click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. <p> The **advertisements** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-adverstisements](instrumentapp2/assets/instrumented-advertisements.png)
 
-    The **advertisements** section of the docker-compose file should now look like the screenshot below. 
-    
-    ![instrumented-adverstisements](instrumentapp2/assets/instrumented-advertisements.png)
-
-6. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog to view the list of traces that are coming in.
-
-    You should now see traces for the `advertisements` service in the list. This may take a couple of minutes.
+6. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM > Traces** </a> in Datadog to view the list of traces that are coming in. <p> You should now see traces for the `advertisements` service in the list. This may take a couple of minutes.
 
 7. Click a trace for the `advertisements` service to view the Flame Graph, Span List, Tags, related Hosts, and related Logs.
 

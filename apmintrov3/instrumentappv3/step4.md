@@ -4,7 +4,7 @@ First, you'll restart the docker deployment to apply the changes for monitoring 
 
 ![restarted-agent-frontend](instrumentapp2/assets/restarted-agent-frontend.png)
 
-1. With our new deployment up, you can take a look at the Datadog platform and check to see if traces are coming in.
+1. With our new deployment up, we can take a look at the Datadog platform and check to see if traces are coming in.
 
 1. First, enter `creds`{{execute}} in the terminal. In a new window/tab, log in to the <a href="https://app.datadoghq.com/account/login" target="_datadog">Datadog account/organization</a> that was created for you by learn.datadoghq.com.
 
@@ -12,9 +12,7 @@ First, you'll restart the docker deployment to apply the changes for monitoring 
 
 1. In the search field, type `env:intro-apm` if it is not listed so that the traces list displays traces for the storedog app only.
 
-1. In the **Facets** list, expand **Service** to view the services from the app that are injecting traces into Datadog. 
-
-    ![trace-frontendservices](instrumentapp2/assets/trace-frontendservices.png)
+1. In the **Facets** list, expand **Service** to view the services from the app that are injecting traces into Datadog. <p>![trace-frontendservices](instrumentapp2/assets/trace-frontendservices.png)
 
 1. Click a trace for the `store-frontend` service to view the Flame Graph and Span List. The color of each span is based on the associated service, listed on the right of the Flame Graph. To zoom in and out of the Flame Graph, hover the cursor over the Flame Graph and scroll up and down. 
 
@@ -24,4 +22,4 @@ First, you'll restart the docker deployment to apply the changes for monitoring 
 
 As you can see, the agent and store-frontend service were successfully instrumented for APM and log collection in Datadog. 
 
-Now you can instrument the Python-Flask services of the app.
+Now, let's instrument the Python-Flask services of the app.
