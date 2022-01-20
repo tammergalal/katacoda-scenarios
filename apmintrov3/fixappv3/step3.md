@@ -1,12 +1,14 @@
 Now let's use APM to see how the store-frontend service is performing. 
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/services" target="_datadog">**APM** > **Services**</a>. <p> If there is a menu next to the **Search services** field, make sure that `env:intro-apm` is selected. A menu is available if you've monitored more than one application environment in this Datadog organization.
+1. Navigate to <a href="https://app.datadoghq.com/apm/services" target="_datadog">**APM** > **Services**</a>. 
+
+    If there is a menu next to the **Search services** field, make sure that `env:intro-apm` is selected. A menu is available if you've monitored more than one application environment in this Datadog organization.
 
 2. Select the **store-frontend** service and browse its details. You may notice that there is error data in the **Errors by Version** graph. 
 
 3. Click the **Errors by Version** dropdown and change it to **Errors**. There are a large amount of 500's coming in. *Looks like the store-frontend is not working correctly!*
 
-    **Note:** To learn more about versioning, head over to our course on using [Datadog Deployment Tracking](https://labs.datadoghq.com/snippets/tracking-canary-deployments-with-datadog)
+    **Note:** To learn more about versioning your services and how that enables deeper insight into your applications performance across deployments, head over to our course on using [Datadog Deployment Tracking](https://labs.datadoghq.com/snippets/tracking-canary-deployments-with-datadog)
 
 4. Click a red bar in the **Errors** graph. Select the **View related traces** option. 
 

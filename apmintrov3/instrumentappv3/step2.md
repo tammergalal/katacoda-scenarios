@@ -48,6 +48,8 @@ To use the added feature of correlating trace and log data, you will also need t
     
     The labels allow Datadog to identify the log source for the container and to automatically install corresponding integrations, if available. This **Autodiscovery** feature speeds up the setup process for log collection. To learn more, view the <a href="https://docs.datadoghq.com/agent/docker/log/?tab=dockercompose#activate-log-integrations" target="_blank">Docker Log Collection</a> documentation. 
 
-The **agent** section of the docker-compose file should now look like the screenshot below. <p> ![instrumented-agent](instrumentapp2/assets/instrumented-agent.png)
+The **agent** section of the docker-compose file should now look like the screenshot below. 
+    
+  ![instrumented-agent](instrumentapp2/assets/instrumented-agent.png)
 
 With trace and log collection enabled for the Datadog Agent, let's go through instrumenting one of Storedog's services, the discounts service.

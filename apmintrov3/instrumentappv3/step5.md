@@ -37,7 +37,9 @@ command: ddtrace-run flask run --port=5001 --host=0.0.0.0</pre>
        labels:
          com.datadoghq.ad.logs: '[{"source": "python", "service": "discounts-service"}]'</pre>
 
-1. Going back to your terminal tab, click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. <p> The **discounts** section of the docker-compose file should now look like the screenshot below. 
+1. Going back to your terminal tab, click `docker-compose down && docker-compose up -d`{{execute}} to restart the docker deployment to apply these changes. 
+
+    The **discounts** section of the docker-compose file should now look like the screenshot below. 
 
     ![instrumented-discounts](instrumentapp2/assets/instrumented-discounts.png)
 

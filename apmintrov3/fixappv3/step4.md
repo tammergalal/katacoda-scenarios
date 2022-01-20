@@ -1,6 +1,8 @@
 The monitors you created should have gathered some data. Because the monitors are linked to the related services and resources, we can see the status of the monitors in the Service Map. If any monitors are in the `ALERT` status, we can start investigating the service from the Service Map.
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. <p> The red lines on the nodes of the `store-frontend` and `advertisements-services` indicate that the monitor that you created for each service endpoint is in the `ALERT` status. 
+1. Navigate to <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. 
+
+    The red lines on the nodes of the `store-frontend` and `advertisements-services` indicate that the monitor that you created for each service endpoint is in the `ALERT` status. 
 
     ![Alert Monitors Map](fixappv3/assets/alert-map.png)
 
