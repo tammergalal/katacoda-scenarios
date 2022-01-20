@@ -48,7 +48,7 @@ Next lets Instrument our `store-frontend` in the `yml` file.
     
     `DD_ANALYTICS_ENABLED=true` enables App Analytics for the traces.
 
-    `DD_TRACE_SAMPLE_RATE=1` configures a service to send all traffic. <p> **Note:** services that send more than 50 traces per second will send all traces by default.
+    `DD_TRACE_SAMPLE_RATE=1` configures a service to send all traffic. <p> **Note:** services that send more than 50 traces per second will send all traces by default. This allows us to use [Tracing without Limits™](https://docs.datadoghq.com/tracing/trace_retention_and_ingestion/) for Trace Search and Analytics from within Datadog. We're also able to continue traces downstream, utilizing Distributed Traces.
 
 1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs.
 
