@@ -1,18 +1,18 @@
-Let's analyze how the changes you made affected that services performance.
+With your fixes implemented, analyze how the changes you made affected that services performance.
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/traces" target="_datadog">**APM** > **Traces**</a>. 
+1. Navigate to <a href="https://app.datadoghq.com/apm/traces?query=%40_top_level%3A1%20%20env%3Aintro-apm&cols=core_service%2Ccore_resource_name%2Clog_duration%2Clog_http.method%2Clog_http.status_code&env=intro-apmquery%3D%40_top_level%3A1%20&historicalData=false&messageDisplay=inline&sort=desc&streamTraces=true&start=1642092518176&end=1642093418176&paused=false" target="_datadog">**APM** > **Traces**</a>. 
 
-2. In the left hand side Facet search, click the `advertisements-service` to view only traces coming from that service. This includes two endpoints, one of which we didn't change. Let's write a more targeted search.
+2. In the left hand side Facet search, click the `advertisements-service` to view only traces coming from that service. This includes two endpoints, one of which you didn't change. You can write a more targeted search.
 
 3. In the search at the top, enter `resource_name`, before hitting enter click on `resource_name:Resource facet`. 
 
     ![Resource](fixappv3/assets/resource_name.png).
 
-4. Next, choose the `GET /ads` resource. This will ensure we are only viewing traces from the `advertisements-service`, and specifically from the `GET /ads` endpoint. 
+4. Next, choose the `GET /ads` resource. This will ensure you are only viewing traces from the `advertisements-service`, and specifically from the `GET /ads` endpoint. 
 
-    The final search parameter should be to define the `duration` we want to view, to ensure the latency from that endpoint is fixed. Ideally, the `2.5s` traces should be gone.
+    The final search parameter should be to define the `duration` you want to view, to ensure the latency from that endpoint is fixed. Ideally, the `2.5s` traces should be gone.
 
-5. In the trace search, enter `@duration:>2.45s` to view traces only taking longer than `2.45 seconds`. There we have it, no new traces coming in at a duration of 2.5 seconds. 
+5. In the trace search, enter `@duration:>2.45s` to view traces only taking longer than `2.45 seconds`. There you have it, no new traces coming in at a duration of 2.5 seconds. 
 
     As another test, remove the current `duration` filter, search again, and you should see new traces coming in with more reasonable duration. Trace Search is a great way to filter your traces to quickly get the information you need.
 
@@ -32,4 +32,4 @@ Another quick place to check the overall health of our application is by using t
 
     Notice that the **Total Requests** and **Total Errors** graphs have no new error data since you fixed the `store-frontend`.
 
-Let's explore the `store-frontend` service more to see if the app has any other undesired behaviors.
+Finally, explore the `store-frontend` service more to see if the app has any other undesired behaviors.

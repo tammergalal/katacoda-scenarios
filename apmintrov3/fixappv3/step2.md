@@ -1,6 +1,6 @@
 In Datadog, you can create a variety of <a href="https://docs.datadoghq.com/monitors/" target="_datadog">**Monitors**</a> to track the health of your applications and to alert you if action is needed. 
 
-Let's create monitors to track the latency of specific `store-frontend` and `advertisements-service` resources. You will use these monitors later in the activity.
+Creating monitors to track the latency of specific `store-frontend` and `advertisements-service` resources helps to keep an eye on things, even when you can't be staring at traces and logs. You will use these monitors later in the activity.
 
 #### Store-frontend Service
 
@@ -12,7 +12,7 @@ Let's create monitors to track the latency of specific `store-frontend` and `adv
 
 3. Click the **No Monitors or Synthetics Tests** banner near the top and click **New Resource Monitor**. You will be redirected to a new APM monitor page.
 
-4. Based on the Service and Endpoint from which we began creating a Resource Monitor, the **Select monitor scope** section is already filled out with the relevant information.
+4. Based on the Service and Endpoint from which you began creating a Resource Monitor, the **Select monitor scope** section is already filled out with the relevant information.
 
 5. Expand **Set alert conditions**, select **Threshold Alert**. 
 
@@ -32,7 +32,7 @@ Let's create monitors to track the latency of specific `store-frontend` and `adv
 
 #### Advertisements Service
 
-Next, let's setup a monitor for the Advertisements service. 
+Next, setup a monitor for the Advertisements service. 
 
 1. Head back to the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, and hover over the `advertisements-service`. To the right, click `View Suggested` in the monitor column to the right side of list.
 

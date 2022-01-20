@@ -22,4 +22,4 @@ In the terminal on the right, the Storedog app is being instrumented for APM wit
     
     4. Notice that users primarily interact with the `store-frontend` service, which is on the top when you **Inspect** any service node linked to it.
 
-With Datadog collecting trace and log data from the Storedog app, let's create monitors for some of its services.
+With Datadog collecting trace and log data from the Storedog app, you can now create monitors for some of its services.

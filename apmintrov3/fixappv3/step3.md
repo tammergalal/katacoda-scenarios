@@ -1,4 +1,4 @@
-Now let's use APM to see how the store-frontend service is performing. 
+You can now begin to use APM to see how the store-frontend service is performing. 
 
 1. Navigate to <a href="https://app.datadoghq.com/apm/services" target="_datadog">**APM** > **Services**</a>. 
 
@@ -26,7 +26,7 @@ Now let's use APM to see how the store-frontend service is performing.
     
     2. The first line in the details indicates `/spree/store-frontend/app/views/spree/layouts/spree_application.html.erb:##`. The error is originating from the indicated line of the `spree_applications.html.erb` file for the store-frontend service. 
     
-    Using this information, we can now easily go fix this error.
+    Using this information, you can now easily go fix this error.
 
 7. Click IDE tab, and then click `spree_application.html.erb`{{open}} to open the file. Locate the line indicated in the error in step 5, `line 39`.
 
@@ -46,4 +46,4 @@ Now let's use APM to see how the store-frontend service is performing.
 
 These changes should fix the errors you are seeing in the store-frontend service. It will take about 3-4 minutes for new data to be displayed into Datadog. 
 
-In the meantime, if you scroll to the trace statistics graphs on the service page, you'll notice that the latency is high (> 1s). Let's explore what may be causing this high latency.
+In the meantime, if you scroll to the trace statistics graphs on the service page, you'll notice that the latency is high (> 1s). You should investigate what may be causing this high latency.

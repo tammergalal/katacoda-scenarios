@@ -1,11 +1,12 @@
-Now that we've set up our main Ruby on Rails application and viewed traces coming into the platform, we can now instrument our downstream Python services.
+Now that you've set up our main Ruby on Rails application and viewed traces coming into the platform, you can now instrument our downstream Python services.
 
-Looking at the [documentation](https://ddtrace.readthedocs.io/en/stable/integrations.html#flask) for the Python tracer, we have a utility called `ddtrace-run`. 
+Looking at the [documentation](https://ddtrace.readthedocs.io/en/stable/integrations.html#flask) for the Python tracer, you have a utility called `ddtrace-run`. 
 
 Wrapping our Python executable in a `ddtrace-run` allows us to run an instance of our application fully instrumented with our trace library, so long as our Python libraries are supported by `ddtrace`.
 
 For supported applications like Flask, `ddtrace-run` dramatically simplifies the process of instrumentation.
-Let's start by instrumenting the Discounts service.
+
+You can start by instrumenting the Discounts service.
 
 #### Discounts Service
 

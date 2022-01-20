@@ -1,4 +1,4 @@
-The monitors you created should have gathered some data. Because the monitors are linked to the related services and resources, we can see the status of the monitors in the Service Map. If any monitors are in the `ALERT` status, we can start investigating the service from the Service Map.
+The monitors you created should have gathered some data. Because the monitors are linked to the related services and resources, you can see the status of the monitors in the Service Map. If any monitors are in the `ALERT` status, you can start investigating the service from the Service Map.
 
 1. Navigate to <a href="https://app.datadoghq.com/apm/map" target="_datadog">**APM** > **Service Map**</a>. 
 
@@ -10,7 +10,7 @@ The monitors you created should have gathered some data. Because the monitors ar
 
     Because the `discounts-service` and `advertisements-service` are downstream, the red **advertisements-service** node status provides a good starting place for investigation.
 
-Let's turn our attention to the `advertisements-service`.
+Turn your attention to the `advertisements-service`.
 
 ## Investigate Advertisements
 
@@ -42,7 +42,7 @@ Let's turn our attention to the `advertisements-service`.
     
     4. For the `Spree::HomeController#index` endpoint, notice the monitor you created is in the alert status. (Note: To save time, you didn't create monitors for the other endpoints. You can always create monitors for the other two endpoints to see how they are affected by fixing the app.) 
     
-    *This investigation shows something is definitely wrong with the service, let's go to the code.*
+    *This investigation shows something is definitely wrong with the service, you should go to the code.*
 
 8. Head back over to the IDE tab and open the `ads.py`{{open}} file to view the code.
 

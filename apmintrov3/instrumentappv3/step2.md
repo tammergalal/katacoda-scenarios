@@ -52,4 +52,4 @@ The **agent** section of the docker-compose file should now look like the screen
     
   ![instrumented-agent](instrumentapp2/assets/instrumented-agent.png)
 
-With trace and log collection enabled for the Datadog Agent, let's go through instrumenting one of Storedog's services, the discounts service.
+With trace and log collection enabled for the Datadog Agent, you can begin going through instrumenting one of Storedog's services, the discounts service.

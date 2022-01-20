@@ -1,6 +1,6 @@
 The `store-frontend` service has a Rails framework. The first step for instrumentation is to install the required Ruby tracing and log libraries. Next, an initializer file is added to enable Rails instrumentation, followed by a configuration file to ship logs to Datadog in JSON format so that Datadog can filter the logs based on special parameters. Finally, the docker-compose file is updated for trace and log collection and App Analytics for the frontend service. 
 
-The store-frontend service has been instrumented for you, but you will update the docker-compose.yml. Let's first go through the instrumentation.
+The store-frontend service has been instrumented for you, but you will update the docker-compose.yml. First, it's time to go through the instrumentation.
 
 ## Installing the Ruby APM Language Library
 
@@ -16,7 +16,7 @@ Open the IDE tab. Take a look at `Gemfile`{{open}} in the Katacoda file explorer
 
 To enable the Rails instrumentation, an initializer file was created in the config/initializers folder. Open the file `datadog.rb`{{open}}.
 
-There, we control a few settings:
+There, you control a few settings:
 
 ```ruby
 Datadog.configure do |c|
@@ -31,7 +31,7 @@ Next lets Instrument our `store-frontend` in the `yml` file.
 
 1. Click `docker-compose.yml`{{open}}.
 
-1. Under **services**, on **line 40**, view the details for **frontend**. Let's add the code for enabling trace and log collection.
+1. Under **services**, on **line 40**, view the details for **frontend**. Now, add the code for enabling trace and log collection.
 
 1. To instrument the frontend service, only a few environment variables need to be added to the yml config. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service.
 
@@ -60,4 +60,4 @@ With these steps, the Rails `store-frontend` service is instrumented for APM and
 
   ![instrumented-frontend](instrumentapp2/assets/instrumented-frontend.png)
 
-Before instrumenting the discounts and advertisements services, let's log in to Datadog to view the traces and logs being collected for the store-frontend service. 
+Before instrumenting the discounts and advertisements services, log in to Datadog to view the traces and logs being collected for the store-frontend service. 

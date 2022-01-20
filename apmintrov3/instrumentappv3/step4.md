@@ -4,7 +4,7 @@ First, you'll restart the docker deployment to apply the changes for monitoring 
 
 ![restarted-agent-frontend](instrumentapp2/assets/restarted-agent-frontend.png)
 
-1. With our new deployment up, we can take a look at the Datadog platform and check to see if traces are coming in.
+1. With our new deployment up, you can take a look at the Datadog platform and check to see if traces are coming in.
 
 1. First, enter `creds`{{execute}} in the terminal. In a new window/tab, log in to the <a href="https://app.datadoghq.com/account/login" target="_datadog">Datadog account/organization</a> that was created for you by learn.datadoghq.com.
 
@@ -24,4 +24,4 @@ First, you'll restart the docker deployment to apply the changes for monitoring 
 
 As you can see, the agent and store-frontend service were successfully instrumented for APM and log collection in Datadog. 
 
-Now, let's instrument the Python-Flask services of the app.
+Now, you can instrument the Python-Flask services of the app.
