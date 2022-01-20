@@ -19,6 +19,8 @@ ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/layouts/
 ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/home/index.html.erb
 ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/products/show.html.erb
 
+sed -i "s/'analytics_enabled': true, //" ./store-frontend-broken-instrumented/config/initializers/datadog.rb
+
 mv /root/docker-compose.yml /root/lab
 
 docker-compose up -d

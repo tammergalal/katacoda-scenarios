@@ -22,6 +22,8 @@ ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/products
 ln -s /ecommworkshop/store-frontend-broken-instrumented/config/initializers/datadog.rb
 ln -s /ecommworkshop/store-frontend-broken-instrumented/Gemfile
 
+sed -i "s/'analytics_enabled': true, //" ./store-frontend-broken-instrumented/config/initializers/datadog.rb
+
 mv /root/docker-compose.yml /root/lab
 
 docker-compose up -d
