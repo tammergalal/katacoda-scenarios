@@ -27,7 +27,6 @@ Automatic instrumentation is done via environment variables in our docker yml fi
          - DD_VERSION=1.0
          - DD_LOGS_INJECTION=true
          - DD_TRACE_SAMPLE_RATE=1
-         - DD_PROFILING_ENABLED=true
          - DD_AGENT_HOST=agent</pre>
 
 4. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs. 

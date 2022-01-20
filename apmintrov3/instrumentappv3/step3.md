@@ -36,11 +36,14 @@ Next lets Instrument our `store-frontend` in the `yml` file.
 1. To instrument the frontend service, only a few environment variables need to be added to the yml config. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the following to the list of environment variables for the service.
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add frontend env variables">
-         - DD_AGENT_HOST=agent
-         - DD_LOGS_INJECTION=true
-         - DD_ANALYTICS_ENABLED=true
-         - DD_TRACE_SAMPLE_RATE=1
-         - DD_VERSION=1.0</pre> 
+         - DD_AGENT_HOST=agent 
+          - DD_SERVICE=store-frontend
+          - DD_ENV=intro-apm
+          - DD_VERSION=1.0
+          - DD_LOGS_INJECTION=true
+          - DD_TRACE_SAMPLE_RATE=1
+          - DD_CLIENT_TOKEN
+          - DD_APPLICATION_ID</pre>  
 
     `DD_AGENT_HOST=agent` defines the address of the Agent that the tracer submits traces to. 
     
