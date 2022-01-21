@@ -6,7 +6,7 @@ You can now begin to use APM to see how the store-frontend service is performing
 
 2. Select the **store-frontend** service and browse its details. You may notice that there is error data in the **Errors by Version** graph. 
 
-3. Click the **Errors by Version** dropdown and change it to **Errors**. There are a large amount of 500's coming in. *Looks like the store-frontend is not working correctly!*
+3. Look at the **Errors** graph. There are a large amount of 500's coming in. *Looks like the store-frontend is not working correctly!*
 
     **Note:** To learn more about versioning your services and how that enables deeper insight into your applications performance across deployments, head over to our course on using [Datadog Deployment Tracking](https://labs.datadoghq.com/snippets/tracking-canary-deployments-with-datadog)
 
