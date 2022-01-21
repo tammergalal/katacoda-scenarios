@@ -26,9 +26,9 @@ You can now begin to use APM to see how the store-frontend service is performing
     
     Using this information, you can now easily go fix this error.
 
-7. Click IDE tab, and then click `spree_application.html.erb`{{open}} to open the file. Locate the line indicated in the error in step 5, `line 39`.
+7. Click IDE tab, and then click `spree_application.html.erb`{{open}} to open the file. Locate the line indicated in the error in step 5.
 
-8. Copy and delete (or cut) the text `<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>` from `line 39`. 
+8. Copy and delete (or cut) the text `<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>` from `line 38`. 
 
     This line for the banner ads should be in two other files for the store-frontend, not this one!
 
