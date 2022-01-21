@@ -29,7 +29,7 @@ Automatic instrumentation is done via environment variables in our docker yml fi
          - DD_TRACE_SAMPLE_RATE=1
          - DD_AGENT_HOST=agent</pre>
 
-4. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs. 
+4. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels so your logs are sent with the label of the service, and with the proper language pipeline processor. 
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add ads log labels">
        labels:

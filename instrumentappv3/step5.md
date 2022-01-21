@@ -31,7 +31,7 @@ command: ddtrace-run flask run --port=5001 --host=0.0.0.0</pre>
     `ddtrace-run` automates instrumentation of the service for Datadog APM. You can view more details for automatic and manual instrumentation using `ddtrace` in the <a href="https://ddtrace.readthedocs.io/en/stable/integrations.html#flask" target="_blank">Datadog Python Trace and Profile Client</a> documentation.
 
 
-1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs. 
+1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels so your logs are sent with the label of the service, and with the proper language pipeline processor. 
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add discounts log labels">
        labels:

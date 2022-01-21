@@ -4,6 +4,7 @@ The environment you will work with in this activity is a fictional ecommerce app
 2. Enabling Trace and Related Log Collection for the Datadog Agent
 3. Instrumenting the Rails-based Application Services
 4. Viewing Incoming Trace Data
-5. Instrumenting the Python-based Application Services
+5. Instrumenting the Discounts Service
+6. Instrumenting the Advertisements Service
 
 When you are ready to continue, click **Start Scenario**.

@@ -1,6 +1,6 @@
-For APM in Datadog, you need to enable trace collection by the Datadog agent. The Datadog Agent is software that runs on your hosts. It collects events and metrics from hosts and sends them to Datadog.
+The first thing that needs to be done is to enable trace and log collection within the Datadog Agent. The Datadog Agent is software that runs on your hosts. It collects events and metrics from hosts and sends them to Datadog, where you can analyze your monitoring and performance data.
 
-To use the added feature of correlating trace and log data, you will also need to enable log collection. 
+With both traces and logs enabled within the Agent, you will get seamless trace correlation between your traces and logs.
 
 1. Open the IDE tab, and then open the `docker-compose.yml`{{open}} file.
 
@@ -40,7 +40,7 @@ To use the added feature of correlating trace and log data, you will also need t
     
     Port `8126` is the default port for tracing. Prefixing `127.0.0.1:` will isolate the requests going to the agent to the local network. To learn more, view the <a href="https://docs.datadoghq.com/agent/docker/apm/?tab=java#tracing-from-the-host" target="_blank">Tracing Docker Applications</a> documentation. 
 
-5. Finally to add labels to the logs that will flow into Datadog, click **Copy to Editor** below or manually copy and paste the text where indicated.
+5. To add labels so your logs are sent with the label of the service, and with the proper language pipeline processor, click **Copy to Editor** below or manually copy and paste the text where indicated.
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add agent log labels">
        labels:

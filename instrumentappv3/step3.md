@@ -47,7 +47,7 @@ Next, instrument your `store-frontend` in the `yml` file.
 
     `DD_TRACE_SAMPLE_RATE=1` enables [Tracing without Limits™](https://docs.datadoghq.com/tracing/trace_retention_and_ingestion/) for Trace Search and Analytics from within Datadog. You're also able to continue traces downstream, utilizing Distributed Traces.
 
-1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels to enable logs.
+1. Click **Copy to Editor** below or manually copy and paste the text where indicated to add labels so your logs are sent with the label of the service, and with the proper language pipeline processor. 
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# add frontend log labels">
        labels:
