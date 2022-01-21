@@ -57,6 +57,10 @@ services:
     image: "ddtraining/storefront:2.1.2"
     ports:
       - "3000:3000"
+    volumes:
+      - /root/lab/show.html.erb:/app/app/views/spree/products/show.html.erb
+      - /root/lab/index.html.erb:/app/app/views/spree/home/index.html.erb
+      - /root/lab/spree_application.html.erb:/app/app/views/spree/layouts/spree_application.html.erb
     depends_on:
       - agent
       - db

@@ -15,9 +15,6 @@ cd /root/lab
 
 ln -s /ecommworkshop/discounts-service/discounts.py
 ln -s /ecommworkshop/ads-service/ads.py
-ln -s /ecommworkshop/store-frontend/src/store-frontend-initial-state/app/views/spree/layouts/spree_application.html.erb
-ln -s /ecommworkshop/store-frontend/src/store-frontend-initial-state/app/views/spree/home/index.html.erb
-ln -s /ecommworkshop/store-frontend/src/store-frontend-initial-state/app/views/spree/products/show.html.erb
 
 mv /root/docker-compose.yml /root/lab
 
