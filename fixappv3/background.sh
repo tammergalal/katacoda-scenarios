@@ -17,6 +17,9 @@ ln -s /ecommworkshop/discounts-service/discounts.py
 ln -s /ecommworkshop/ads-service/ads.py
 
 mv /root/docker-compose.yml /root/lab
+mv /root/index.html.erb /root/lab
+mv /root/show.html.erb /root/lab
+mv /root/spree_application.html.erb /root/lab
 
 docker-compose up -d
 
