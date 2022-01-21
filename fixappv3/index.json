@@ -49,6 +49,18 @@
           "target": "/root"
         },
         {
+          "file": "index.html.erb",
+          "target": "/root"
+        },
+        {
+          "file": "show.html.erb",
+          "target": "/root"
+        },
+        {
+          "file": "spree_application.html.erb",
+          "target": "/root"
+        },
+        {
           "file": "puppeteer-mobile.js",
           "target": "/root"
         },
