@@ -1,4 +1,4 @@
-The `Advertisements` is a small flask service that can be instrumented much like the `Discounts` service. Go ahead and setup that instrumentation for a full view into the applications performance.
+The `advertisements-service` is a small flask service that can be instrumented much like the `discounts-service`. Only a few small `yml` changes need to be made to instrument this flask service for use with APM.
 
 ## Advertisements yml changes
 
@@ -8,7 +8,7 @@ The `Advertisements` is a small flask service that can be instrumented much like
     flask run --port=5002 --host=0.0.0.0
     ```
 
-    The `ddtrace` Python library includes an executable that allows us to automatically instrument our Python application. you simply call the `ddtrace-run` application, followed by our normal deployment, and magically, everything is instrumented.
+    The `ddtrace` Python library includes an executable that allows us to automatically instrument our Python application. You simply call the `ddtrace-run` application, followed by your normal deployment, and magically, everything is instrumented.
 
 2. Click **Copy to Editor** below or manually copy and paste the text where indicated to add the `ddtrace-run` wrapper to the command that brings up the Flask server. Note that the port for this service is 5002. 
 

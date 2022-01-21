@@ -2,7 +2,7 @@ First, you'll restart the docker deployment to apply the changes for monitoring 
 
 1. First, navigate back to the Terminal tab. Click `docker-compose down && docker-compose up -d`{{execute}} to redeploy Storedog with the updated yml changes.
 
-![restarted-agent-frontend](instrumentapp2/assets/restarted-agent-frontend.png)
+    ![restarted-agent-frontend](instrumentapp2/assets/restarted-agent-frontend.png)
 
 1. With our new deployment up, you can take a look at the Datadog platform and check to see if traces are coming in.
 
