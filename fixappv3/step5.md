@@ -1,6 +1,6 @@
 With your fixes implemented, analyze how the changes you made affected that services performance.
 
-1. Navigate to <a href="https://app.datadoghq.com/apm/traces?query=%40_top_level%3A1%20%20env%3Aintro-apm&cols=core_service%2Ccore_resource_name%2Clog_duration%2Clog_http.method%2Clog_http.status_code&env=intro-apmquery%3D%40_top_level%3A1%20&historicalData=false&messageDisplay=inline&sort=desc&streamTraces=true&start=1642092518176&end=1642093418176&paused=false" target="_datadog">**APM** > **Traces**</a>. 
+1. Navigate to <a href="https://app.datadoghq.com/apm/traces?query=env%3Aintro-apm" target="_datadog">**APM** > **Traces**</a>. 
 
 2. In the left hand side Facet search, click the `advertisements-service` to view only traces coming from that service. This includes two endpoints, one of which you didn't change. You can write a more targeted search.
 

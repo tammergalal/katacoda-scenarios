@@ -35,12 +35,14 @@ You can now begin to use APM to see how the store-frontend service is performing
 9. Click `show.html.erb`{{open}} to open this file. 
 
 10. Scroll to the bottom of the file (**Line 48**). Paste the line from step 8. 
-```<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>```{{copy}}
+
+`<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>`{{copy}}
 
 11. Click `index.html.erb`{{open}} to open this file. 
 
-12. Create a new line under **Line 11** and paste the line from step 8. 
-```  <br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>```{{copy}} Make sure to match the indent of the new line (**Line 12**) to that of the next line (**Line 13**).
+12. Create a new line under **Line 11** and paste the line from step 8.
+
+`<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>`{{copy}} Make sure to match the indent of the new line (**Line 12**) to that of the next line (**Line 13**).
 
 These changes should fix the errors you are seeing in the store-frontend service. It will take about 3-4 minutes for new data to be displayed into Datadog. 
 
