@@ -1,4 +1,6 @@
-In the terminal on the right, the Storedog app is being instrumented for APM with Datadog. Live traffic to the app is also being simulated. This may take up to 2 minutes. Once the app is running, you will see the message `Provisioning Complete` in the terminal along with your Datadog login credentials.
+In the terminal on the right, the Storedog app is being instrumented with trace and log collection, and all the settings from the previous activity. Live traffic to the app is also being simulated. This may take up to 2 minutes. Once the app is running, you will see the message `Provisioning Complete` in the terminal along with your Datadog login credentials.
+
+**Note:** If at any time you need to see your training credentials again, type `creds`{{copy}} in the terminal.
 
 1. In a new window/tab, log in to the <a href="https://app.datadoghq.com/account/login" target="_datadog">Datadog account/organization</a> that was created for you by learn.datadoghq.com.
 
