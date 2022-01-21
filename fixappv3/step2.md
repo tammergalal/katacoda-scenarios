@@ -22,7 +22,7 @@ Creating monitors to track the latency of specific `store-frontend` and `adverti
 
 7. Under **Notify your team**, delete `@yourloginemail` from the dropdown. You will notice that `@yourloginemail` is automatically deleted from the message in step 4. You can easily add or remove team members from the notifications and messages this way. In this case, you do not want to send any notifications.
 
-8. Expand **Say what's happening**, leave the message as is. 
+8. Expand **Say what's happening**, here you can use `@` to tag team members , or use variables like `#is_alert` to format your message. For the purposes of this activity, leave the message as is.
 
 9. Click **Create** on the bottom right. 
 
@@ -30,19 +30,33 @@ Creating monitors to track the latency of specific `store-frontend` and `adverti
     
     2. Notice that **Tags** for the resource, service, and environment were automatically assigned to the monitor. These tags will correlate the monitor to the respective Service Page and Resource Page.
 
+Now, go ahead and create some monitors for the downstream services you instrumented previously.
+
+#### Discounts Service
+
+1. Continuing from step 9 above, navigate to <a href="https://app.datadoghq.com/monitors/create" target="_datadog">**Monitors** > **New Monitor**</a>
+
+2. Select **APM Metrics** from the list of monitor types.
+
+3. Under **Select monitor scope**, select **APM Metrics**.
+
+4. Select `discounts-service` as the **Service** and `get_/discount` as the **Resource**.
+
+5. Repeat steps 5 - 8 from above.
+
 #### Advertisements Service
 
-Next, setup a monitor for the Advertisements service. 
+Finally, setup a monitor for the `advertisements-service`. 
 
-1. Continuing from step 8 above, click New Monitor + in the top right.
+1. Navigate back to <a href="https://app.datadoghq.com/monitors/create" target="_datadog">**Monitors** > **New Monitor**</a>
 
-2. Select APM from the list of monitor types.
+2. Select **APM** from the list of monitor types.
 
-3. Under Select monitor scope, select APM Metrics.
+3. Under Select monitor scope, select **APM Metrics**.
 
     1. Then, select `advertisements-service` for the **Service** and select `get_/ads` as the **Resource**.
 
-4. Repeat steps 5 - 8 from the `store-frontend` monitor above.
+4. Repeat steps 5 - 8 from above.
 
 You can view the monitors on the <a href="https://app.datadoghq.com/monitors/manage" target="_datadog">**Monitor** > **Manage Monitors**</a> page, you may initially notice that they have a status of `No Data`. Because the monitors are new, it may take a few minutes for the status of the monitors to update. After waiting, you may begin to see some monitor data populating the Monitor list.
 
