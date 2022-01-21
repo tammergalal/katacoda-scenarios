@@ -24,6 +24,8 @@ Creating monitors to track the latency of specific `store-frontend` and `adverti
 
 8. Expand **Say what's happening**, here you can use `@` to tag team members , or use variables like `#is_alert` to format your message. For the purposes of this activity, leave the message as is.
 
+![Monitor Data on Service List](fixappv3/assets/message-options.png)
+
 9. Click **Create** on the bottom right. 
 
     1. You will be redirected to the new monitor page. Browse the details. 
@@ -58,7 +60,7 @@ Finally, setup a monitor for the `advertisements-service`.
 
 4. Repeat steps 5 - 8 from above.
 
-You can view the monitors on the <a href="https://app.datadoghq.com/monitors/manage" target="_datadog">**Monitor** > **Manage Monitors**</a> page, you may initially notice that they have a status of `No Data`. Because the monitors are new, it may take a few minutes for the status of the monitors to update. After waiting, you may begin to see some monitor data populating the Monitor list.
+You can view the monitors on the <a href="https://app.datadoghq.com/monitors/manage" target="_datadog">**Monitor** > **Manage Monitors**</a> page, you may initially notice that they have a status of `No Data`. Because the monitors are new, it may take a few minutes for the status of the monitors to update as data continues to flow into the platform. After waiting, you may begin to see some monitor data populating the Monitor list.
 
 ![Monitor Data on Service List](fixappv3/assets/monitor-data-list.png)
 
