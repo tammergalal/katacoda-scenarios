@@ -34,11 +34,15 @@ Creating monitors to track the latency of specific `store-frontend` and `adverti
 
 Next, setup a monitor for the Advertisements service. 
 
-1. Head back to the <a href="https://app.datadoghq.com/apm/services?env=intro-apm" target="_datadog">**Service List**</a>, and hover over the `advertisements-service`. To the right, click `View Suggested` in the monitor column to the right side of list.
+1. Continuing from step 8 above, click New Monitor + in the top right.
 
-2. Under **Select monitor scope**, select `get_/ads` as the **Resource**.
+2. Select APM from the list of monitor types.
 
-3. Repeat steps 5 - 8 from the `store-frontend` monitor above.
+3. Under Select monitor scope, select APM Metrics.
+
+    1. Then, select `advertisements-service` for the **Service** and select `get_/ads` as the **Resource**.
+
+4. Repeat steps 5 - 8 from the `store-frontend` monitor above.
 
 You can view the monitors on the <a href="https://app.datadoghq.com/monitors/manage" target="_datadog">**Monitor** > **Manage Monitors**</a> page, you may initially notice that they have a status of `No Data`. Because the monitors are new, it may take a few minutes for the status of the monitors to update. After waiting, you may begin to see some monitor data populating the Monitor list.
 
