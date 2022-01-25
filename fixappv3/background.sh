@@ -19,6 +19,7 @@ ln -s /root/lab/index.html.erb
 ln -s /root/lab/show.html.erb
 ln -s /root/lab/spree_application.html.erb
 
+
 mv /root/docker-compose.yml /root/lab
 mv /root/index.html.erb /root/lab
 mv /root/show.html.erb /root/lab

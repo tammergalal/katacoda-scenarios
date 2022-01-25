@@ -12,7 +12,7 @@ In the terminal on the right, the Storedog app is being instrumented with trace 
 
 4. Under **Facets**, expand **Services** to confirm that all the services shown below are reporting traces. 
 
-    ![trace-services](fixapp/assets/trace-services.png)
+    ![trace-services](./assets/trace-services.png)
 
 5. Navigate to <a href="https://app.datadoghq.com/apm/map?env=intro-apm" target="_datadog">**APM** > **Service Map**</a> to visualize the services and their dependencies.
 

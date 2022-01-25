@@ -6,7 +6,7 @@ With your fixes implemented, analyze how the changes you made affected that serv
 
 3. In the search at the top, enter `resource_name`, before hitting enter click on `resource_name:Resource facet`. 
 
-    ![Resource](fixappv3/assets/resource_name.png).
+    ![Resource](./assets/resource_name.png).
 
 4. Next, choose the `GET /ads` resource. This will ensure you are only viewing traces from the `advertisements-service`, and specifically from the `GET /ads` endpoint. 
 
@@ -22,7 +22,7 @@ It would also be a good idea to confirm that the upstream services are now runni
 
 1. Looking at the provided `Latency` graph, you will also see a reduction in overall latency for this service. To get better view, you can click and drag over the area of interest on the graph to zoom in. 
 
-    ![Latency Fix](fixappv3/assets/fixed-latency-zoom.gif).
+    ![Latency Fix](./assets/fixed-latency-zoom.gif).
 
 1. You can also see on the provided `Errors` graph that there are no new traces with errors coming in. It seems all of the fixes have done their job.
 

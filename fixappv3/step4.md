@@ -4,7 +4,7 @@ The monitors you created should have gathered some data. Because the monitors ar
 
     The red lines on the nodes of the `store-frontend` and `advertisements-services` indicate that the monitor that you created for each service endpoint is in the `ALERT` status. 
 
-    ![Alert Monitors Map](fixappv3/assets/alert-map.png)
+    ![Alert Monitors Map](./assets/alert-map.png)
 
 2. Click the **store-frontend** node, then click **Inspect**. 
 

@@ -10,7 +10,7 @@ You can now begin to use APM to see how the store-frontend service is performing
 
 4. Click a red bar in the **Errors** graph. Select the **View related traces** option. 
 
-    ![View Related Traces](fixappv3/assets/view-traces.png) 
+    ![View Related Traces](./assets/view-traces.png) 
     
     You will be redirected to the Traces page. The search field is populated with the related facets. 
 

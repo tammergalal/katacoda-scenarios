@@ -12,7 +12,7 @@ Inefficient database queries can affect service performance, and cause upstream 
 
     1. As you zoom in, notice the high amount of spans from the two queries you saw listed in the Span Summary in step 2 above. This is a textbook N+1 query visualized.
     
-    ![n1query](fixapp/assets/n1query.gif) 
+    ![n1query](./assets/n1query.gif) 
     
     Fixing this N+1 query by replacing it with a single query that retrieves the same data will result in more efficient data retrieval.
 
@@ -24,6 +24,6 @@ Inefficient database queries can affect service performance, and cause upstream 
 
 8. Click a new trace and zoom in on the `postgres.query` span below the **discounts.status */discounts***. Notice that this is only one span now.
 
-    ![fixedquery](fixapp/assets/fixedquery.gif)
+    ![fixedquery](./assets/fixedquery.gif)
 
 As you've seen in this activity, Datadog APM enables you to investigate and diagnose a variety of issues that affect performance of services and endpoints in your applications.
