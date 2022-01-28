@@ -20,6 +20,9 @@ ln -s /root/lab/datadog.rb
 ln -s /root/lab/Gemfile
 
 mv /root/docker-compose.yml /root/lab
+mv /root/datadog.rb /root/lab
+mv /root/Gemfile /root/lab
+mv /root/requirements.txt /root/lab
 
 docker-compose up -d
 

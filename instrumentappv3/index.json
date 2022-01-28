@@ -57,7 +57,7 @@
           "target": "/root"
         },
         {
-          "file": "requirements",
+          "file": "requirements.txt",
           "target": "/root"
         },
         {
