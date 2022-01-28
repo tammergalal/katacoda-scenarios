@@ -49,6 +49,18 @@
           "target": "/root"
         },
         {
+          "file": "datadog.rb",
+          "target": "/root"
+        },
+        {
+          "file": "Gemfile",
+          "target": "/root"
+        },
+        {
+          "file": "requirements",
+          "target": "/root"
+        },
+        {
           "file": "puppeteer-mobile.js",
           "target": "/root"
         },

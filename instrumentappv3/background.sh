@@ -15,14 +15,9 @@ cd /root/lab
 
 ln -s /ecommworkshop/discounts-service/discounts.py
 ln -s /ecommworkshop/ads-service/ads.py
-ln -s /ecommworkshop/discounts-service/requirements.txt
-ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/layouts/spree_application.html.erb
-ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/home/index.html.erb
-ln -s /ecommworkshop/store-frontend-broken-instrumented/app/views/spree/products/show.html.erb
-ln -s /ecommworkshop/store-frontend-broken-instrumented/config/initializers/datadog.rb
-ln -s /ecommworkshop/store-frontend-broken-instrumented/Gemfile
-
-sed -i "s/'analytics_enabled': true, //" ./store-frontend-broken-instrumented/config/initializers/datadog.rb
+ln -s /root/lab/requirements.txt
+ln -s /root/lab/datadog.rb
+ln -s /root/lab/Gemfile
 
 mv /root/docker-compose.yml /root/lab
 
