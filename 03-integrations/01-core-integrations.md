@@ -48,8 +48,8 @@ Following the instructions from the Postgres Integration:
 
     <pre class="file" data-filename="docker-compose.yml" data-target="insert" data-marker="# postgres integration template here">
    com.datadoghq.ad.check_names: '["postgres"]'
-       com.datadoghq.ad.init_configs: '[{}]'
-       com.datadoghq.ad.instances: '[{"host":"%%host%%", "port":5432,"username":"datadog","password":"datadog"}]'</pre>
+         com.datadoghq.ad.init_configs: '[{}]'
+         com.datadoghq.ad.instances: '[{"host":"%%host%%", "port":5432,"username":"datadog","password":"datadog"}]'</pre>
 
     These Autodiscovery labels tell the Agent to run the `postgres` check on this container, and provide the credentials for querying metrics.
 
