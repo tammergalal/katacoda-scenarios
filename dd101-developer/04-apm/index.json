@@ -1,0 +1,72 @@
+{
+  "time": "15-20 minutes",
+  "title": "Application Performance Monitoring",
+  "details": {
+    "intro": {
+      "background": "background.sh",
+      "foreground": "foreground.sh",
+      "text": "00-intro.md"
+    },
+    "steps": [
+      {
+        "text": "01-configure-apm.md",
+        "title": "Configuring APM"
+      },
+      {
+        "text": "02-tour-apm.md",
+        "title": "Take a tour of APM in Datadog"
+      },
+      {
+        "text": "03-apm-monitors.md",
+        "title": "APM Monitors"
+      },
+      {
+        "text": "04-profiling.md",
+        "title": "Continuous Profiling"
+      }
+    ],
+    "finish": {
+      "text": "05-finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "docker-compose.yml",
+          "target": "/root"
+        },
+        {
+          "file": "dd_agent.sql",
+          "target": "/root"
+        },
+        {
+          "file": "discounts.py",
+          "target": "/root"
+        },
+        {
+          "file": "discount_monitor.json",
+          "target": "/root"
+        },
+        {
+          "file": "puppeteer-mobile.js",
+          "target": "/root"
+        },
+        {
+          "file": "puppeteer.sh",
+          "target": "/root"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "showide": true,
+    "uieditorpath": "/root/lab",
+    "hideHiddenFiles": false,
+    "showdashboard": true,
+    "dashboards": [{ "name": "storedog", "port": 3000 }]
+  },
+  "backend": {
+    "imageid": "datadog-base-v4",
+    "reuseConnection": "false"
+  }
+}

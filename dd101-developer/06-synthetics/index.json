@@ -1,0 +1,55 @@
+{
+  "time": "20 minutes",
+  "title": "Introduction to Synthetic Tests",
+  "details": {
+    "intro": {
+      "courseData": "background.sh",
+      "code": "foreground.sh",
+      "text": "00-intro.md"
+    },
+    "steps": [
+      {
+        "text": "01-browser-test-setup.md",
+        "title": "Create a Browser Test"
+      },
+      {
+        "text": "02-browser-test-result.md",
+        "title": "Check Browser Test Results"
+      }
+    ],
+    "finish": {
+      "text": "03-finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "dd_agent.sql",
+          "target": "/root"
+        },
+        {
+          "file": "docker-compose.yml",
+          "target": "/root"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "showide": true,
+    "uieditorpath": "/root/lab",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Storedog",
+        "port": 3000
+      },
+      {
+        "name": "Discounts API",
+        "href": "https://[[HOST_SUBDOMAIN]]-5001-[[KATACODA_HOST]].environments.katacoda.com/discount"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "datadog-base-v3"
+  }
+}

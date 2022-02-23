@@ -1,0 +1,49 @@
+{
+  "time": "5 minutes",
+  "title": "Using the Lab Environment",
+  "details": {
+    "intro": {
+      "background": "background.sh",
+      "foreground": "foreground.sh",
+      "text": "00-intro.md"
+    },
+    "steps": [
+      {
+        "text": "01-step.md"
+      },
+      {
+        "text": "02-step.md"
+      }
+    ],
+    "finish": {
+      "text": "03-finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "docker-compose.yml",
+          "target": "/root"
+        },
+        {
+          "file": "puppeteer-mobile.js",
+          "target": "/root"
+        },
+        {
+          "file": "puppeteer.sh",
+          "target": "/root"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "showide": true,
+    "uieditorpath": "/root/lab",
+    "hideHiddenFiles": false,
+    "showdashboard": true,
+    "dashboards": [{ "name": "storedog", "port": 3000 }]
+  },
+  "backend": {
+    "imageid": "datadog-base-v4"
+  }
+}

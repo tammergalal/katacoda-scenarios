@@ -1,0 +1,90 @@
+{
+  "time": "20-25 minutes",
+  "title": "Using Real User Monitoring",
+  "details": {
+    "intro": {
+      "courseData": "background.sh",
+      "code": "foreground.sh",
+      "text": "00-intro.md"
+    },
+    "steps": [
+      {
+        "text": "01-step.md"
+      },
+      {
+        "text": "02-step.md"
+      },
+      {
+        "text": "03-step.md"
+      },
+      {
+        "text": "04-step.md"
+      }
+    ],
+    "finish": {
+      "text": "05-finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "docker-compose.yml",
+          "target": "/root"
+        },
+        {
+          "file": "index.html.erb",
+          "target": "/root"
+        },
+        {
+          "file": "spree_application.html.erb",
+          "target": "/root"
+        },
+        {
+          "file": "home_controller.rb",
+          "target": "/root"
+        },
+        {
+          "file": "frontend-config.rb",
+          "target": "/root"
+        },
+        {
+          "file": "discounts.py",
+          "target": "/root"
+        },
+        {
+          "file": "discounts-requirements.txt",
+          "target": "/root"
+        },
+        {
+          "file": "ads.py",
+          "target": "/root"
+        },
+        {
+          "file": "ads-requirements.txt",
+          "target": "/root"
+        },
+        {
+          "file": "dd_agent.sql",
+          "target": "/root"
+        },
+        {
+          "file": "puppeteer-mobile.js",
+          "target": "/root"
+        },
+        {
+          "file": "puppeteer.sh",
+          "target": "/root"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "showide": true,
+    "uieditorpath": "/root/lab",
+    "showdashboard": true,
+    "dashboards": [{ "name": "storedog", "port": 3000 }]
+  },
+  "backend": {
+    "imageid": "datadog-base-v4"
+  }
+}
